@@ -194,6 +194,23 @@ Running the harness itself needs kagami pinned as a dependency, which is not
 done: it would need the same cross-repository credential the vendoring check
 needs. The config is correct and unused until then.
 
+## What is still open
+
+The backlog lives on the repository rather than in a conversation.
+
+| | What | Blocked on |
+| - | ---- | ---------- |
+| [#1](https://github.com/SebiShepherd/we_logo/issues/1) | Proof the CMYK builds, then decide on a spot colour | a printed proof |
+| [#2](https://github.com/SebiShepherd/we_logo/issues/2) | Nothing checks a consumer's vendored copy is current | a read credential |
+| [#3](https://github.com/SebiShepherd/we_logo/issues/3) | Publish the guidelines somewhere with a durable URL | repository settings |
+| [#4](https://github.com/SebiShepherd/we_logo/issues/4) | The theme solver is weakest on semantic hues | a second product |
+| [#5](https://github.com/SebiShepherd/we_logo/issues/5) | Two judgement calls settled by arithmetic, never looked at | an eye |
+| [#6](https://github.com/SebiShepherd/we_logo/issues/6) | The licence wording is placeholder drafting | a decision |
+
+In Hikaru: [#591](https://github.com/SebiShepherd/hikaru/issues/591) the mark's
+tile in dark mode, fixed; [#592](https://github.com/SebiShepherd/hikaru/issues/592)
+`--color-subtle` at 3.04:1 across 192 usages, filed rather than pushed.
+
 ## Documents
 
 - [`docs/asset-audit.md`](docs/asset-audit.md): every measurement taken from the
