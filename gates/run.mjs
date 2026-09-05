@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+/** Every gate, one exit code. */
+const gates = [
+  './check-geometry.mjs',
+  './check-contrast.mjs',
+  './check-legibility.mjs',
+  './check-safe-zones.mjs',
+  './check-tight-bounds.mjs',
+  './check-dist-clean.mjs',
+];
+let failures = 0;
+console.log('gates');
+for (const g of gates) failures += (await import(g)).default();
+console.log(failures ? `\n${failures} gate(s) failed` : '\nall gates pass');
+process.exit(failures ? 1 : 0);

@@ -1,0 +1,29 @@
+{
+  "$description": "The mark's construction. Every value is a whole number of ninths of one outer stroke width. Changing one changes the mark; gates/check-geometry.mjs holds the build to these.",
+  "grid": {
+    "$type": "number",
+    "unit": { "$value": 9, "$description": "Ninths per outer stroke width. The whole mark is integers on this grid." },
+    "standard": {
+      "stroke": { "$value": 9, "$description": "Outer stroke width. The unit everything else is measured in." },
+      "middle": { "$value": 8, "$description": "Middle stroke. Was 8.18 in the original artwork, a 2.2% change." },
+      "gap": { "$value": 3, "$description": "Counter between strokes. Was 2.91, a 3.1% change. Now equal to the cut." },
+      "cut": { "$value": 3, "$description": "Vertical drop of every angled cut. Unchanged from the original." },
+      "bar": { "$value": 8, "$description": "Base bar thickness. Was 7.82, a 2.3% change. Now equal to the middle stroke." },
+      "barTop": { "$value": 21, "$description": "Bar's top edge at the right of the mark. Was 21.18." },
+      "middleTop": { "$value": 10, "$description": "Middle stroke's top at its right edge. Was 10.10." },
+      "height": { "$value": 32, "$description": "Mark height. Width is 2*stroke + middle + 2*gap = 32, so the mark is square." }
+    },
+    "small": {
+      "gap": { "$value": 5, "$description": "Counter for the sub-48px cut. Makes the mark 36 wide against 32 high." },
+      "threshold": { "$value": 48, "$description": "Pixels of rendered mark width below which the small cut is used." }
+    },
+    "outlineWeight": { "$value": 3, "$description": "Inset of the outline variant's hole, in ninths." }
+  },
+  "spacing": {
+    "$type": "number",
+    "capHeight": { "$value": 9, "$description": "Wordmark cap height in ninths, so a capital is one stroke width tall." },
+    "gap": { "$value": 1, "$description": "Artwork to type, in cap heights. Was 0.98 and 0.86 in the two original lockups." },
+    "clearSpace": { "$value": 9, "$description": "Minimum empty space around any lockup, in ninths. One stroke width." },
+    "opticalCorrection": { "$value": 0.4, "$description": "Share of the area centroid's deviation applied when centring the mark in a box." }
+  }
+}

@@ -1,0 +1,25 @@
+name: brand
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: build · gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      # The build runs first because every gate reads dist/, and check-dist-clean
+      # then rebuilds and asks git whether anything moved. A file edited by hand
+      # in dist/ fails there rather than reaching a business card.
+      - run: npm run tokens
+      - run: npm run build
+      - run: npm run docs
+      - run: npm run gates
+      # Regenerating and finding nothing moved is the whole contract: the
+      # tokens, the assets and the guidelines are all output, and none of them
+      # is edited by hand.
+      - run: git diff --exit-code -- dist docs brand/tokens

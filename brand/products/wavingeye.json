@@ -1,0 +1,36 @@
+{
+  "name": "wavingeye",
+  "title": "WavingEye",
+  "wordmark": "WAVING EYE",
+  "split": [
+    "WAVING",
+    "EYE"
+  ],
+  "ink": {
+    "primary": "{color.brand.navy}",
+    "accent": "{color.brand.pink}",
+    "reverse": "{color.brand.white}"
+  },
+  "box": {
+    "surface": "{color.brand.navy}",
+    "ink": "{color.brand.white}"
+  },
+  "forms": [
+    "mark",
+    "mark-small",
+    "mark-outline",
+    "wordmark",
+    "lockup-split",
+    "lockup-horizontal",
+    "lockup-stacked",
+    "boxed-icon"
+  ],
+  "targets": [
+    "favicon",
+    "apple-touch",
+    "android",
+    "maskable",
+    "app-store",
+    "og"
+  ]
+}
