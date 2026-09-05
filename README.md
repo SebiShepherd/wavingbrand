@@ -172,6 +172,28 @@ Each one exists because of a defect in the original artwork.
 | `check-vocabulary` | a lightness ladder that cannot be solved into a compliant theme |
 | `check-dist-clean` | a file in `dist/` edited by hand |
 
+## kagami
+
+`kagami.config.mjs` declares this repository to
+[kagami](https://github.com/SebiShepherd/kagami), which is the operating model
+the work follows. Most of kagami does not apply: there is no product to walk, no
+personas, no accounts and no API whose data could confirm a task happened. A
+brand repository has one user and they are looking at pictures.
+
+What applies is the grading and the visual layer. `surfaces` says what a change
+can move, so a change to `src/print.mjs` does not owe a run of the favicons, and
+`visual` points kagami at `gates/check-baselines.mjs`.
+
+That last part needed a change on kagami's side. Its "we compared" signatures
+were Playwright's, hard-coded, and this repository's comparator is not
+Playwright: no browser, resvg renders, its own pixel diff. `visual.comparedPatterns`
+exists because of that, and the three patterns here are the three states the
+gate reports.
+
+Running the harness itself needs kagami pinned as a dependency, which is not
+done: it would need the same cross-repository credential the vendoring check
+needs. The config is correct and unused until then.
+
 ## Documents
 
 - [`docs/asset-audit.md`](docs/asset-audit.md): every measurement taken from the
