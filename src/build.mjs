@@ -23,6 +23,7 @@ import {
 } from './lockup.mjs';
 import { toSvg, ico } from './svg.mjs';
 import { color } from './tokens.mjs';
+import { css, scss, js, dts, head, webmanifest } from './emit.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const DIST = join(root, 'dist');
@@ -183,7 +184,16 @@ function run() {
       }
     }
     if (icoParts.length) write(`${product.name}/favicon.ico`, ico(icoParts));
+    write(`${product.name}/head.html`, head(product.name));
+    write(`${product.name}/site.webmanifest`, webmanifest(product, { navy: NAVY }));
   }
+
+  // What a project styles against, rather than what it has to look up.
+  write('tokens/color.css', css());
+  write('tokens/color.scss', scss());
+  write('tokens/color.js', js());
+  write('tokens/color.d.ts', dts());
+  manifest.tokens = ['tokens/color.css', 'tokens/color.scss', 'tokens/color.js', 'tokens/color.d.ts'];
 
   writeFileSync(join(DIST, 'manifest.json'), JSON.stringify(manifest, null, 2));
   console.log(`${manifest.assets.length} assets in dist/`);

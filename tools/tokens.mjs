@@ -18,6 +18,16 @@ const NAVY = '#101554';
 const PINK = '#ef2f88';
 const TEXT = 4.5;
 
+/**
+ * Contrast is solved against the surface a consumer actually paints, not
+ * against white.
+ *
+ * Solving against #ffffff and then serving the page on neutral-50 costs about
+ * 0.2 of a ratio, which is the difference between 4.52 and 4.33, which is the
+ * difference between passing and failing. Every accent's 600 step failed that
+ * way before this was fixed.
+ */
+
 const toLin = (c) => (c / 255 <= 0.04045 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4);
 const toSrgb = (c) => {
   const v = Math.min(1, Math.max(0, c));
@@ -79,7 +89,7 @@ const contrast = (a, b) => {
   return (x + 0.05) / (y + 0.05);
 };
 
-/** The lightest step of this hue that still clears `target` against `against`. */
+/** The lightest step of this hue that still clears `target` against a light surface. */
 function lightestPassing(H, C, against, target = TEXT) {
   let best = null;
   for (let L = 0.3; L <= 0.9; L += 0.0025) {
@@ -88,6 +98,22 @@ function lightestPassing(H, C, against, target = TEXT) {
   }
   if (!best) throw new Error(`no step of hue ${H} clears ${target}:1 against ${against}`);
   return best;
+}
+
+/**
+ * A step at a chosen lightness, refused if it does not clear the floor.
+ *
+ * Dark-surface steps are set rather than solved. Solving finds the darkest
+ * colour that scrapes 4.5:1, which is a muddy colour that happens to be legal;
+ * on a dark ground the eye wants a comfortably light one, and the check is
+ * whether that clears the floor, not what the floor would allow.
+ */
+function stepAt(L, H, C, against, target = TEXT) {
+  const h = hex(L, C, H);
+  const got = contrast(h, against);
+  if (got < target)
+    throw new Error(`hue ${H} at L*=${L} is ${got.toFixed(2)}:1 against ${against}, floor is ${target}`);
+  return h;
 }
 
 const tok = ($value, $description) => ({ $value, $description });
@@ -110,24 +136,35 @@ const out = {
   color: { $type: 'color', brand: {}, neutral: {}, accent: {}, semantic: {} },
 };
 
+for (const [name, L, C] of NEUTRALS)
+  out.color.neutral[name] = tok(hex(L, C, navyH), `L*=${L.toFixed(3)} on the navy hue.`);
+
+/**
+ * The worst surface each side has to work on.
+ *
+ * A light ink lands on surface, surface-raised or surface-sunken, and
+ * surface-sunken is the darkest of the three, so that is what decides. Solving
+ * against the lightest one and hoping is how the whole set came out at 4.2:1
+ * on a panel (gates/check-theme-roles.mjs).
+ */
+const LIGHT = out.color.neutral['100'].$value;
+const DARK = out.color.neutral['800'].$value;
+
 out.color.brand = {
-  pink: tok(PINK, 'Identity. The mark, never altered. 3.87:1 on white, graphics only.'),
-  pinkOnLight: tok(lightestPassing(pinkH, pinkC, WHITE), 'Pink for text and UI on white or neutral-50. >=4.5:1.'),
-  pinkOnDark: tok(hex(0.72, pinkC, pinkH), 'Pink for text and UI on navy or neutral-900. >=4.5:1.'),
-  navy: tok(NAVY, 'Identity dark. Default logo colour on light surfaces. 16.7:1 on white.'),
+  pink: tok(PINK, `Identity. The mark, never altered. ${contrast(PINK, WHITE).toFixed(2)}:1 on white, graphics only.`),
+  pinkOnLight: tok(lightestPassing(pinkH, pinkC, LIGHT), 'Pink for text and UI on any light surface, neutral-100 or lighter. >=4.5:1.'),
+  pinkOnDark: tok(stepAt(0.72, pinkH, pinkC, DARK), 'Pink for text and UI on any dark surface, neutral-800 or darker. >=4.5:1.'),
+  navy: tok(NAVY, `Identity dark. Default logo colour on light surfaces. ${contrast(NAVY, WHITE).toFixed(2)}:1 on white.`),
   white: tok(WHITE, 'Logo colour on brand and dark surfaces.'),
   black: tok('#000000', 'One-colour reproduction only: fax, embossing, single-plate print.'),
 };
 
-for (const [name, L, C] of NEUTRALS)
-  out.color.neutral[name] = tok(hex(L, C, navyH), `L*=${L.toFixed(3)} on the navy hue.`);
-
 for (const [name, H] of Object.entries(ACCENTS)) {
   const display = maxChroma(0.65, H) * 0.95;
   out.color.accent[name] = {
-    400: tok(hex(0.8, maxChroma(0.8, H) * 0.9, H), 'On navy and neutral-900.'),
+    400: tok(stepAt(0.8, H, maxChroma(0.8, H) * 0.9, DARK), 'Text and UI on any dark surface, neutral-800 or darker.'),
     500: tok(hex(0.65, display, H), 'Display and fills.'),
-    600: tok(lightestPassing(H, display, WHITE), 'Text and UI on white.'),
+    600: tok(lightestPassing(H, display, LIGHT), 'Text and UI on any light surface, neutral-100 or lighter.'),
   };
 }
 

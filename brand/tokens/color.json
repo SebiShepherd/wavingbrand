@@ -8,16 +8,16 @@
         "$description": "Identity. The mark, never altered. 3.87:1 on white, graphics only."
       },
       "pinkOnLight": {
-        "$value": "#e11a7d",
-        "$description": "Pink for text and UI on white or neutral-50. >=4.5:1."
+        "$value": "#d70075",
+        "$description": "Pink for text and UI on any light surface, neutral-100 or lighter. >=4.5:1."
       },
       "pinkOnDark": {
         "$value": "#ff67a2",
-        "$description": "Pink for text and UI on navy or neutral-900. >=4.5:1."
+        "$description": "Pink for text and UI on any dark surface, neutral-800 or darker. >=4.5:1."
       },
       "navy": {
         "$value": "#101554",
-        "$description": "Identity dark. Default logo colour on light surfaces. 16.7:1 on white."
+        "$description": "Identity dark. Default logo colour on light surfaces. 16.70:1 on white."
       },
       "white": {
         "$value": "#ffffff",
@@ -78,99 +78,99 @@
       "orange": {
         "400": {
           "$value": "#f9a688",
-          "$description": "On navy and neutral-900."
+          "$description": "Text and UI on any dark surface, neutral-800 or darker."
         },
         "500": {
           "$value": "#ea5a18",
           "$description": "Display and fills."
         },
         "600": {
-          "$value": "#cf4900",
-          "$description": "Text and UI on white."
+          "$value": "#c24400",
+          "$description": "Text and UI on any light surface, neutral-100 or lighter."
         }
       },
       "amber": {
         "400": {
           "$value": "#e9b536",
-          "$description": "On navy and neutral-900."
+          "$description": "Text and UI on any dark surface, neutral-800 or darker."
         },
         "500": {
           "$value": "#b28819",
           "$description": "Display and fills."
         },
         "600": {
-          "$value": "#967000",
-          "$description": "Text and UI on white."
+          "$value": "#8d6900",
+          "$description": "Text and UI on any light surface, neutral-100 or lighter."
         }
       },
       "green": {
         "400": {
           "$value": "#3edd9d",
-          "$description": "On navy and neutral-900."
+          "$description": "Text and UI on any dark surface, neutral-800 or darker."
         },
         "500": {
           "$value": "#1ea875",
           "$description": "Display and fills."
         },
         "600": {
-          "$value": "#00875b",
-          "$description": "Text and UI on white."
+          "$value": "#007e55",
+          "$description": "Text and UI on any light surface, neutral-100 or lighter."
         }
       },
       "teal": {
         "400": {
           "$value": "#3dd2f1",
-          "$description": "On navy and neutral-900."
+          "$description": "Text and UI on any dark surface, neutral-800 or darker."
         },
         "500": {
           "$value": "#1d9fb9",
           "$description": "Display and fills."
         },
         "600": {
-          "$value": "#008298",
-          "$description": "Text and UI on white."
+          "$value": "#00798d",
+          "$description": "Text and UI on any light surface, neutral-100 or lighter."
         }
       },
       "blue": {
         "400": {
           "$value": "#abbaf9",
-          "$description": "On navy and neutral-900."
+          "$description": "Text and UI on any dark surface, neutral-800 or darker."
         },
         "500": {
           "$value": "#6f82fa",
           "$description": "Display and fills."
         },
         "600": {
-          "$value": "#5c6be0",
-          "$description": "Text and UI on white."
+          "$value": "#5563d8",
+          "$description": "Text and UI on any light surface, neutral-100 or lighter."
         }
       },
       "purple": {
         "400": {
           "$value": "#d6a7f9",
-          "$description": "On navy and neutral-900."
+          "$description": "Text and UI on any dark surface, neutral-800 or darker."
         },
         "500": {
           "$value": "#bc54fa",
           "$description": "Display and fills."
         },
         "600": {
-          "$value": "#ab41e7",
-          "$description": "Text and UI on white."
+          "$value": "#a237de",
+          "$description": "Text and UI on any light surface, neutral-100 or lighter."
         }
       },
       "red": {
         "400": {
           "$value": "#f9a49c",
-          "$description": "On navy and neutral-900."
+          "$description": "Text and UI on any dark surface, neutral-800 or darker."
         },
         "500": {
           "$value": "#fa3d42",
           "$description": "Display and fills."
         },
         "600": {
-          "$value": "#e62431",
-          "$description": "Text and UI on white."
+          "$value": "#dc1128",
+          "$description": "Text and UI on any light surface, neutral-100 or lighter."
         }
       }
     },

@@ -569,5 +569,11 @@
       "file": "wavingeye/og-1200x630.png",
       "type": "image/png"
     }
+  ],
+  "tokens": [
+    "tokens/color.css",
+    "tokens/color.scss",
+    "tokens/color.js",
+    "tokens/color.d.ts"
   ]
 }

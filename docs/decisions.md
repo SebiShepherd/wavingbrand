@@ -140,3 +140,23 @@ Seven forms, because the two that existed cannot cover the space:
 
 The stacked lockup scales the mark to 72% of the widest line's width, because a
 square mark at its natural size over a long word reads as an afterthought.
+
+## D9 Contrast is solved against the worst surface, not against white
+
+Every accent's text step was solved against `#ffffff` and every page is painted
+on `neutral-50` or `neutral-100`. That costs about 0.2 of a ratio, which took
+the whole set from 4.52:1 to between 4.22 and 4.37, which is the difference
+between passing and failing. Nobody would have caught it by looking.
+
+A light ink can land on `surface`, `surface-raised` or `surface-sunken`, and
+`surface-sunken` is the darkest of the three, so that is what the light steps
+are solved against. The dark steps are solved against `surface-sunken` in the
+dark theme for the same reason, `neutral-800`, the lightest surface they land on.
+
+Dark-surface steps are set at a chosen lightness and then checked, rather than
+solved. Solving finds the darkest colour that scrapes the floor, which is a
+muddy colour that happens to be legal; on a dark ground the eye wants a
+comfortably light one and the floor is the check, not the target.
+
+`gates/check-theme-roles.mjs` puts every ink on every surface it can land on in
+both themes, which is 54 pairs, and it found this on its first run.
