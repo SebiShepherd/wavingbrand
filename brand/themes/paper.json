@@ -1,0 +1,7 @@
+{
+  "$description": "Hikaru's Paper theme, expressed as the four hues and two chroma ceilings it turns out to be. Kept here as the worked example: it is the theme the vocabulary was learned from, so it is the one the solver has to be able to reproduce.",
+  "name": "paper",
+  "neutral": { "light": { "hue": 82, "chroma": 0.0155 }, "dark": { "hue": 270, "chroma": 0.023 } },
+  "accent": { "light": { "hue": 265, "chroma": 0.216 }, "dark": { "hue": 270, "chroma": 0.149 } },
+  "semantic": { "success": 166, "warning": 76, "danger": 28 }
+}

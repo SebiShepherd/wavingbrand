@@ -234,3 +234,68 @@ the tile could not follow the theme. Hikaru's copy of the rule
 (`tools/check-brand.mjs`) reads its built stylesheet as well as its source: a
 token can be correct where it is written and shortened, moved or dropped in the
 bundle, which is a defect that repository has already shipped once.
+
+## D12 The shared layer is the vocabulary and the floors, not the palette
+
+D11 said a product owns its skin. That was half right and it left the wrong
+impression, because Hikaru's theme exists partly for want of a company one
+rather than as a considered separation. The full answer is three layers.
+
+**Identity**, company, fixed: the mark, the wordmark, navy, pink, clear space,
+minimum sizes.
+
+**Foundation**, company, shared: `brand/tokens/vocabulary.json`. Twenty-two
+token names, the lightness ladder that gives a theme its shape, and the contrast
+floor each name has to clear. Lifted from Hikaru's Paper theme, because that is
+where they were learned, which is kagami's own pattern.
+
+**Theme**, per product, free: the values. Paper stays exactly as it is.
+
+The move that makes this worth doing is that the reusable asset is `src/theme.mjs`
+and the floors, not a palette. Paper was picked by hand; expressed as four hues
+and two chroma ceilings it can be re-derived, checked, and a second product is
+one file away instead of twenty-two decisions away.
+
+### The ladder is a preference, the floor is the answer
+
+The first version set every lightness from the vocabulary. `gates/check-vocabulary.mjs`
+solved three hues in both modes and found nine failures, because a contrast that
+depends on hue cannot be fixed by a lightness: an accent at L 0.53 clears 4.5:1
+on a light panel at hue 265 and misses it at 160.
+
+So the ladder is where a role starts, and anything a floor names is then moved a
+thousandth at a time in the direction that raises contrast until the floor
+clears. Solving Paper's own hues moves two roles, by 0.006 and 0.009 of
+lightness, which nobody can see. A role that has to move more than 0.12 fails the
+gate, because at that point the ladder is wrong for that hue rather than rescued.
+
+### Does it reproduce Paper
+
+Mean OKLab distance from Paper as shipped: 0.0147 in light, 0.0127 in dark. Most
+roles land under 0.02, which is a difference nobody would name. Three do not:
+
+| Role | Paper | Solved | Distance | Why |
+| ---- | ----- | ------ | -------- | --- |
+| `subtle` (light) | `#8f8a81` | `#736d64` | 0.098 | deliberate; Paper's fails 4.5:1 |
+| `warning-wash` (dark) | `#3a3120` | `#352204` | 0.053 | one wash chroma for every hue |
+| `warning` (light) | `#946200` | `#83663b` | 0.044 | one chroma fraction for every semantic hue |
+
+So: close enough to seed a new product's theme, not close enough to regenerate
+Paper, and Paper does not need regenerating. The semantic hues are where the
+solver is weakest, and a per-hue chroma would close it if a second product ever
+makes that worth doing.
+
+### One floor was mine and wrong
+
+`line` was set at 1.4:1. WCAG 2.2 sets no floor for a decorative rule, and
+1.4 flagged every hairline in Paper and every hairline the solver produced. It is
+1.2 now, documented as a legibility sanity check rather than a criterion.
+Anything that conveys grouping on its own is a non-text graphic and owes 3:1.
+
+### One failure was real
+
+`subtle` fails 4.5:1 in Paper, in both themes, on every surface: 3.04:1 on
+`surface-raised` in light. It carries 12px text in 87 places and 11px in 12 more,
+so the large-text allowance does not apply. Filed as SebiShepherd/hikaru#592 with
+the two values that clear it, rather than changed here: 192 usages is a change to
+the look of a product, and that is its owner's call.

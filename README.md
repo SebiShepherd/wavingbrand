@@ -20,7 +20,8 @@ npm run baselines  # re-render baselines/. Doing this is how a change is approve
 | `brand/fonts/`    | Montserrat and its OFL licence |
 | `src/`            | the generator: parameters to SVG to platform targets |
 | `gates/`          | the rules as builds, run in CI |
-| `tools/`          | `tokens.mjs` solves the palette; `baselines.mjs` re-renders; `validate.mjs` is the check a consumer runs |
+| `tools/`          | `tokens.mjs` solves the palette; `theme.mjs` solves a product's; `baselines.mjs` re-renders; `validate.mjs` is the check a consumer runs |
+| `brand/themes/`   | a product's four hues, as input to the theme solver |
 | `baselines/`      | one deterministic render of every asset, the reviewable record of a change |
 | `dist/`           | generated. Editing anything here fails `gates/check-dist-clean.mjs` |
 | `docs/`           | the audit, the proposal, the decisions, and a generated guidelines page |
@@ -119,6 +120,25 @@ Favicons and the web manifest are generated per product. Copy
 
 The SVG favicon follows the reader's theme on its own, which a PNG cannot.
 
+## Themes for other products
+
+The brand does not hand a product a palette. What it shares is
+`brand/tokens/vocabulary.json`: twenty-two token names, the lightness ladder
+that gives a theme its shape, and the contrast floor each name must clear. A
+product supplies four hues and two chroma ceilings, and `tools/theme.mjs` solves
+the rest:
+
+```
+node tools/theme.mjs brand/themes/paper.json > theme.css
+```
+
+Every value is checked against its floor before it is printed, and a role whose
+floor cannot be met at the preferred lightness is moved until it can. So a theme
+that comes out of that command cannot ship a 3:1 label.
+
+`brand/themes/paper.json` is Hikaru's theme expressed as its four hues, kept as
+the worked example because it is the one the vocabulary was learned from.
+
 ## Print
 
 `dist/print/` is vector and DeviceCMYK throughout, written directly rather than
@@ -149,6 +169,7 @@ Each one exists because of a defect in the original artwork.
 | `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths |
 | `check-baselines` | a change that keeps every ratio valid and still draws something else |
 | `check-print` | a missing CMYK build, or a print file that carries RGB |
+| `check-vocabulary` | a lightness ladder that cannot be solved into a compliant theme |
 | `check-dist-clean` | a file in `dist/` edited by hand |
 
 ## Documents

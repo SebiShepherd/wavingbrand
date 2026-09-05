@@ -314,6 +314,9 @@ function run() {
   write('tokens/color.scss', scss());
   write('tokens/color.js', js());
   write('tokens/color.d.ts', dts());
+  // The contract a product's own theme answers to: the names, and the floor
+  // each one clears. Values are the product's business.
+  write('tokens/vocabulary.json', readFileSync(join(root, 'brand/tokens/vocabulary.json'), 'utf8'));
   manifest.tokens = {
     brand: 'tokens/brand.css',
     theme: 'tokens/theme.css',

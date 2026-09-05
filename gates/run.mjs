@@ -6,6 +6,7 @@ const gates = [
   './check-theme-roles.mjs',
   './check-consumers.mjs',
   './check-print.mjs',
+  './check-vocabulary.mjs',
   './check-legibility.mjs',
   './check-safe-zones.mjs',
   './check-tight-bounds.mjs',
