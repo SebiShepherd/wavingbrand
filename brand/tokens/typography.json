@@ -1,0 +1,12 @@
+{
+  "$description": "The wordmark's setting, recovered from the original outlines to a mean deviation of 0.10% across twelve letters.",
+  "wordmark": {
+    "fontFamily": { "$type": "fontFamily", "$value": ["Montserrat"] },
+    "fontFile": { "$type": "string", "$value": "brand/fonts/Montserrat[wght].ttf" },
+    "licence": { "$type": "string", "$value": "SIL Open Font License 1.1, brand/fonts/OFL.txt" },
+    "fontWeight": { "$type": "fontWeight", "$value": 500 },
+    "letterCase": { "$type": "string", "$value": "uppercase" },
+    "letterSpacing": { "$type": "dimension", "$value": { "value": 0.05, "unit": "em" } },
+    "kerning": { "$type": "string", "$value": "on" }
+  }
+}

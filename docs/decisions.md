@@ -1,0 +1,301 @@
+# Decisions
+
+The sponsor delegated these. Each one is written down with what it costs, so
+that reversing it is a one-line change to `brand/tokens/` rather than an
+archaeology exercise.
+
+## D1 The repository is private, and the licences split
+
+`package.json` is `private: true` and `UNLICENSED`. Distribution is by git tag
+and a GitHub Release rather than by public npm.
+
+The split follows Porsche's: build code is one thing and brand assets are
+another. Nothing in `src/` or `gates/` is secret and it could be opened later;
+the marks are a trademark and never can be. Keeping them under one permissive
+licence would give anybody who reads the repository a licence to use the logo,
+which is the opposite of what a logo is for.
+
+**Cost:** consumers install from a git URL or a tarball instead of `npm i`.
+
+## D2 The mark moves onto a grid of ninths
+
+Every dimension becomes a whole number of ninths of one outer stroke width.
+
+| Dimension          | Original      | Now  | Change    |
+| ------------------ | ------------- | ---- | --------- |
+| outer stroke       | 9             | 9    | unchanged |
+| cut drop           | 3             | 3    | unchanged |
+| middle stroke      | 8.18          | 8    | -2.2%     |
+| base bar           | 7.82          | 8    | +2.3%     |
+| counter gap        | 2.91          | 3    | +3.1%     |
+| bar top edge       | 21.18         | 21   | -0.8%     |
+| middle stroke top  | 10.10         | 10   | -1.0%     |
+| bounding box       | 31.9996       | 32   | +0.003%   |
+
+Nothing moves by more than 3.2%, and two side effects are worth having: the
+counter now equals the cut drop, and the base bar now equals the middle stroke.
+Eight integers replace eight measurements, which is what makes a variant
+reproducible.
+
+This is a smaller change than the 0.875 proposed in the audit, and a better one:
+0.875 is a fraction somebody chose, and 8/9 is the number the artwork was
+already closest to.
+
+**Cost:** the new mark is not pixel-identical to the old one. At any size where
+a person could tell, the difference is under a third of a percent of the mark's
+width.
+
+## D3 A second cut for small sizes
+
+Below 48 px the standard counters hold one fully-clear pixel, which disappears
+on any display that scales by something other than a whole number. The small cut
+widens the counter from three ninths to five, which makes the mark 36 wide
+against 32 high and gives two clear pixels at 16 px.
+`gates/check-legibility.mjs` measures it rather than assuming it.
+
+**Cost:** the small cut is not square, so it is a different drawing and has to
+be used deliberately. The build picks it for every favicon automatically.
+
+## D4 Artwork to type is one cap height, everywhere
+
+The two original lockups used 0.983 and 0.862 cap heights for the same
+relationship. One cap height is the rule now, which moves the WavingEye lockup
+by 1.7% and the Hikaru lockup by 16%.
+
+Cap height is nine ninths, so a capital letter is exactly one outer stroke width
+tall. That relation was already true to within 2.7% in the WavingEye lockup.
+
+**Cost:** the Hikaru lockup is visibly looser than it was.
+
+## D5 Padding is a per-target number
+
+The original icon put the mark at 50.9% of its canvas. That is 7.6% outside the
+circle an Android adaptive icon survives, and far inside what the App Store and
+a favicon want. So there is no single padding:
+
+| Target                   | Mark as share of canvas | Why                          |
+| ------------------------ | ----------------------- | ---------------------------- |
+| Android adaptive layer   | 44%                     | inner 72 of 108 dp after a circular mask |
+| PWA maskable             | 50%                     | inner 80%                    |
+| General boxed icon       | 50%                     | matches the original         |
+| Android launcher, PWA    | 55%                     | no mask beyond the shape     |
+| Apple touch, App Store   | 62%                     | superellipse only            |
+| Favicon                  | 94%                     | not masked at all            |
+
+`gates/check-safe-zones.mjs` measures the shipped PNG rather than the intent.
+
+## D6 The mark is lifted when it sits in a box
+
+The mark's mass is in its base bar, so its area centroid is 5.5% of its height
+below the bounding box centre, and a measured centring reads low. The correction
+is 40% of the centroid's deviation, computed from the geometry so it follows any
+change to the parameters. A full correction overshoots, because the eye does not
+weigh area linearly.
+
+## D7 One secondary colour is dropped, and the rest get roles
+
+`#ff005c` goes. Its lightness matches the brand pink to 0.001 and its hue sits
+14.6 degrees away, so at any real size the two are the same colour, and a
+palette with two of them guarantees the wrong one gets used. Danger moves to
+hue 25.
+
+The rest keep their hues and gain a system:
+
+- **Brand**: pink, navy, white, plus contrast-safe pink for light and dark
+  surfaces. The identity pink is never altered; the variants exist so it can
+  carry text without breaking WCAG.
+- **Neutral**: eleven steps on the navy's own hue (271.3), so the greys read as
+  part of the brand rather than as leftovers.
+- **Accent**: seven hues at three steps each. 400 for dark surfaces, 500 for
+  fills, 600 for text on light. Every 600 clears 4.5:1 on white and every 400
+  clears 4.5:1 on navy, checked at generation.
+- **Semantic**: success, warning, danger and info are aliases into the accents,
+  so a UI never picks a brand colour to mean "this failed".
+
+Black leaves the primary palette. Every asset already used `#101554`, pure black
+has no identity, and it is harsh on a screen. It stays available for
+one-colour reproduction, which is what it is for.
+
+**Still open:** print. `#EF2F88` is outside CMYK gamut and will come back duller
+and slightly warmer. A process build of roughly C0 M82 Y22 K0 is the honest
+fallback. A spot colour is the alternative, and no Pantone number should be
+written down here, because a screen cannot choose one; that is a fan deck under
+daylight, against a printed proof.
+
+## D8 The lockup set
+
+Seven forms, because the two that existed cannot cover the space:
+
+| Form               | Aspect | For                                    |
+| ------------------ | ------ | -------------------------------------- |
+| mark               | 1:1    | avatars, favicons, anywhere tight      |
+| mark, small cut    | 1.13:1 | below 48 px                            |
+| mark, outline      | 1:1    | single-colour and engraved reproduction |
+| wordmark           | 9.96:1 | running headers, documents             |
+| lockup split       | 4.14:1 | the original corporate lockup          |
+| lockup horizontal  | 4.08:1 | site headers, email signatures         |
+| lockup stacked     | 0.80:1 | square and portrait space              |
+| boxed icon         | 1:1    | app icons, product tiles               |
+| boxed lockup       | 3.4:1  | a product beside the company mark      |
+
+The stacked lockup scales the mark to 72% of the widest line's width, because a
+square mark at its natural size over a long word reads as an afterthought.
+
+## D9 Contrast is solved against the worst surface, not against white
+
+Every accent's text step was solved against `#ffffff` and every page is painted
+on `neutral-50` or `neutral-100`. That costs about 0.2 of a ratio, which took
+the whole set from 4.52:1 to between 4.22 and 4.37, which is the difference
+between passing and failing. Nobody would have caught it by looking.
+
+A light ink can land on `surface`, `surface-raised` or `surface-sunken`, and
+`surface-sunken` is the darkest of the three, so that is what the light steps
+are solved against. The dark steps are solved against `surface-sunken` in the
+dark theme for the same reason, `neutral-800`, the lightest surface they land on.
+
+Dark-surface steps are set at a chosen lightness and then checked, rather than
+solved. Solving finds the darkest colour that scrapes the floor, which is a
+muddy colour that happens to be legal; on a dark ground the eye wants a
+comfortably light one and the floor is the check, not the target.
+
+`gates/check-theme-roles.mjs` puts every ink on every surface it can land on in
+both themes, which is 54 pairs, and it found this on its first run.
+
+## D10 A change is approved by committing the pixels it produced
+
+The other gates check ratios, sizes and masks. A geometry change that keeps
+every ratio valid passes all of them while drawing something else: moving
+`middleTop` from 10 to 11 satisfies nothing in `check-geometry` except the
+token it also changed, and every render moves.
+
+So every shipped SVG is rendered once at 320 px through resvg, deterministically,
+and the render is committed to `baselines/`. A deviation then arrives as a
+reviewable image diff in the same pull request as the change that caused it,
+which is the only form in which anybody actually looks at one.
+
+Approving a deviation is `npm run baselines` plus a commit. Doing that in a
+commit containing nothing else is the tell that somebody approved without
+reading.
+
+The gate keeps three states rather than one, which is
+kagami's rule and the reason for it: a render that compared and disagreed is a
+finding about the artwork, a missing baseline is a finding about the run, and a
+baseline with no asset is neither. Reporting them as one thing is how a red run
+gets filed as "the build deviates" without a pixel ever being compared.
+
+resvg rather than a browser, because headless Chrome produces slightly different
+pixels on different machines and a comparison against a moving target is not a
+comparison. Two channel levels of slack absorb an antialiasing change between
+resvg patch versions; anything real is two orders of magnitude above that.
+
+## D11 The brand ships an identity and a rule, not a palette
+
+The first look at a real consumer changed this design, which is the argument
+for looking.
+
+Hikaru has its own theme, "Paper": a warm off-white page, a blue accent, its own
+token names, its own gate over them, and a comment in the file explaining why
+each choice was made. Only one value is shared with the brand, `#101554`.
+
+The token layer built before that look shipped sixteen surfaces and inks for a
+consumer to adopt. Hikaru adopting them would mean a cool navy-hued neutral
+ramp replacing a warm one that somebody chose on purpose, and a pink accent
+replacing a blue one. That is the brand overwriting a product decision that is
+none of its business.
+
+So there are two layers now.
+
+**`tokens/brand.css` is the identity.** Six values, no theme switching,
+mandatory. A product maps them into its own token names under its own theme
+strategy, because Hikaru switches on a `.dark` class and another product will
+not.
+
+**`tokens/theme.css` is a whole palette** for a project that has none. Optional.
+
+What the brand asks of a product with its own theme is one rule, checked rather
+than asserted: the mark must be visible wherever the product renders it, and
+the product's accent must not be mistakable for the brand pink. `src/validate.mjs`
+is that check, `tools/validate.mjs` runs it against a product's live values in
+the product's own CI, and `brand/consumers/` holds each contract so a change to
+the pink fails on this side first.
+
+The confusable test is the one that dropped `#ff005c`: under 25 degrees of hue
+and 0.08 of lightness apart, with both colours actually saturated.
+
+**It found a live defect on its first run.** Hikaru renders the WavingEye icon
+in the sidebar, on the login page and on the invite page as a navy tile. Against
+its dark surfaces that tile is 1.01:1, 1.09:1 and 1.10:1, so in dark mode the
+tile has no edge and the mark inside it floats with no container. Inverting the
+tile on dark clears it.
+
+Fixed in SebiShepherd/hikaru#591. The mark is inlined there rather than linked,
+because an `<img>` cannot inherit `currentColor` and that is the whole reason
+the tile could not follow the theme. Hikaru's copy of the rule
+(`tools/check-brand.mjs`) reads its built stylesheet as well as its source: a
+token can be correct where it is written and shortened, moved or dropped in the
+bundle, which is a defect that repository has already shipped once.
+
+## D12 The shared layer is the vocabulary and the floors, not the palette
+
+D11 said a product owns its skin. That was half right and it left the wrong
+impression, because Hikaru's theme exists partly for want of a company one
+rather than as a considered separation. The full answer is three layers.
+
+**Identity**, company, fixed: the mark, the wordmark, navy, pink, clear space,
+minimum sizes.
+
+**Foundation**, company, shared: `brand/tokens/vocabulary.json`. Twenty-two
+token names, the lightness ladder that gives a theme its shape, and the contrast
+floor each name has to clear. Lifted from Hikaru's Paper theme, because that is
+where they were learned, which is kagami's own pattern.
+
+**Theme**, per product, free: the values. Paper stays exactly as it is.
+
+The move that makes this worth doing is that the reusable asset is `src/theme.mjs`
+and the floors, not a palette. Paper was picked by hand; expressed as four hues
+and two chroma ceilings it can be re-derived, checked, and a second product is
+one file away instead of twenty-two decisions away.
+
+### The ladder is a preference, the floor is the answer
+
+The first version set every lightness from the vocabulary. `gates/check-vocabulary.mjs`
+solved three hues in both modes and found nine failures, because a contrast that
+depends on hue cannot be fixed by a lightness: an accent at L 0.53 clears 4.5:1
+on a light panel at hue 265 and misses it at 160.
+
+So the ladder is where a role starts, and anything a floor names is then moved a
+thousandth at a time in the direction that raises contrast until the floor
+clears. Solving Paper's own hues moves two roles, by 0.006 and 0.009 of
+lightness, which nobody can see. A role that has to move more than 0.12 fails the
+gate, because at that point the ladder is wrong for that hue rather than rescued.
+
+### Does it reproduce Paper
+
+Mean OKLab distance from Paper as shipped: 0.0147 in light, 0.0127 in dark. Most
+roles land under 0.02, which is a difference nobody would name. Three do not:
+
+| Role | Paper | Solved | Distance | Why |
+| ---- | ----- | ------ | -------- | --- |
+| `subtle` (light) | `#8f8a81` | `#736d64` | 0.098 | deliberate; Paper's fails 4.5:1 |
+| `warning-wash` (dark) | `#3a3120` | `#352204` | 0.053 | one wash chroma for every hue |
+| `warning` (light) | `#946200` | `#83663b` | 0.044 | one chroma fraction for every semantic hue |
+
+So: close enough to seed a new product's theme, not close enough to regenerate
+Paper, and Paper does not need regenerating. The semantic hues are where the
+solver is weakest, and a per-hue chroma would close it if a second product ever
+makes that worth doing.
+
+### One floor was mine and wrong
+
+`line` was set at 1.4:1. WCAG 2.2 sets no floor for a decorative rule, and
+1.4 flagged every hairline in Paper and every hairline the solver produced. It is
+1.2 now, documented as a legibility sanity check rather than a criterion.
+Anything that conveys grouping on its own is a non-text graphic and owes 3:1.
+
+### One failure was real
+
+`subtle` fails 4.5:1 in Paper, in both themes, on every surface: 3.04:1 on
+`surface-raised` in light. It carries 12px text in 87 places and 11px in 12 more,
+so the large-text allowance does not apply. Filed as SebiShepherd/hikaru#592 with
+the two values that clear it, rather than changed here: 192 usages is a change to
+the look of a product, and that is its owner's call.

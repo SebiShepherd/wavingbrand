@@ -1,0 +1,253 @@
+{
+  "$description": "The names a product's theme uses, and the floor each one must clear. Lifted from Hikaru's Paper theme, which is where they were learned. Values are not here; a product's own theme supplies those and src/theme.mjs can solve them. This file is the contract that makes two products' themes comparable without making them look alike.",
+  "roles": {
+    "surface": {
+      "kind": "surface",
+      "L": {
+        "light": 1.0,
+        "dark": 0.231
+      },
+      "note": "Panels and cards."
+    },
+    "bg": {
+      "kind": "surface",
+      "L": {
+        "light": 0.985,
+        "dark": 0.197
+      },
+      "note": "The page."
+    },
+    "surface-raised": {
+      "kind": "surface",
+      "L": {
+        "light": 0.959,
+        "dark": 0.269
+      },
+      "note": "One step in from the page."
+    },
+    "overlay": {
+      "kind": "surface",
+      "L": {
+        "light": 1.0,
+        "dark": 0.269
+      },
+      "note": "Things that float over the page."
+    },
+    "border": {
+      "kind": "line",
+      "L": {
+        "light": 0.914,
+        "dark": 0.309
+      },
+      "note": "Structural edges."
+    },
+    "faint": {
+      "kind": "chrome",
+      "L": {
+        "light": 0.752,
+        "dark": 0.489
+      },
+      "note": "Chrome only, never text that carries meaning."
+    },
+    "subtle": {
+      "kind": "ink",
+      "L": {
+        "light": 0.538,
+        "dark": 0.642
+      },
+      "note": "Third-rank text. Hikaru ships this at L 0.635 light and 0.606 dark, which is 3.04:1 on its own surface-raised, and it carries 12px text in 87 places. These values are what clears 4.5:1 on the darkest light surface and the lightest dark one; see SebiShepherd/hikaru#592."
+    },
+    "muted": {
+      "kind": "ink",
+      "L": {
+        "light": 0.47,
+        "dark": 0.751
+      },
+      "note": "Second-rank text."
+    },
+    "fg": {
+      "kind": "ink",
+      "L": {
+        "light": 0.217,
+        "dark": 0.964
+      },
+      "note": "Body text."
+    },
+    "accent": {
+      "kind": "accent",
+      "L": {
+        "light": 0.53,
+        "dark": 0.713
+      },
+      "note": "Active navigation, the primary button, links. Not decoration."
+    },
+    "accent-strong": {
+      "kind": "accent",
+      "L": {
+        "light": 0.439,
+        "dark": 0.779
+      },
+      "note": "Hover and pressed."
+    },
+    "accent-soft": {
+      "kind": "accent",
+      "L": {
+        "light": 0.713,
+        "dark": 0.837
+      },
+      "note": "Secondary accent marks."
+    },
+    "accent-on": {
+      "kind": "on-accent",
+      "L": {
+        "light": 1.0,
+        "dark": 0.19
+      },
+      "note": "Text and icons ON an accent fill."
+    },
+    "accent-wash": {
+      "kind": "wash",
+      "L": {
+        "light": 0.955,
+        "dark": 0.272
+      },
+      "note": "The tinted accent surface."
+    },
+    "success": {
+      "kind": "semantic",
+      "L": {
+        "light": 0.517,
+        "dark": 0.808
+      }
+    },
+    "warning": {
+      "kind": "semantic",
+      "L": {
+        "light": 0.537,
+        "dark": 0.8
+      }
+    },
+    "danger": {
+      "kind": "semantic",
+      "L": {
+        "light": 0.543,
+        "dark": 0.752
+      }
+    },
+    "success-wash": {
+      "kind": "wash",
+      "L": {
+        "light": 0.94,
+        "dark": 0.27
+      }
+    },
+    "warning-wash": {
+      "kind": "wash",
+      "L": {
+        "light": 0.945,
+        "dark": 0.27
+      }
+    },
+    "danger-wash": {
+      "kind": "wash",
+      "L": {
+        "light": 0.935,
+        "dark": 0.27
+      }
+    },
+    "skeleton": {
+      "kind": "surface",
+      "L": {
+        "light": 0.955,
+        "dark": 0.269
+      }
+    },
+    "skeleton-sweep": {
+      "kind": "surface",
+      "L": {
+        "light": 0.915,
+        "dark": 0.309
+      }
+    }
+  },
+  "floors": {
+    "$description": "Every pair a product actually paints. 4.5 is WCAG 2.2 for text, 3 for a non-text graphic, and 1.4 is the floor at which a hairline is still a line rather than a suggestion.",
+    "text": {
+      "ratio": 4.5,
+      "inks": [
+        "fg",
+        "muted",
+        "subtle",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "on": [
+        "bg",
+        "surface",
+        "surface-raised",
+        "overlay"
+      ]
+    },
+    "link": {
+      "ratio": 4.5,
+      "inks": [
+        "accent",
+        "accent-strong"
+      ],
+      "on": [
+        "bg",
+        "surface",
+        "surface-raised"
+      ]
+    },
+    "on-accent": {
+      "ratio": 4.5,
+      "inks": [
+        "accent-on"
+      ],
+      "on": [
+        "accent"
+      ]
+    },
+    "on-wash": {
+      "ratio": 4.5,
+      "inks": [
+        "accent-strong"
+      ],
+      "on": [
+        "accent-wash"
+      ]
+    },
+    "semantic-on-wash": {
+      "ratio": 4.5,
+      "pairs": [
+        [
+          "success",
+          "success-wash"
+        ],
+        [
+          "warning",
+          "warning-wash"
+        ],
+        [
+          "danger",
+          "danger-wash"
+        ]
+      ]
+    },
+    "line": {
+      "ratio": 1.2,
+      "inks": [
+        "border",
+        "faint",
+        "skeleton-sweep"
+      ],
+      "on": [
+        "bg",
+        "surface"
+      ],
+      "$description": "Not a WCAG criterion: 2.2 sets no floor for a decorative rule. 1.2 is where a hairline stops being a line and becomes a suggestion, and it is here so that a generated theme cannot produce a border nobody can see. Anything that conveys grouping on its own is a non-text graphic and owes 3:1 instead."
+    }
+  }
+}

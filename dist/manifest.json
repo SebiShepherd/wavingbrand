@@ -1,0 +1,580 @@
+{
+  "generated": "2026-09-05",
+  "assets": [
+    {
+      "product": "hikaru",
+      "form": "mark",
+      "variant": "navy",
+      "file": "hikaru/mark-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark",
+      "variant": "pink",
+      "file": "hikaru/mark-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark",
+      "variant": "white",
+      "file": "hikaru/mark-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark",
+      "variant": "current",
+      "file": "hikaru/mark-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-small",
+      "variant": "navy",
+      "file": "hikaru/mark-small-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-small",
+      "variant": "pink",
+      "file": "hikaru/mark-small-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-small",
+      "variant": "white",
+      "file": "hikaru/mark-small-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-small",
+      "variant": "current",
+      "file": "hikaru/mark-small-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-outline",
+      "variant": "navy",
+      "file": "hikaru/mark-outline-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-outline",
+      "variant": "pink",
+      "file": "hikaru/mark-outline-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-outline",
+      "variant": "white",
+      "file": "hikaru/mark-outline-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "mark-outline",
+      "variant": "current",
+      "file": "hikaru/mark-outline-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "wordmark",
+      "variant": "navy",
+      "file": "hikaru/wordmark-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "wordmark",
+      "variant": "pink",
+      "file": "hikaru/wordmark-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "wordmark",
+      "variant": "white",
+      "file": "hikaru/wordmark-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "wordmark",
+      "variant": "current",
+      "file": "hikaru/wordmark-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-horizontal",
+      "variant": "navy",
+      "file": "hikaru/lockup-horizontal-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-horizontal",
+      "variant": "pink",
+      "file": "hikaru/lockup-horizontal-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-horizontal",
+      "variant": "white",
+      "file": "hikaru/lockup-horizontal-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-horizontal",
+      "variant": "current",
+      "file": "hikaru/lockup-horizontal-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-stacked",
+      "variant": "navy",
+      "file": "hikaru/lockup-stacked-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-stacked",
+      "variant": "pink",
+      "file": "hikaru/lockup-stacked-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-stacked",
+      "variant": "white",
+      "file": "hikaru/lockup-stacked-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "lockup-stacked",
+      "variant": "current",
+      "file": "hikaru/lockup-stacked-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-icon",
+      "variant": "white-on-navy",
+      "file": "hikaru/boxed-icon-white-on-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-icon",
+      "variant": "white-on-pink",
+      "file": "hikaru/boxed-icon-white-on-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-icon",
+      "variant": "pink-on-navy",
+      "file": "hikaru/boxed-icon-pink-on-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-icon",
+      "variant": "reverse",
+      "file": "hikaru/boxed-icon-reverse.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-lockup",
+      "variant": "white-on-navy",
+      "file": "hikaru/boxed-lockup-white-on-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-lockup",
+      "variant": "white-on-pink",
+      "file": "hikaru/boxed-lockup-white-on-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-lockup",
+      "variant": "pink-on-navy",
+      "file": "hikaru/boxed-lockup-pink-on-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "form": "boxed-lockup",
+      "variant": "reverse",
+      "file": "hikaru/boxed-lockup-reverse.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "hikaru",
+      "target": "favicon",
+      "file": "hikaru/favicon-16.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "favicon",
+      "file": "hikaru/favicon-32.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "favicon",
+      "file": "hikaru/favicon-48.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "apple-touch",
+      "file": "hikaru/apple-touch-icon-180.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "android",
+      "file": "hikaru/android-192.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "android",
+      "file": "hikaru/android-512.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "android",
+      "file": "hikaru/android-adaptive-foreground-432.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "maskable",
+      "file": "hikaru/maskable-512.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "app-store",
+      "file": "hikaru/app-store-1024.png",
+      "type": "image/png"
+    },
+    {
+      "product": "hikaru",
+      "target": "og",
+      "file": "hikaru/og-1200x630.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark",
+      "variant": "navy",
+      "file": "wavingeye/mark-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark",
+      "variant": "pink",
+      "file": "wavingeye/mark-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark",
+      "variant": "white",
+      "file": "wavingeye/mark-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark",
+      "variant": "current",
+      "file": "wavingeye/mark-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-small",
+      "variant": "navy",
+      "file": "wavingeye/mark-small-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-small",
+      "variant": "pink",
+      "file": "wavingeye/mark-small-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-small",
+      "variant": "white",
+      "file": "wavingeye/mark-small-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-small",
+      "variant": "current",
+      "file": "wavingeye/mark-small-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-outline",
+      "variant": "navy",
+      "file": "wavingeye/mark-outline-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-outline",
+      "variant": "pink",
+      "file": "wavingeye/mark-outline-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-outline",
+      "variant": "white",
+      "file": "wavingeye/mark-outline-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "mark-outline",
+      "variant": "current",
+      "file": "wavingeye/mark-outline-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "wordmark",
+      "variant": "navy",
+      "file": "wavingeye/wordmark-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "wordmark",
+      "variant": "pink",
+      "file": "wavingeye/wordmark-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "wordmark",
+      "variant": "white",
+      "file": "wavingeye/wordmark-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "wordmark",
+      "variant": "current",
+      "file": "wavingeye/wordmark-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-split",
+      "variant": "navy",
+      "file": "wavingeye/lockup-split-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-split",
+      "variant": "pink",
+      "file": "wavingeye/lockup-split-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-split",
+      "variant": "white",
+      "file": "wavingeye/lockup-split-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-split",
+      "variant": "current",
+      "file": "wavingeye/lockup-split-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-horizontal",
+      "variant": "navy",
+      "file": "wavingeye/lockup-horizontal-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-horizontal",
+      "variant": "pink",
+      "file": "wavingeye/lockup-horizontal-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-horizontal",
+      "variant": "white",
+      "file": "wavingeye/lockup-horizontal-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-horizontal",
+      "variant": "current",
+      "file": "wavingeye/lockup-horizontal-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-stacked",
+      "variant": "navy",
+      "file": "wavingeye/lockup-stacked-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-stacked",
+      "variant": "pink",
+      "file": "wavingeye/lockup-stacked-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-stacked",
+      "variant": "white",
+      "file": "wavingeye/lockup-stacked-white.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "lockup-stacked",
+      "variant": "current",
+      "file": "wavingeye/lockup-stacked-current.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "boxed-icon",
+      "variant": "white-on-navy",
+      "file": "wavingeye/boxed-icon-white-on-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "boxed-icon",
+      "variant": "white-on-pink",
+      "file": "wavingeye/boxed-icon-white-on-pink.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "boxed-icon",
+      "variant": "pink-on-navy",
+      "file": "wavingeye/boxed-icon-pink-on-navy.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "form": "boxed-icon",
+      "variant": "reverse",
+      "file": "wavingeye/boxed-icon-reverse.svg",
+      "type": "image/svg+xml"
+    },
+    {
+      "product": "wavingeye",
+      "target": "favicon",
+      "file": "wavingeye/favicon-16.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "favicon",
+      "file": "wavingeye/favicon-32.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "favicon",
+      "file": "wavingeye/favicon-48.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "apple-touch",
+      "file": "wavingeye/apple-touch-icon-180.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "android",
+      "file": "wavingeye/android-192.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "android",
+      "file": "wavingeye/android-512.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "android",
+      "file": "wavingeye/android-adaptive-foreground-432.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "maskable",
+      "file": "wavingeye/maskable-512.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "app-store",
+      "file": "wavingeye/app-store-1024.png",
+      "type": "image/png"
+    },
+    {
+      "product": "wavingeye",
+      "target": "og",
+      "file": "wavingeye/og-1200x630.png",
+      "type": "image/png"
+    }
+  ],
+  "tokens": {
+    "brand": "tokens/brand.css",
+    "theme": "tokens/theme.css",
+    "scss": "tokens/color.scss",
+    "js": "tokens/color.js",
+    "types": "tokens/color.d.ts"
+  }
+}

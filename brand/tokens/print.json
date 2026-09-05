@@ -1,0 +1,24 @@
+{
+  "$description": "Process builds for print. Hand-authored, unlike every other token file, because the value that matters is the one that comes back on paper and no formula knows it. Seeded from a naive sRGB conversion and NOT PROOFED. Replace each `cmyk` after a printed proof; nothing else in the repository has to change.",
+  "$proofed": false,
+  "print": {
+    "$type": "cmyk",
+    "brand": {
+      "navy": {
+        "$value": [81, 75, 0, 67],
+        "$description": "Naive conversion of #101554. A 67% black component will print flat; a printer will very likely want something nearer C100 M90 Y20 K30 with a rich black. Ask, then put the answer here.",
+        "spot": null
+      },
+      "pink": {
+        "$value": [0, 80, 43, 6],
+        "$description": "Naive conversion of #EF2F88, and the value most likely to be wrong. #EF2F88 is outside CMYK gamut: it will come back duller and warmer whatever the build. The yellow component is what decides how far towards coral it goes, so it is the number to argue about with a proof in hand. A spot colour is the alternative and needs a fan deck under daylight, which is why `spot` is null rather than a guess.",
+        "spot": null
+      },
+      "white": { "$value": [0, 0, 0, 0], "$description": "Paper. Never printed as ink." },
+      "black": {
+        "$value": [0, 0, 0, 100],
+        "$description": "Single-plate reproduction. For a large solid area a printer will want a rich black instead; this value is for type and line work."
+      }
+    }
+  }
+}

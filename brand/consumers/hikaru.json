@@ -1,0 +1,19 @@
+{
+  "product": "hikaru",
+  "$description": "Hikaru's own surfaces, as a contract. The authority is apps/web/src/styles.css in that repository, and its tools/check-brand.mjs applies these same rules to the live values. This copy exists so that a change here, to the pink or to the rules, is checked against a real consumer before it ships.",
+  "source": "SebiShepherd/hikaru apps/web/src/styles.css",
+  "themes": {
+    "light": {
+      "surfaces": { "bg": "#fbfaf8", "surface": "#ffffff", "raised": "#f3f1ed" },
+      "box": "#101554",
+      "logo": "#ffffff",
+      "accent": "#2b5ce6"
+    },
+    "dark": {
+      "surfaces": { "bg": "#14151a", "surface": "#1b1d23", "raised": "#23262e" },
+      "box": "#ffffff",
+      "logo": "#101554",
+      "accent": "#7e9cff"
+    }
+  }
+}

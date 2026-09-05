@@ -1,0 +1,32 @@
+{
+  "name": "@wavingeye/brand",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The WavingEye brand as parameters and a build.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "files": [
+    "dist",
+    "brand/tokens"
+  ],
+  "exports": {
+    "./tokens/*": "./brand/tokens/*",
+    "./manifest.json": "./dist/manifest.json",
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "tokens": "node tools/tokens.mjs",
+    "build": "node src/build.mjs",
+    "docs": "node src/docs.mjs",
+    "gates": "node gates/run.mjs",
+    "check": "npm run tokens && npm run build && npm run docs && npm run gates",
+    "baselines": "node tools/baselines.mjs"
+  },
+  "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "fontkit": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

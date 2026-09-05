@@ -1,0 +1,40 @@
+name: release
+
+# A tag builds its own release, rather than somebody uploading a zip by hand.
+# The whole argument of this repository is that dist/ is output; a release asset
+# assembled locally would be the one artefact nobody could reproduce.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Rebuild rather than trust the committed dist/, and fail if they differ.
+      # A release whose contents do not match its own source is worse than none.
+      - run: npm run check
+      - run: git diff --exit-code -- dist docs brand/tokens
+      - name: Assemble the kit
+        run: |
+          version="${GITHUB_REF_NAME}"
+          mkdir -p "kit/wavingeye-brand-${version}"
+          cp -r dist brand/tokens brand/fonts docs/*.md README.md "kit/wavingeye-brand-${version}/"
+          cd kit && zip -qr "../wavingeye-brand-${version}.zip" .
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${GITHUB_REF_NAME}" \
+            --notes-file .github/release-notes.md \
+            "wavingeye-brand-${GITHUB_REF_NAME}.zip"
