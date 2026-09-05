@@ -15,10 +15,11 @@ npm run baselines  # re-render baselines/. Doing this is how a change is approve
 | ----------------- | ------------- |
 | `brand/tokens/`   | colour, geometry and typography as W3C DTCG tokens |
 | `brand/products/` | one file per product: its name, its lockups, its targets |
+| `brand/consumers/`| one file per product that renders the mark: its surfaces, as a contract |
 | `brand/fonts/`    | Montserrat and its OFL licence |
 | `src/`            | the generator: parameters to SVG to platform targets |
 | `gates/`          | the rules as builds, run in CI |
-| `tools/`          | `tokens.mjs` solves the palette; `baselines.mjs` re-renders `baselines/` |
+| `tools/`          | `tokens.mjs` solves the palette; `baselines.mjs` re-renders; `validate.mjs` is the check a consumer runs |
 | `baselines/`      | one deterministic render of every asset, the reviewable record of a change |
 | `dist/`           | generated. Editing anything here fails `gates/check-dist-clean.mjs` |
 | `docs/`           | the audit, the proposal, the decisions, and a generated guidelines page |
@@ -50,32 +51,60 @@ The repository is private, so install from git rather than from npm:
 npm i git+ssh://git@github.com:SebiShepherd/we_logo.git#v0.1.0
 ```
 
-Then style against roles rather than against shades. `dist/tokens/color.css`
-ships the whole scale plus sixteen roles that already resolve per theme, in the
-three-state shape a theme actually has (explicit choice, OS preference, and the
-common case of neither):
+There are two token layers and they are not the same kind of thing.
+
+**`tokens/brand.css` is the identity.** Six values, no theme switching,
+mandatory. Map them into your own tokens under whatever theme strategy you
+already have:
 
 ```css
-@import '@wavingeye/brand/tokens/color.css';
+@import '@wavingeye/brand/tokens/brand.css';
 
-body { background: var(--we-surface); color: var(--we-ink); }
-a     { color: var(--we-accent-text); }
-.logo { color: var(--we-logo); }        /* navy on light, white on dark */
+:root { --my-logo: var(--we-brand-navy); }
+.dark { --my-logo: var(--we-brand-white); }
 ```
 
-The mark takes `currentColor`, so `.logo` above colours it:
+**`tokens/theme.css` is a whole palette**, surfaces and inks and neutrals, for a
+project that has no theme of its own. It is optional, and a product with a
+designer will not want it. The brand does not get to overwrite a product's
+visual decisions.
 
-```html
-<img src="@wavingeye/brand/wavingeye/lockup-horizontal-current.svg">
+What the brand asks instead is one rule, checked rather than asserted: the mark
+must be visible wherever you render it, and your accent must not be mistakable
+for the brand pink. Declare your surfaces and run the check in your own CI,
+against your live values:
+
+```
+node node_modules/@wavingeye/brand/tools/validate.mjs brand.surfaces.json
 ```
 
-For JavaScript, `dist/tokens/color.js` exports the same values with types
-beside them:
-
-```js
-import { color, theme } from '@wavingeye/brand/tokens/color.js';
-theme.dark.logo; // '#ffffff'
+```json
+{
+  "product": "hikaru",
+  "themes": {
+    "dark": {
+      "surfaces": { "bg": "#14151a", "surface": "#1b1d23" },
+      "box": "#101554", "logo": "#ffffff", "accent": "#7e9cff"
+    }
+  }
+}
 ```
+
+That declaration is what found the live defect in Hikaru: a navy tile at 1.01:1
+against its dark surface, so the sidebar mark had no container in dark mode.
+
+An `<img>` cannot inherit `currentColor`. To make the mark follow a theme,
+inline it from `dist/<product>/paths.json`:
+
+```jsx
+const { mark } = await import('@wavingeye/brand/hikaru/paths.json');
+<svg viewBox={mark.viewBox} className="text-[--my-logo]">
+  <path d={mark.d} fill="currentColor" fillRule={mark.fillRule} />
+</svg>
+```
+
+For plain JavaScript, `dist/tokens/color.js` exports every value with types
+beside it.
 
 Favicons and the web manifest are generated per product. Copy
 `dist/<product>/` to the site root and paste `dist/<product>/head.html`:
@@ -98,6 +127,7 @@ Each one exists because of a defect in the original artwork.
 | `check-geometry` | a path that no longer matches `brand/tokens/geometry.json` |
 | `check-contrast` | any shipped pair under 3:1 |
 | `check-theme-roles` | an ink that fails on a surface it can land on, in either theme |
+| `check-consumers` | a change to the brand that breaks a product declared in `brand/consumers/` |
 | `check-legibility` | counters that close up below 48 px |
 | `check-safe-zones` | ink outside an Android or maskable crop, measured on the shipped PNG |
 | `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths |

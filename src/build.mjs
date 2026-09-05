@@ -23,7 +23,7 @@ import {
 } from './lockup.mjs';
 import { toSvg, ico } from './svg.mjs';
 import { color } from './tokens.mjs';
-import { css, scss, js, dts, head, webmanifest } from './emit.mjs';
+import { brandCss, css, scss, js, dts, head, webmanifest } from './emit.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const DIST = join(root, 'dist');
@@ -59,6 +59,14 @@ const png = (svg, width, height) =>
   new Resvg(svg, { fitTo: height ? { mode: 'height', value: height } : { mode: 'width', value: width } })
     .render()
     .asPng();
+
+/** A piece reduced to what an inline <svg> needs: a viewBox and a path. */
+function pathData(piece) {
+  const svg = toSvg(piece, { ink: 'currentColor', title: '' });
+  const d = /<path d="([^"]+)"/.exec(svg)[1];
+  const rule = /fill-rule="([^"]+)"/.exec(svg)?.[1] ?? 'nonzero';
+  return { viewBox: /viewBox="([^"]+)"/.exec(svg)[1], d, fillRule: rule };
+}
 
 function forms(product) {
   const lines = product.split ?? [product.wordmark];
@@ -184,16 +192,39 @@ function run() {
       }
     }
     if (icoParts.length) write(`${product.name}/favicon.ico`, ico(icoParts));
+    // The path data itself, for a consumer that inlines the mark rather than
+    // linking it. An <img> cannot inherit currentColor; an inline <svg> can,
+    // and that is the whole difference between a logo that follows a theme and
+    // one that does not.
+    write(
+      `${product.name}/paths.json`,
+      JSON.stringify(
+        {
+          mark: pathData(mark({})),
+          markSmall: pathData(mark({ cut: SMALL })),
+          markOutline: pathData(mark({ style: 'outline' })),
+        },
+        null,
+        2,
+      ),
+    );
     write(`${product.name}/head.html`, head(product.name));
     write(`${product.name}/site.webmanifest`, webmanifest(product, { navy: NAVY }));
   }
 
   // What a project styles against, rather than what it has to look up.
-  write('tokens/color.css', css());
+  write('tokens/brand.css', brandCss());
+  write('tokens/theme.css', css());
   write('tokens/color.scss', scss());
   write('tokens/color.js', js());
   write('tokens/color.d.ts', dts());
-  manifest.tokens = ['tokens/color.css', 'tokens/color.scss', 'tokens/color.js', 'tokens/color.d.ts'];
+  manifest.tokens = {
+    brand: 'tokens/brand.css',
+    theme: 'tokens/theme.css',
+    scss: 'tokens/color.scss',
+    js: 'tokens/color.js',
+    types: 'tokens/color.d.ts',
+  };
 
   writeFileSync(join(DIST, 'manifest.json'), JSON.stringify(manifest, null, 2));
   console.log(`${manifest.assets.length} assets in dist/`);

@@ -570,10 +570,11 @@
       "type": "image/png"
     }
   ],
-  "tokens": [
-    "tokens/color.css",
-    "tokens/color.scss",
-    "tokens/color.js",
-    "tokens/color.d.ts"
-  ]
+  "tokens": {
+    "brand": "tokens/brand.css",
+    "theme": "tokens/theme.css",
+    "scss": "tokens/color.scss",
+    "js": "tokens/color.js",
+    "types": "tokens/color.d.ts"
+  }
 }

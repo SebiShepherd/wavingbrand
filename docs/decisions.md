@@ -187,3 +187,43 @@ resvg rather than a browser, because headless Chrome produces slightly different
 pixels on different machines and a comparison against a moving target is not a
 comparison. Two channel levels of slack absorb an antialiasing change between
 resvg patch versions; anything real is two orders of magnitude above that.
+
+## D11 The brand ships an identity and a rule, not a palette
+
+The first look at a real consumer changed this design, which is the argument
+for looking.
+
+Hikaru has its own theme, "Paper": a warm off-white page, a blue accent, its own
+token names, its own gate over them, and a comment in the file explaining why
+each choice was made. Only one value is shared with the brand, `#101554`.
+
+The token layer built before that look shipped sixteen surfaces and inks for a
+consumer to adopt. Hikaru adopting them would mean a cool navy-hued neutral
+ramp replacing a warm one that somebody chose on purpose, and a pink accent
+replacing a blue one. That is the brand overwriting a product decision that is
+none of its business.
+
+So there are two layers now.
+
+**`tokens/brand.css` is the identity.** Six values, no theme switching,
+mandatory. A product maps them into its own token names under its own theme
+strategy, because Hikaru switches on a `.dark` class and another product will
+not.
+
+**`tokens/theme.css` is a whole palette** for a project that has none. Optional.
+
+What the brand asks of a product with its own theme is one rule, checked rather
+than asserted: the mark must be visible wherever the product renders it, and
+the product's accent must not be mistakable for the brand pink. `src/validate.mjs`
+is that check, `tools/validate.mjs` runs it against a product's live values in
+the product's own CI, and `brand/consumers/` holds each contract so a change to
+the pink fails on this side first.
+
+The confusable test is the one that dropped `#ff005c`: under 25 degrees of hue
+and 0.08 of lightness apart, with both colours actually saturated.
+
+**It found a live defect on its first run.** Hikaru renders the WavingEye icon
+in the sidebar, on the login page and on the invite page as a navy tile. Against
+its dark surfaces that tile is 1.01:1, 1.09:1 and 1.10:1, so in dark mode the
+tile has no edge and the mark inside it floats with no container. Inverting the
+tile on dark clears it.
