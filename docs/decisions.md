@@ -227,3 +227,10 @@ in the sidebar, on the login page and on the invite page as a navy tile. Against
 its dark surfaces that tile is 1.01:1, 1.09:1 and 1.10:1, so in dark mode the
 tile has no edge and the mark inside it floats with no container. Inverting the
 tile on dark clears it.
+
+Fixed in SebiShepherd/hikaru#591. The mark is inlined there rather than linked,
+because an `<img>` cannot inherit `currentColor` and that is the whole reason
+the tile could not follow the theme. Hikaru's copy of the rule
+(`tools/check-brand.mjs`) reads its built stylesheet as well as its source: a
+token can be correct where it is written and shortened, moved or dropped in the
+bundle, which is a defect that repository has already shipped once.

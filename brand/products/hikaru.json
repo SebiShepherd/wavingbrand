@@ -28,5 +28,6 @@
     "maskable",
     "app-store",
     "og"
-  ]
+  ],
+  "base": "/brand/"
 }

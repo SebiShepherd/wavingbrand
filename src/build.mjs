@@ -208,8 +208,9 @@ function run() {
         2,
       ),
     );
-    write(`${product.name}/head.html`, head(product.name));
-    write(`${product.name}/site.webmanifest`, webmanifest(product, { navy: NAVY }));
+    const base = product.base ?? '/';
+    write(`${product.name}/head.html`, head(product.name, base));
+    write(`${product.name}/site.webmanifest`, webmanifest(product, { navy: NAVY }, base));
   }
 
   // What a project styles against, rather than what it has to look up.
