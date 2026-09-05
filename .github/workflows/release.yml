@@ -33,8 +33,18 @@ jobs:
       - name: Publish
         env:
           GH_TOKEN: ${{ github.token }}
+        # Idempotent, because a tag can arrive two ways and only one of them
+        # leaves no release behind. Pushing `git tag` runs this with nothing
+        # published yet; drafting a release in the web UI creates the tag *and*
+        # the release, and `gh release create` then fails on a release that
+        # already exists. Uploading to it instead is the same outcome.
         run: |
-          gh release create "${GITHUB_REF_NAME}" \
-            --title "${GITHUB_REF_NAME}" \
-            --notes-file .github/release-notes.md \
-            "wavingeye-brand-${GITHUB_REF_NAME}.zip"
+          zip="wavingeye-brand-${GITHUB_REF_NAME}.zip"
+          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
+            gh release upload "${GITHUB_REF_NAME}" "$zip" --clobber
+          else
+            gh release create "${GITHUB_REF_NAME}" \
+              --title "${GITHUB_REF_NAME}" \
+              --notes-file .github/release-notes.md \
+              "$zip"
+          fi

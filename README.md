@@ -194,6 +194,20 @@ Running the harness itself needs kagami pinned as a dependency, which is not
 done: it would need the same cross-repository credential the vendoring check
 needs. The config is correct and unused until then.
 
+## Releasing
+
+A tag builds its own release: it rebuilds `dist/`, refuses if the rebuild
+differs from what is committed, and publishes the kit zip. Either route works:
+
+```
+git tag -a v0.1.0 -m "..." && git push origin v0.1.0
+```
+
+or draft a release in the web UI and let it create the tag.
+
+The zip is what to hand somebody who is not going to clone a repository: every
+asset, the tokens, the font and its licence, and the documents.
+
 ## What is still open
 
 The backlog lives on the repository rather than in a conversation.
