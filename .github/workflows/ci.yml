@@ -7,10 +7,14 @@ jobs:
     name: build · gates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
+          # `npm ci` needs the lockfile, and the lockfile is committed for the
+          # same reason dist/ is: a build that resolves differently on a
+          # different day is not a build.
+          cache: npm
       - run: npm ci
       # The build runs first because every gate reads dist/, and check-dist-clean
       # then rebuilds and asks git whether anything moved. A file edited by hand
