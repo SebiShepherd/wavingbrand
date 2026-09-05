@@ -160,3 +160,30 @@ comfortably light one and the floor is the check, not the target.
 
 `gates/check-theme-roles.mjs` puts every ink on every surface it can land on in
 both themes, which is 54 pairs, and it found this on its first run.
+
+## D10 A change is approved by committing the pixels it produced
+
+The other gates check ratios, sizes and masks. A geometry change that keeps
+every ratio valid passes all of them while drawing something else: moving
+`middleTop` from 10 to 11 satisfies nothing in `check-geometry` except the
+token it also changed, and every render moves.
+
+So every shipped SVG is rendered once at 320 px through resvg, deterministically,
+and the render is committed to `baselines/`. A deviation then arrives as a
+reviewable image diff in the same pull request as the change that caused it,
+which is the only form in which anybody actually looks at one.
+
+Approving a deviation is `npm run baselines` plus a commit. Doing that in a
+commit containing nothing else is the tell that somebody approved without
+reading.
+
+The gate keeps three states rather than one, which is
+kagami's rule and the reason for it: a render that compared and disagreed is a
+finding about the artwork, a missing baseline is a finding about the run, and a
+baseline with no asset is neither. Reporting them as one thing is how a red run
+gets filed as "the build deviates" without a pixel ever being compared.
+
+resvg rather than a browser, because headless Chrome produces slightly different
+pixels on different machines and a comparison against a moving target is not a
+comparison. Two channel levels of slack absorb an antialiasing change between
+resvg patch versions; anything real is two orders of magnitude above that.

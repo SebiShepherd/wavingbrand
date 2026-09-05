@@ -19,7 +19,8 @@
     "build": "node src/build.mjs",
     "docs": "node src/docs.mjs",
     "gates": "node gates/run.mjs",
-    "check": "npm run tokens && npm run build && npm run docs && npm run gates"
+    "check": "npm run tokens && npm run build && npm run docs && npm run gates",
+    "baselines": "node tools/baselines.mjs"
   },
   "dependencies": {
     "@resvg/resvg-js": "^2.6.2",

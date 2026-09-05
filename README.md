@@ -6,6 +6,7 @@ a colour table produce every asset; nothing in `dist/` is drawn.
 ```
 npm ci
 npm run check      # tokens, build, guidelines, gates
+npm run baselines  # re-render baselines/. Doing this is how a change is approved.
 ```
 
 ## What is here
@@ -17,7 +18,8 @@ npm run check      # tokens, build, guidelines, gates
 | `brand/fonts/`    | Montserrat and its OFL licence |
 | `src/`            | the generator: parameters to SVG to platform targets |
 | `gates/`          | the rules as builds, run in CI |
-| `tools/`          | `tokens.mjs`, which solves the palette rather than picking it |
+| `tools/`          | `tokens.mjs` solves the palette; `baselines.mjs` re-renders `baselines/` |
+| `baselines/`      | one deterministic render of every asset, the reviewable record of a change |
 | `dist/`           | generated. Editing anything here fails `gates/check-dist-clean.mjs` |
 | `docs/`           | the audit, the proposal, the decisions, and a generated guidelines page |
 | `init/`           | the original artwork, kept untouched as the reference |
@@ -99,6 +101,7 @@ Each one exists because of a defect in the original artwork.
 | `check-legibility` | counters that close up below 48 px |
 | `check-safe-zones` | ink outside an Android or maskable crop, measured on the shipped PNG |
 | `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths |
+| `check-baselines` | a change that keeps every ratio valid and still draws something else |
 | `check-dist-clean` | a file in `dist/` edited by hand |
 
 ## Documents

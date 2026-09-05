@@ -7,6 +7,7 @@ const gates = [
   './check-legibility.mjs',
   './check-safe-zones.mjs',
   './check-tight-bounds.mjs',
+  './check-baselines.mjs',
   './check-dist-clean.mjs',
 ];
 let failures = 0;
