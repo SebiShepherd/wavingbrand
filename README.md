@@ -16,6 +16,7 @@ npm run baselines  # re-render baselines/. Doing this is how a change is approve
 | `brand/tokens/`   | colour, geometry and typography as W3C DTCG tokens |
 | `brand/products/` | one file per product: its name, its lockups, its targets |
 | `brand/consumers/`| one file per product that renders the mark: its surfaces, as a contract |
+| `brand/stationery/`| what goes on the card and the letterhead. Placeholders until you replace them |
 | `brand/fonts/`    | Montserrat and its OFL licence |
 | `src/`            | the generator: parameters to SVG to platform targets |
 | `gates/`          | the rules as builds, run in CI |
@@ -118,6 +119,21 @@ Favicons and the web manifest are generated per product. Copy
 
 The SVG favicon follows the reader's theme on its own, which a PNG cannot.
 
+## Print
+
+`dist/print/` is vector and DeviceCMYK throughout, written directly rather than
+converted, because no SVG-to-PDF converter emits CMYK and CMYK is the only
+reason a printer gets a PDF instead of an SVG. Type is outlined, so no font is
+embedded and no RIP needs Montserrat.
+
+**The builds are not proofed.** They live in `brand/tokens/print.json`, seeded
+from a naive sRGB conversion, and the pink is the one most likely to be wrong:
+`#EF2F88` is outside CMYK gamut and will come back duller and warmer whatever
+the build. Order a proof, replace the four numbers, rebuild. Nothing else moves.
+
+`brand/stationery/card.json` holds the card and letterhead copy. Its values are
+deliberately unusable, so a placeholder cannot reach paper by looking plausible.
+
 ## The gates
 
 Each one exists because of a defect in the original artwork.
@@ -132,6 +148,7 @@ Each one exists because of a defect in the original artwork.
 | `check-safe-zones` | ink outside an Android or maskable crop, measured on the shipped PNG |
 | `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths |
 | `check-baselines` | a change that keeps every ratio valid and still draws something else |
+| `check-print` | a missing CMYK build, or a print file that carries RGB |
 | `check-dist-clean` | a file in `dist/` edited by hand |
 
 ## Documents

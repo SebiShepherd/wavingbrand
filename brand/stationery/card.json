@@ -1,0 +1,9 @@
+{
+  "$description": "What goes on the card and the letterhead. PLACEHOLDERS: replace every value before sending anything to a printer. They are deliberately obvious rather than plausible, so a placeholder cannot reach paper by being mistaken for real.",
+  "name": "REPLACE NAME",
+  "role": "REPLACE ROLE",
+  "email": "replace@example.invalid",
+  "phone": "+00 000 0000000",
+  "web": "example.invalid",
+  "address": ["REPLACE STREET", "REPLACE CITY"]
+}
