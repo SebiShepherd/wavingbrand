@@ -188,7 +188,12 @@ function ogCard(product) {
 
 function run() {
   rmSync(DIST, { recursive: true, force: true });
-  const manifest = { generated: new Date().toISOString().slice(0, 10), assets: [] };
+  // No timestamp. The whole premise of check-dist-clean is that the same
+  // parameters give the same bytes, and a clock in the output makes that false
+  // once a day: this build shipped on the 5th, the release ran on the 6th, and
+  // the gate refused its own artefact. What produced a file is a commit, and
+  // git already records that.
+  const manifest = { assets: [] };
   const products = readdirSync(join(root, 'brand/products'))
     .filter((f) => f.endsWith('.json'))
     .map((f) => JSON.parse(readFileSync(join(root, 'brand/products', f), 'utf8')));

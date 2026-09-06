@@ -1,6 +1,12 @@
 name: brand
 
-on: [push, pull_request]
+on:
+  # Branches only. A tag push re-ran this whole workflow alongside release.yml,
+  # which rebuilds and gates the same tree, so the tag got two identical
+  # verdicts and twice the runner minutes.
+  push:
+    branches: ['**']
+  pull_request
 
 jobs:
   build:

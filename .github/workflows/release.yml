@@ -6,6 +6,17 @@ name: release
 on:
   push:
     tags: ['v*']
+  # A tag whose own tree cannot pass `npm run check` can never publish itself,
+  # and v0.1.0 was exactly that: it carried a manifest with a build date in it,
+  # so the gate refused the artefact one day after it was built. Dispatching
+  # from a fixed ref repairs such a release without inventing a version number.
+  # The kit then comes from the ref this runs on, not from the tag, so use it to
+  # repair and prefer re-cutting the tag when the difference would matter.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: The release to publish into. Must already exist.
+        required: true
 
 permissions:
   contents: write
@@ -24,9 +35,11 @@ jobs:
       # A release whose contents do not match its own source is worse than none.
       - run: npm run check
       - run: git diff --exit-code -- dist docs brand/tokens
+      - name: The release this run publishes into
+        run: echo "TAG=${{ github.event.inputs.tag || github.ref_name }}" >> "$GITHUB_ENV"
       - name: Assemble the kit
         run: |
-          version="${GITHUB_REF_NAME}"
+          version="${TAG}"
           mkdir -p "kit/wavingeye-brand-${version}"
           cp -r dist brand/tokens brand/fonts docs/*.md README.md "kit/wavingeye-brand-${version}/"
           cd kit && zip -qr "../wavingeye-brand-${version}.zip" .
@@ -39,12 +52,15 @@ jobs:
         # the release, and `gh release create` then fails on a release that
         # already exists. Uploading to it instead is the same outcome.
         run: |
-          zip="wavingeye-brand-${GITHUB_REF_NAME}.zip"
-          if gh release view "${GITHUB_REF_NAME}" >/dev/null 2>&1; then
-            gh release upload "${GITHUB_REF_NAME}" "$zip" --clobber
+          zip="wavingeye-brand-${TAG}.zip"
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release upload "${TAG}" "$zip" --clobber
+            # A release drafted in the web UI has no notes. Fill them in rather
+            # than leaving the kit with no description of what is in it.
+            gh release edit "${TAG}" --notes-file .github/release-notes.md
           else
-            gh release create "${GITHUB_REF_NAME}" \
-              --title "${GITHUB_REF_NAME}" \
+            gh release create "${TAG}" \
+              --title "${TAG}" \
               --notes-file .github/release-notes.md \
               "$zip"
           fi
