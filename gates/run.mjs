@@ -10,6 +10,7 @@ const gates = [
   './check-legibility.mjs',
   './check-cuts.mjs',
   './check-manifest.mjs',
+  './check-provenance.mjs',
   './check-safe-zones.mjs',
   './check-tight-bounds.mjs',
   './check-baselines.mjs',

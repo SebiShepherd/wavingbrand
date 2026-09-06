@@ -231,6 +231,7 @@ Each one exists because of a defect in the original artwork.
 | `check-legibility`   | counters that close up at small sizes                                      |
 | `check-cuts`         | an artefact drawn with the wrong cut for its role                          |
 | `check-manifest`     | a manifest whose hashes, file list or digest disagree with its own dist/    |
+| `check-provenance`   | a tuned number with no recorded origin, or one that moved without a new one |
 | `check-safe-zones`   | ink outside an Android or maskable crop, measured on the shipped PNG       |
 | `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths                |
 | `check-baselines`    | a change that keeps every ratio valid and still draws something else       |
@@ -258,8 +259,22 @@ exists because of that, and the three patterns here are the three states the
 gate reports.
 
 Running the harness itself needs kagami pinned as a dependency, which is not
-done: it would need the same cross-repository credential the vendoring check
-needs. The config is correct and unused until then.
+done: kagami is private and consumed over `git+ssh`, so a public repository
+would need a deploy key in its secrets to install it. The config is correct and
+unused until then, and calling this repository "wired to kagami" overstates it.
+
+One of kagami's gates was worth having anyway, so its rule is implemented here
+rather than imported. `check-research` refuses a change to a normative file that
+cites nothing. `gates/check-provenance.mjs` is the same idea aimed at the thing
+that actually went wrong twice in this repository: a number that is picked, and
+then grows a reason underneath it that reads like a finding. `OPTICAL` carried
+"the eye does not weigh area linearly" and `STACK_RATIO` carried "the eye
+compares widths"; neither was measured, neither was cited, and both sat in
+shipped code looking exactly like the parts that are derived.
+
+A gate cannot decide whether a claim is true. This one refuses a number that
+claims nothing, and it records the value beside the answer, so moving the number
+fails until somebody says where the new one came from.
 
 ## Releasing
 

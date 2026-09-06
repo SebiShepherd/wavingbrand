@@ -1,0 +1,48 @@
+{
+  "$description": "Where every tuned number in src/ came from. gates/check-provenance.mjs refuses a scalar constant that is not listed here, and refuses an entry whose recorded value no longer matches the source. Changing a number therefore means answering this question again, which is the whole point: the failure this register exists for is a chosen number that grows a reason afterwards. $documented holds the constants this gate cannot read mechanically, objects and arithmetic expressions, which other gates already check.",
+  "$kinds": {
+    "measured": "Derived from something this repository measures. The source names what was measured and where.",
+    "inherited": "Taken from the original artwork, with the audit entry that measured it.",
+    "definition": "True by construction. Changing it changes what the unit means.",
+    "chosen": "Somebody picked it. The source says who looked and when, or says that nobody has."
+  },
+  "constants": {
+    "src/lockup.mjs:CAP": {
+      "value": 9,
+      "kind": "definition",
+      "source": "One cap height equals one stroke width, so a capital and the mark's limb are the same measure (docs/decisions.md D4)."
+    },
+    "src/lockup.mjs:GAP": {
+      "value": 1,
+      "kind": "inherited",
+      "source": "The two original lockups used 0.983 and 0.862 cap heights for the same relationship. One is the rationalisation of both, and it moves the WavingEye lockup least (docs/asset-audit.md section 4, docs/decisions.md D4)."
+    },
+    "src/lockup.mjs:OPTICAL": {
+      "value": 0.4,
+      "kind": "chosen",
+      "source": "Picked, not derived. Five settings from 0 to 1 rendered blind at 96 and 320 px and looked at by Sebastian on 2026-09-06; 0.4 could not be separated from 0.6 by eye and kept the field (issue #5). The earlier justification in the code, that the eye does not weigh area linearly, was invented after the fact and is removed."
+    },
+    "src/lockup.mjs:STACK_RATIO": {
+      "value": 0.72,
+      "kind": "chosen",
+      "source": "Picked, not derived, and nobody has looked at it. No measurement here supports it and it has had no blind comparison. Open."
+    },
+    "src/baseline.mjs:WIDTH": {
+      "value": 320,
+      "kind": "chosen",
+      "source": "The render width every baseline is compared at. Large enough that a third of a ninth is a pixel, small enough that 84 committed PNGs stay reviewable in a diff. Nothing depends on the exact figure."
+    }
+  },
+  "$documented": {
+    "src/mark.mjs:STANDARD": {
+      "value": 9,
+      "kind": "definition",
+      "source": "One outer stroke width is the unit, and it is nine ninths; every other integer in the grid is measured against it and checked by gates/check-geometry.mjs against brand/tokens/geometry.json (docs/asset-audit.md section 1, docs/decisions.md D2)."
+    },
+    "src/pdf.mjs:MM": {
+      "value": "72 / 25.4",
+      "kind": "definition",
+      "source": "72 PostScript points per inch, 25.4 mm per inch. Not a choice."
+    }
+  }
+}

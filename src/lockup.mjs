@@ -20,10 +20,19 @@ export const GAP = 1;
 /**
  * How far to lift a shape so it looks centred rather than measures centred.
  *
- * The mark's mass is in the base bar, so its area centroid sits 5.5% of its
- * height below the bounding box centre and it reads low when the box is
- * measured. Forty percent of the centroid's deviation is the correction; a full
- * correction over-shoots, because the eye does not weigh area linearly.
+ * The measured part: the mark's mass is in the base bar, so its area centroid
+ * sits 5.48% of its height below the bounding box centre. That number comes out
+ * of `centroid()` below and moves with the geometry.
+ *
+ * The chosen part: 0.4 of that deviation. An earlier version of this comment
+ * gave a reason, that the eye does not weigh area linearly, which was invented
+ * to justify the number after it was picked. It is not a finding and nothing
+ * here measured it. What the number does have is a person: five settings from
+ * 0 to 1 were rendered blind at 96 and 320 px and looked at, 0.4 could not be
+ * separated from 0.6 by eye, and it kept the field (issue #5).
+ *
+ * Below 96 px this moves the mark by less than a pixel, so it governs the app
+ * icon, the App Store tile and print, and nothing about the favicon.
  */
 export const OPTICAL = 0.4;
 
@@ -75,10 +84,15 @@ export function mark({ cut = STANDARD, style = 'solid', weight = 3 } = {}) {
 /**
  * The mark at the size a stacked lockup wants.
  *
- * A square mark over a wide word reads as an afterthought at its natural 32,
- * because the eye compares widths. Matching the widest line's width is too
- * heavy; STACK_RATIO of it is the setting, applied to width so the mark grows
- * with the name rather than against it.
+ * Applied to width rather than height, so the mark grows with the name rather
+ * than against it: that part is a rule and it holds for any string.
+ *
+ * 0.72 is chosen and nobody has looked at it. An earlier version of this
+ * comment said a square mark over a wide word reads as an afterthought because
+ * the eye compares widths, which was asserted rather than found: no measurement
+ * here supports it and no person has judged the result. It sits in the same
+ * class as OPTICAL did before issue #5, and unlike OPTICAL it has not had its
+ * blind comparison yet.
  */
 export const STACK_RATIO = 0.72;
 
