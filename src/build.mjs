@@ -5,7 +5,8 @@
  * `dist/` is output. Editing a file in it is a mistake the next build corrects
  * and gates/check-dist-clean.mjs reports.
  */
-import { mkdirSync, writeFileSync, rmSync, readFileSync, readdirSync } from 'node:fs';
+import { mkdirSync, writeFileSync, rmSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Resvg } from '@resvg/resvg-js';
@@ -330,8 +331,51 @@ function run() {
     types: 'tokens/color.d.ts',
   };
 
+  // Hashes, so a consumer can answer "is my copy current" with one request.
+  //
+  // Without them the manifest names files and says nothing about their content,
+  // so checking a vendored copy means fetching every file it vendors: eighty-odd
+  // requests to answer one question, which is a check people turn off. With them
+  // the manifest is the answer, and `digest` is the answer to the coarser
+  // question of whether anything at all moved.
+  //
+  // Every file is listed, not only the assets, because a consumer may vendor the
+  // tokens, the email signature or a print file just as easily as a mark.
+  // The build stamps which release it is, so a vendored copy is self-describing:
+  // a consumer's check reads this out of its own copy and knows what to compare
+  // against without being told. It is the version and not the commit because a
+  // build does not know its own tag, and a consumer should track releases anyway.
+  manifest.version = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).version;
+  manifest.files = hashTree(DIST);
+  const byPath = new Map(manifest.files.map((f) => [f.file, f.sha256]));
+  for (const a of manifest.assets) a.sha256 = byPath.get(a.file);
+  manifest.digest = createHash('sha256')
+    .update(manifest.files.map((f) => `${f.file} ${f.sha256}`).join('\n'))
+    .digest('hex');
+
   writeFileSync(join(DIST, 'manifest.json'), JSON.stringify(manifest, null, 2));
-  console.log(`${manifest.assets.length} assets in dist/`);
+  console.log(`${manifest.assets.length} assets in dist/, digest ${manifest.digest.slice(0, 12)}`);
 }
 
 run();
+
+/**
+ * Every file under `dir`, sorted, with its SHA-256.
+ *
+ * `manifest.json` is excluded because it is the thing being written; a file
+ * cannot carry its own hash. Sorting is what makes the digest reproducible:
+ * readdir order is a filesystem's business, not a build's.
+ */
+function hashTree(dir, base = dir, out = []) {
+  for (const name of readdirSync(dir).sort()) {
+    const path = join(dir, name);
+    if (statSync(path).isDirectory()) hashTree(path, base, out);
+    else if (path !== join(base, 'manifest.json'))
+      out.push({
+        file: path.slice(base.length + 1).replaceAll('\\', '/'),
+        bytes: statSync(path).size,
+        sha256: createHash('sha256').update(readFileSync(path)).digest('hex'),
+      });
+  }
+  return out;
+}

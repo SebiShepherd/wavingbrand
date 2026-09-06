@@ -5,568 +5,652 @@
       "form": "mark",
       "variant": "navy",
       "file": "hikaru/mark-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "2777d9f1bbc912930138a9616adacce4b5e20a63fd716dacc4ef0b7244e30ce7"
     },
     {
       "product": "hikaru",
       "form": "mark",
       "variant": "pink",
       "file": "hikaru/mark-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "ab0f4ad4b9790fb7f3301ddaf3676be9ca15da0db2d83edfcc8746e3d01bc96c"
     },
     {
       "product": "hikaru",
       "form": "mark",
       "variant": "white",
       "file": "hikaru/mark-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "e1048c6db421862bd7052ad72d680c52cff3f8c00809d003cbc6b94a7ad79e73"
     },
     {
       "product": "hikaru",
       "form": "mark",
       "variant": "current",
       "file": "hikaru/mark-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "08bf5ca9a336176055a9d8a517e8ddbb9bcc85943e521733ba37df44ab33e20c"
     },
     {
       "product": "hikaru",
       "form": "mark-small",
       "variant": "navy",
       "file": "hikaru/mark-small-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "1895fcca5e5ed7aeb9bcd4ea421d5fe4983e16d395ac7f708893d6c4bc079502"
     },
     {
       "product": "hikaru",
       "form": "mark-small",
       "variant": "pink",
       "file": "hikaru/mark-small-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "5b6ab9714069217bd0615819e110ec8d3386de6266b74abfa6fbcdc4ed8ab261"
     },
     {
       "product": "hikaru",
       "form": "mark-small",
       "variant": "white",
       "file": "hikaru/mark-small-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "ff2e2a5473c9425281a5a5a5b12c371dd1c2a0d28432a013dd8075399aad984f"
     },
     {
       "product": "hikaru",
       "form": "mark-small",
       "variant": "current",
       "file": "hikaru/mark-small-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "43bf98d01a5c3599481689a236d7f3cab0e30ce14cd3b4932a6d5da26b1b6f6c"
     },
     {
       "product": "hikaru",
       "form": "mark-outline",
       "variant": "navy",
       "file": "hikaru/mark-outline-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "81aa6247cb42ec7c316e89d0a8e94dc078df50f2db0b6fb23a89fe2a526db146"
     },
     {
       "product": "hikaru",
       "form": "mark-outline",
       "variant": "pink",
       "file": "hikaru/mark-outline-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "2751c06fcec09a7c918356add40e903a93472761b7e2d295ad4875c46aaefb39"
     },
     {
       "product": "hikaru",
       "form": "mark-outline",
       "variant": "white",
       "file": "hikaru/mark-outline-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "3857b936bdae2439a556fd6e076077639cdd57a218a87f8fc2b7502df3ac9245"
     },
     {
       "product": "hikaru",
       "form": "mark-outline",
       "variant": "current",
       "file": "hikaru/mark-outline-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "037709b0f258c4b88d5febc6d250c22619175681225702d476bb63705f14fc6d"
     },
     {
       "product": "hikaru",
       "form": "wordmark",
       "variant": "navy",
       "file": "hikaru/wordmark-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "58516acc1e37299f347f1d4ec415098f3ca5a7502a1fe1bfecc0fbd8392b336a"
     },
     {
       "product": "hikaru",
       "form": "wordmark",
       "variant": "pink",
       "file": "hikaru/wordmark-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "94613b1196f17543d75900cd12c554cef1e4219609c117265d3775ffb439e108"
     },
     {
       "product": "hikaru",
       "form": "wordmark",
       "variant": "white",
       "file": "hikaru/wordmark-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "a6f4f4712fba524b3147bb3f464e9b804201249ef932b8a7a6d74cae625badd3"
     },
     {
       "product": "hikaru",
       "form": "wordmark",
       "variant": "current",
       "file": "hikaru/wordmark-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "403c3f61c7edc90a95c31249439bdb329501b5b94201d3af6d5d1cd7335fdba5"
     },
     {
       "product": "hikaru",
       "form": "lockup-horizontal",
       "variant": "navy",
       "file": "hikaru/lockup-horizontal-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "15963d31f6d9231f644d53536f21b45cb57f0ec8f253f0915b3accd89ba237a8"
     },
     {
       "product": "hikaru",
       "form": "lockup-horizontal",
       "variant": "pink",
       "file": "hikaru/lockup-horizontal-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "88a2334fd933a7edf4e2d730bf1d54e24dd5ec62f13fbb745696fd0ff821667d"
     },
     {
       "product": "hikaru",
       "form": "lockup-horizontal",
       "variant": "white",
       "file": "hikaru/lockup-horizontal-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "b52660cc856f1fb6e11b6eff0fcf12f3b3debe0b62e9b4d3680e908e6f49a01e"
     },
     {
       "product": "hikaru",
       "form": "lockup-horizontal",
       "variant": "current",
       "file": "hikaru/lockup-horizontal-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "d492a08cb9b642be4b2621c286ea75275cdc10279ed682e8f2fdb327d506873f"
     },
     {
       "product": "hikaru",
       "form": "lockup-stacked",
       "variant": "navy",
       "file": "hikaru/lockup-stacked-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "03c7b7a81744199269e801014fd7cc78a1b13fe2709d75dbce7a74a95245e75a"
     },
     {
       "product": "hikaru",
       "form": "lockup-stacked",
       "variant": "pink",
       "file": "hikaru/lockup-stacked-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "d1517188a750f7047ef89cd5d6876ead2a9e11fa9736b81b626103a9fab09364"
     },
     {
       "product": "hikaru",
       "form": "lockup-stacked",
       "variant": "white",
       "file": "hikaru/lockup-stacked-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "613603fb669de9377824fb8f6a9ac00c5c3000fa0805013857fbd2473d1e8891"
     },
     {
       "product": "hikaru",
       "form": "lockup-stacked",
       "variant": "current",
       "file": "hikaru/lockup-stacked-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "70bedc79719806510254407332d219f0064095786fcb8a5aa2874459641573ef"
     },
     {
       "product": "hikaru",
       "form": "boxed-icon",
       "variant": "white-on-navy",
       "file": "hikaru/boxed-icon-white-on-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "654c36008d1a6dfbe292a4c03a41d957c2b99f8388608d4edfc5aa65d73d1107"
     },
     {
       "product": "hikaru",
       "form": "boxed-icon",
       "variant": "white-on-pink",
       "file": "hikaru/boxed-icon-white-on-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "0553327bc2a48d16a57348997d9d29e962ebbe9f67c36f4b79e3f9f02bc4ae39"
     },
     {
       "product": "hikaru",
       "form": "boxed-icon",
       "variant": "pink-on-navy",
       "file": "hikaru/boxed-icon-pink-on-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "69276d0fe04fd90747dd8841cdcac6728a78690d62325170abe93d59d435fd83"
     },
     {
       "product": "hikaru",
       "form": "boxed-icon",
       "variant": "reverse",
       "file": "hikaru/boxed-icon-reverse.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "1bdc7e0664a47471d6b85a30c697420924dea49df09bf9010cbcf873d734fc08"
     },
     {
       "product": "hikaru",
       "form": "boxed-lockup",
       "variant": "white-on-navy",
       "file": "hikaru/boxed-lockup-white-on-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "aafcddf7c06a4797d0cee44ed50c6b4142086ca9c47b8a5cc32bd5e5a9c64cd4"
     },
     {
       "product": "hikaru",
       "form": "boxed-lockup",
       "variant": "white-on-pink",
       "file": "hikaru/boxed-lockup-white-on-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "7e14cbeab895a94b82ed1e86feaaddf8b237e750cad33c1dbc6dc696e2e4d20c"
     },
     {
       "product": "hikaru",
       "form": "boxed-lockup",
       "variant": "pink-on-navy",
       "file": "hikaru/boxed-lockup-pink-on-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "5789f35704a79053476aa12ebe7b9f61158546ada4c7df5b2792a3190ffce531"
     },
     {
       "product": "hikaru",
       "form": "boxed-lockup",
       "variant": "reverse",
       "file": "hikaru/boxed-lockup-reverse.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "32a50c07fcef00d6d56b95088fefb510c2fe410e9cbeaf47cda22f402bf4398e"
     },
     {
       "product": "hikaru",
       "target": "favicon",
       "file": "hikaru/favicon-16.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "3074e69e6330d3e4ec36773d1ceb0f20227926e8f3876ceb5992c942a3561905"
     },
     {
       "product": "hikaru",
       "target": "favicon",
       "file": "hikaru/favicon-32.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "6eef0864491a351d4c261b29bef6ec14204ef4c895296da8784aec0685ab8f50"
     },
     {
       "product": "hikaru",
       "target": "favicon",
       "file": "hikaru/favicon-48.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "60448bc36cbfa0648b3c1f8408da93320c42699fb765d336f4276424deb0e70f"
     },
     {
       "product": "hikaru",
       "target": "apple-touch",
       "file": "hikaru/apple-touch-icon-180.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "7effb280643c3924681e9b28a178efc27eb678a7716a3c9f7e6ce6dec579a6d3"
     },
     {
       "product": "hikaru",
       "target": "android",
       "file": "hikaru/android-192.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "a62db72b9c247b2fbe013edb50f8230b2d557f02c70bfb5d67a4f16275822fc0"
     },
     {
       "product": "hikaru",
       "target": "android",
       "file": "hikaru/android-512.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "805b6325c1d5c330f7ba7d44403d23916d73737519f4d44a1aebe026022c0fef"
     },
     {
       "product": "hikaru",
       "target": "android",
       "file": "hikaru/android-adaptive-foreground-432.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "f9a56a6fa9f033aaadd8e1568095cb87f4b96142c5419e5daf786450e81477d7"
     },
     {
       "product": "hikaru",
       "target": "maskable",
       "file": "hikaru/maskable-512.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "a433fa16acd018add9df8029af3c1d174cde07d8886a0983a11eebe08832d148"
     },
     {
       "product": "hikaru",
       "target": "app-store",
       "file": "hikaru/app-store-1024.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "d2b7028b986d20b0aba7a3dac85eaf124edcf51ff75cb0dffdbcd19170f12440"
     },
     {
       "product": "hikaru",
       "target": "og",
       "file": "hikaru/og-1200x630.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "07a8540c163826d8f1ff83be02675cb2c3a85db71f58a3ba41e093f9e8f4be87"
     },
     {
       "product": "wavingeye",
       "form": "mark",
       "variant": "navy",
       "file": "wavingeye/mark-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "3f50c7a6da1624507fb7864d235d4309ff62eb482028321dc82ee14e0b3040c7"
     },
     {
       "product": "wavingeye",
       "form": "mark",
       "variant": "pink",
       "file": "wavingeye/mark-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "f6ba011e2faea6c6116c296ec328b9522802f27842e4df0c4ec0be69325e5bf0"
     },
     {
       "product": "wavingeye",
       "form": "mark",
       "variant": "white",
       "file": "wavingeye/mark-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "72bf58525a335dc1850f8f3848ed20e858f0e60dc4524ddfaeb588e2b3e74746"
     },
     {
       "product": "wavingeye",
       "form": "mark",
       "variant": "current",
       "file": "wavingeye/mark-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "798b0629893d6bf03fbb302fe59258e37a3cdf661f9e081907f9716eeabda293"
     },
     {
       "product": "wavingeye",
       "form": "mark-small",
       "variant": "navy",
       "file": "wavingeye/mark-small-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "fadaec0a0feb1aace4bf57071b35d312ba238494f111813dcd342e0e077d136a"
     },
     {
       "product": "wavingeye",
       "form": "mark-small",
       "variant": "pink",
       "file": "wavingeye/mark-small-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "e1e0b53d8c1fe027619f19aa144b4bfaa9ec9b64c9a9bdee15ac8644deb1ab28"
     },
     {
       "product": "wavingeye",
       "form": "mark-small",
       "variant": "white",
       "file": "wavingeye/mark-small-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "c0aeee93292e3c64c1db766ecc6600dc4d4cf0240f217b189dc200eb0b54d2dd"
     },
     {
       "product": "wavingeye",
       "form": "mark-small",
       "variant": "current",
       "file": "wavingeye/mark-small-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "03ad9e5bb0d59bff36200d9cbd8a16f326e5e75871bf494053eb0678437d6277"
     },
     {
       "product": "wavingeye",
       "form": "mark-outline",
       "variant": "navy",
       "file": "wavingeye/mark-outline-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "ff438adebc604434a1f3d7013e2be80b92399e904e94fef7d31e62d5fb57dfce"
     },
     {
       "product": "wavingeye",
       "form": "mark-outline",
       "variant": "pink",
       "file": "wavingeye/mark-outline-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "6eb08b465fc3e4904f4322d2eb1dfd71112a8fd59ba5e9223c4c4c80a02f8c49"
     },
     {
       "product": "wavingeye",
       "form": "mark-outline",
       "variant": "white",
       "file": "wavingeye/mark-outline-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "8a903d714c0252f645f1c7ff098a466b0f52b649a51d7fcecc910f9ea740b428"
     },
     {
       "product": "wavingeye",
       "form": "mark-outline",
       "variant": "current",
       "file": "wavingeye/mark-outline-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "180578d826beba5b709abd3f408284928eb203a1d0dac937ae6744f39d407931"
     },
     {
       "product": "wavingeye",
       "form": "wordmark",
       "variant": "navy",
       "file": "wavingeye/wordmark-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "6f01ffbca62e11c5b255d7796f6c46de2580938d2b0957863d405c1efd63ce32"
     },
     {
       "product": "wavingeye",
       "form": "wordmark",
       "variant": "pink",
       "file": "wavingeye/wordmark-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "0e6ced2d5cc6870a000bdd8035e8909f194f39cfa3f5e6ad70a431b4820d70aa"
     },
     {
       "product": "wavingeye",
       "form": "wordmark",
       "variant": "white",
       "file": "wavingeye/wordmark-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "e84fddb5cab7134c697fab25704c1cb7ab30d3a9351da6242e52ce35d9437a79"
     },
     {
       "product": "wavingeye",
       "form": "wordmark",
       "variant": "current",
       "file": "wavingeye/wordmark-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "237b326bc3c266eb83402f4a36c2bb341c00d9b972b1cf8133ecca3a993db69d"
     },
     {
       "product": "wavingeye",
       "form": "lockup-split",
       "variant": "navy",
       "file": "wavingeye/lockup-split-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "c160cea2021f60b190cdf8ab28d31dfaea1e6da271881bc7c3e115b0f0c0bdad"
     },
     {
       "product": "wavingeye",
       "form": "lockup-split",
       "variant": "pink",
       "file": "wavingeye/lockup-split-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "cbf270701be0b007e71a3f5356ea9f1a4ab2c07ab234faeb485f2841b199dfac"
     },
     {
       "product": "wavingeye",
       "form": "lockup-split",
       "variant": "white",
       "file": "wavingeye/lockup-split-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "18da044912be954ff6abdc92960d55aeaff4fdceaab0ac1232ec1ec6b1d55282"
     },
     {
       "product": "wavingeye",
       "form": "lockup-split",
       "variant": "current",
       "file": "wavingeye/lockup-split-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "1cd16f76137b8944e5edca7244c061a77b05cc248f1bcff5a68d333806b2cd0f"
     },
     {
       "product": "wavingeye",
       "form": "lockup-horizontal",
       "variant": "navy",
       "file": "wavingeye/lockup-horizontal-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "79d0b748d67389736ee6d0b6cb84a62a93f2d7bf1c9623e331b84a31eabd1d67"
     },
     {
       "product": "wavingeye",
       "form": "lockup-horizontal",
       "variant": "pink",
       "file": "wavingeye/lockup-horizontal-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "cca91935bd377cce30f4bb1ab6a5283a788a159c1b21cfcf4617a73e619d5596"
     },
     {
       "product": "wavingeye",
       "form": "lockup-horizontal",
       "variant": "white",
       "file": "wavingeye/lockup-horizontal-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "db9acf474498143a3278f34992ff4491db1b31a6efdb9f37e87b0be84f74ab71"
     },
     {
       "product": "wavingeye",
       "form": "lockup-horizontal",
       "variant": "current",
       "file": "wavingeye/lockup-horizontal-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "4574223a707fc3f13bdb119cf11e5d0c48a249fd5011c312fbb170138636f45b"
     },
     {
       "product": "wavingeye",
       "form": "lockup-stacked",
       "variant": "navy",
       "file": "wavingeye/lockup-stacked-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "4ea57f86a36ac35601128adb625483bc276a672ef9f12b41a0d33ffc2426f2b9"
     },
     {
       "product": "wavingeye",
       "form": "lockup-stacked",
       "variant": "pink",
       "file": "wavingeye/lockup-stacked-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "5cb36b44d26b5f0f4009a50b4464ced9831038418c3c974fc0d21d5c4cbe70bc"
     },
     {
       "product": "wavingeye",
       "form": "lockup-stacked",
       "variant": "white",
       "file": "wavingeye/lockup-stacked-white.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "31232a93acf494a945b8a7c3f1226c002b88efd21183513b54433f1570c3c19e"
     },
     {
       "product": "wavingeye",
       "form": "lockup-stacked",
       "variant": "current",
       "file": "wavingeye/lockup-stacked-current.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "ff948e7cedc76350e6dcd7acf6c174aee83c6fb87ca5f0420ac3f3739361206b"
     },
     {
       "product": "wavingeye",
       "form": "boxed-icon",
       "variant": "white-on-navy",
       "file": "wavingeye/boxed-icon-white-on-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "9fa9c58311cad740497e7ec7cfcf7c686d3c70cea6598cb8cfabb011c77a12b3"
     },
     {
       "product": "wavingeye",
       "form": "boxed-icon",
       "variant": "white-on-pink",
       "file": "wavingeye/boxed-icon-white-on-pink.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "cc402d46bcef129ff922e98bed8f6ca402618488336b9d9c8593fbdb5cf3d4be"
     },
     {
       "product": "wavingeye",
       "form": "boxed-icon",
       "variant": "pink-on-navy",
       "file": "wavingeye/boxed-icon-pink-on-navy.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "4d4c79df08f4755c7dcf17e9653c29d5e8affe190e43ad9827d12fc58517c4d3"
     },
     {
       "product": "wavingeye",
       "form": "boxed-icon",
       "variant": "reverse",
       "file": "wavingeye/boxed-icon-reverse.svg",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "sha256": "a86295b1030d37ef6d07fa2d84fee9ebba5ce35af62acc7209d4053d9066a8d7"
     },
     {
       "product": "wavingeye",
       "target": "favicon",
       "file": "wavingeye/favicon-16.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "3074e69e6330d3e4ec36773d1ceb0f20227926e8f3876ceb5992c942a3561905"
     },
     {
       "product": "wavingeye",
       "target": "favicon",
       "file": "wavingeye/favicon-32.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "6eef0864491a351d4c261b29bef6ec14204ef4c895296da8784aec0685ab8f50"
     },
     {
       "product": "wavingeye",
       "target": "favicon",
       "file": "wavingeye/favicon-48.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "60448bc36cbfa0648b3c1f8408da93320c42699fb765d336f4276424deb0e70f"
     },
     {
       "product": "wavingeye",
       "target": "apple-touch",
       "file": "wavingeye/apple-touch-icon-180.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "7effb280643c3924681e9b28a178efc27eb678a7716a3c9f7e6ce6dec579a6d3"
     },
     {
       "product": "wavingeye",
       "target": "android",
       "file": "wavingeye/android-192.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "a62db72b9c247b2fbe013edb50f8230b2d557f02c70bfb5d67a4f16275822fc0"
     },
     {
       "product": "wavingeye",
       "target": "android",
       "file": "wavingeye/android-512.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "805b6325c1d5c330f7ba7d44403d23916d73737519f4d44a1aebe026022c0fef"
     },
     {
       "product": "wavingeye",
       "target": "android",
       "file": "wavingeye/android-adaptive-foreground-432.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "f9a56a6fa9f033aaadd8e1568095cb87f4b96142c5419e5daf786450e81477d7"
     },
     {
       "product": "wavingeye",
       "target": "maskable",
       "file": "wavingeye/maskable-512.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "a433fa16acd018add9df8029af3c1d174cde07d8886a0983a11eebe08832d148"
     },
     {
       "product": "wavingeye",
       "target": "app-store",
       "file": "wavingeye/app-store-1024.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "d2b7028b986d20b0aba7a3dac85eaf124edcf51ff75cb0dffdbcd19170f12440"
     },
     {
       "product": "wavingeye",
       "target": "og",
       "file": "wavingeye/og-1200x630.png",
-      "type": "image/png"
+      "type": "image/png",
+      "sha256": "82e2912cf82aac18defb14fba9b256fff2d21963bfa5b7865fdc87dfa70ed206"
     }
   ],
   "tokens": {
@@ -575,5 +659,714 @@
     "scss": "tokens/color.scss",
     "js": "tokens/color.js",
     "types": "tokens/color.d.ts"
-  }
+  },
+  "version": "0.1.0",
+  "files": [
+    {
+      "file": "email/signature-lockup@2x.png",
+      "bytes": 5931,
+      "sha256": "d4411d7c0c9cadb0db8d9d2930f76ae0ab7bca9bf9e9133c7ffc32888f9b12d1"
+    },
+    {
+      "file": "email/signature.html",
+      "bytes": 900,
+      "sha256": "2c39c8d138375fe036290174c0b5810833a2e301525686b258021af42a28678d"
+    },
+    {
+      "file": "hikaru/android-192.png",
+      "bytes": 1438,
+      "sha256": "a62db72b9c247b2fbe013edb50f8230b2d557f02c70bfb5d67a4f16275822fc0"
+    },
+    {
+      "file": "hikaru/android-512.png",
+      "bytes": 5358,
+      "sha256": "805b6325c1d5c330f7ba7d44403d23916d73737519f4d44a1aebe026022c0fef"
+    },
+    {
+      "file": "hikaru/android-adaptive-foreground-432.png",
+      "bytes": 5093,
+      "sha256": "f9a56a6fa9f033aaadd8e1568095cb87f4b96142c5419e5daf786450e81477d7"
+    },
+    {
+      "file": "hikaru/app-store-1024.png",
+      "bytes": 13632,
+      "sha256": "d2b7028b986d20b0aba7a3dac85eaf124edcf51ff75cb0dffdbcd19170f12440"
+    },
+    {
+      "file": "hikaru/apple-touch-icon-180.png",
+      "bytes": 1460,
+      "sha256": "7effb280643c3924681e9b28a178efc27eb678a7716a3c9f7e6ce6dec579a6d3"
+    },
+    {
+      "file": "hikaru/boxed-icon-pink-on-navy.svg",
+      "bytes": 377,
+      "sha256": "69276d0fe04fd90747dd8841cdcac6728a78690d62325170abe93d59d435fd83"
+    },
+    {
+      "file": "hikaru/boxed-icon-reverse.svg",
+      "bytes": 377,
+      "sha256": "1bdc7e0664a47471d6b85a30c697420924dea49df09bf9010cbcf873d734fc08"
+    },
+    {
+      "file": "hikaru/boxed-icon-white-on-navy.svg",
+      "bytes": 377,
+      "sha256": "654c36008d1a6dfbe292a4c03a41d957c2b99f8388608d4edfc5aa65d73d1107"
+    },
+    {
+      "file": "hikaru/boxed-icon-white-on-pink.svg",
+      "bytes": 377,
+      "sha256": "0553327bc2a48d16a57348997d9d29e962ebbe9f67c36f4b79e3f9f02bc4ae39"
+    },
+    {
+      "file": "hikaru/boxed-lockup-pink-on-navy.svg",
+      "bytes": 1442,
+      "sha256": "5789f35704a79053476aa12ebe7b9f61158546ada4c7df5b2792a3190ffce531"
+    },
+    {
+      "file": "hikaru/boxed-lockup-reverse.svg",
+      "bytes": 1442,
+      "sha256": "32a50c07fcef00d6d56b95088fefb510c2fe410e9cbeaf47cda22f402bf4398e"
+    },
+    {
+      "file": "hikaru/boxed-lockup-white-on-navy.svg",
+      "bytes": 1442,
+      "sha256": "aafcddf7c06a4797d0cee44ed50c6b4142086ca9c47b8a5cc32bd5e5a9c64cd4"
+    },
+    {
+      "file": "hikaru/boxed-lockup-white-on-pink.svg",
+      "bytes": 1442,
+      "sha256": "7e14cbeab895a94b82ed1e86feaaddf8b237e750cad33c1dbc6dc696e2e4d20c"
+    },
+    {
+      "file": "hikaru/favicon-16.png",
+      "bytes": 286,
+      "sha256": "3074e69e6330d3e4ec36773d1ceb0f20227926e8f3876ceb5992c942a3561905"
+    },
+    {
+      "file": "hikaru/favicon-32.png",
+      "bytes": 339,
+      "sha256": "6eef0864491a351d4c261b29bef6ec14204ef4c895296da8784aec0685ab8f50"
+    },
+    {
+      "file": "hikaru/favicon-48.png",
+      "bytes": 472,
+      "sha256": "60448bc36cbfa0648b3c1f8408da93320c42699fb765d336f4276424deb0e70f"
+    },
+    {
+      "file": "hikaru/favicon.ico",
+      "bytes": 1151,
+      "sha256": "89f2b7ebf571d566683cb2a542393d19a28fb32b54249cf2e5e058f5f3adca56"
+    },
+    {
+      "file": "hikaru/favicon.svg",
+      "bytes": 359,
+      "sha256": "65e4f18b1b60a194c80b6c3da1591309ce235325eb009b4b3d6a2a0efcb8af33"
+    },
+    {
+      "file": "hikaru/head.html",
+      "bytes": 312,
+      "sha256": "9778f5072c2378e5b9d8a0c8783444672461b4e8f98c6d436154cbf3fa494909"
+    },
+    {
+      "file": "hikaru/lockup-horizontal-current.svg",
+      "bytes": 1399,
+      "sha256": "d492a08cb9b642be4b2621c286ea75275cdc10279ed682e8f2fdb327d506873f"
+    },
+    {
+      "file": "hikaru/lockup-horizontal-navy.svg",
+      "bytes": 1389,
+      "sha256": "15963d31f6d9231f644d53536f21b45cb57f0ec8f253f0915b3accd89ba237a8"
+    },
+    {
+      "file": "hikaru/lockup-horizontal-pink.svg",
+      "bytes": 1389,
+      "sha256": "88a2334fd933a7edf4e2d730bf1d54e24dd5ec62f13fbb745696fd0ff821667d"
+    },
+    {
+      "file": "hikaru/lockup-horizontal-white.svg",
+      "bytes": 1389,
+      "sha256": "b52660cc856f1fb6e11b6eff0fcf12f3b3debe0b62e9b4d3680e908e6f49a01e"
+    },
+    {
+      "file": "hikaru/lockup-stacked-current.svg",
+      "bytes": 1413,
+      "sha256": "70bedc79719806510254407332d219f0064095786fcb8a5aa2874459641573ef"
+    },
+    {
+      "file": "hikaru/lockup-stacked-navy.svg",
+      "bytes": 1403,
+      "sha256": "03c7b7a81744199269e801014fd7cc78a1b13fe2709d75dbce7a74a95245e75a"
+    },
+    {
+      "file": "hikaru/lockup-stacked-pink.svg",
+      "bytes": 1403,
+      "sha256": "d1517188a750f7047ef89cd5d6876ead2a9e11fa9736b81b626103a9fab09364"
+    },
+    {
+      "file": "hikaru/lockup-stacked-white.svg",
+      "bytes": 1403,
+      "sha256": "613603fb669de9377824fb8f6a9ac00c5c3000fa0805013857fbd2473d1e8891"
+    },
+    {
+      "file": "hikaru/mark-current.svg",
+      "bytes": 285,
+      "sha256": "08bf5ca9a336176055a9d8a517e8ddbb9bcc85943e521733ba37df44ab33e20c"
+    },
+    {
+      "file": "hikaru/mark-navy.svg",
+      "bytes": 280,
+      "sha256": "2777d9f1bbc912930138a9616adacce4b5e20a63fd716dacc4ef0b7244e30ce7"
+    },
+    {
+      "file": "hikaru/mark-outline-current.svg",
+      "bytes": 439,
+      "sha256": "037709b0f258c4b88d5febc6d250c22619175681225702d476bb63705f14fc6d"
+    },
+    {
+      "file": "hikaru/mark-outline-navy.svg",
+      "bytes": 434,
+      "sha256": "81aa6247cb42ec7c316e89d0a8e94dc078df50f2db0b6fb23a89fe2a526db146"
+    },
+    {
+      "file": "hikaru/mark-outline-pink.svg",
+      "bytes": 434,
+      "sha256": "2751c06fcec09a7c918356add40e903a93472761b7e2d295ad4875c46aaefb39"
+    },
+    {
+      "file": "hikaru/mark-outline-white.svg",
+      "bytes": 434,
+      "sha256": "3857b936bdae2439a556fd6e076077639cdd57a218a87f8fc2b7502df3ac9245"
+    },
+    {
+      "file": "hikaru/mark-pink.svg",
+      "bytes": 280,
+      "sha256": "ab0f4ad4b9790fb7f3301ddaf3676be9ca15da0db2d83edfcc8746e3d01bc96c"
+    },
+    {
+      "file": "hikaru/mark-small-current.svg",
+      "bytes": 295,
+      "sha256": "43bf98d01a5c3599481689a236d7f3cab0e30ce14cd3b4932a6d5da26b1b6f6c"
+    },
+    {
+      "file": "hikaru/mark-small-navy.svg",
+      "bytes": 290,
+      "sha256": "1895fcca5e5ed7aeb9bcd4ea421d5fe4983e16d395ac7f708893d6c4bc079502"
+    },
+    {
+      "file": "hikaru/mark-small-outline-current.svg",
+      "bytes": 417,
+      "sha256": "e6857a53fd8ec5f2c5c05ee90b8a9f9dbf03764e4bb55fc4a7d0ea5310bf3049"
+    },
+    {
+      "file": "hikaru/mark-small-outline-navy.svg",
+      "bytes": 412,
+      "sha256": "dbdafa3878472bf1699ee01e77e73243f93e67e731d282ac6a61da8e9fd8de53"
+    },
+    {
+      "file": "hikaru/mark-small-outline-pink.svg",
+      "bytes": 412,
+      "sha256": "f5056e85f6dcd5e07175ce51ce4d3684714df068e1a534459803036f45fa50a6"
+    },
+    {
+      "file": "hikaru/mark-small-outline-white.svg",
+      "bytes": 412,
+      "sha256": "109dabf8dddde56ad27782e67a70d9f96296ac1eee048a7b4b3b8073b50619a3"
+    },
+    {
+      "file": "hikaru/mark-small-pink.svg",
+      "bytes": 290,
+      "sha256": "5b6ab9714069217bd0615819e110ec8d3386de6266b74abfa6fbcdc4ed8ab261"
+    },
+    {
+      "file": "hikaru/mark-small-white.svg",
+      "bytes": 290,
+      "sha256": "ff2e2a5473c9425281a5a5a5b12c371dd1c2a0d28432a013dd8075399aad984f"
+    },
+    {
+      "file": "hikaru/mark-white.svg",
+      "bytes": 280,
+      "sha256": "e1048c6db421862bd7052ad72d680c52cff3f8c00809d003cbc6b94a7ad79e73"
+    },
+    {
+      "file": "hikaru/maskable-512.png",
+      "bytes": 5323,
+      "sha256": "a433fa16acd018add9df8029af3c1d174cde07d8886a0983a11eebe08832d148"
+    },
+    {
+      "file": "hikaru/og-1200x630.png",
+      "bytes": 10356,
+      "sha256": "07a8540c163826d8f1ff83be02675cb2c3a85db71f58a3ba41e093f9e8f4be87"
+    },
+    {
+      "file": "hikaru/paths.json",
+      "bytes": 717,
+      "sha256": "d989382a87bfd12dcf426f81e08bcf4656846a77d1212d4b541776a60624b2f3"
+    },
+    {
+      "file": "hikaru/site.webmanifest",
+      "bytes": 495,
+      "sha256": "052349d5447624b7e5fae81c3a95d6d429efe3c2d00b7bd87c648db8a0258255"
+    },
+    {
+      "file": "hikaru/wordmark-current.svg",
+      "bytes": 1151,
+      "sha256": "403c3f61c7edc90a95c31249439bdb329501b5b94201d3af6d5d1cd7335fdba5"
+    },
+    {
+      "file": "hikaru/wordmark-navy.svg",
+      "bytes": 1146,
+      "sha256": "58516acc1e37299f347f1d4ec415098f3ca5a7502a1fe1bfecc0fbd8392b336a"
+    },
+    {
+      "file": "hikaru/wordmark-pink.svg",
+      "bytes": 1146,
+      "sha256": "94613b1196f17543d75900cd12c554cef1e4219609c117265d3775ffb439e108"
+    },
+    {
+      "file": "hikaru/wordmark-white.svg",
+      "bytes": 1146,
+      "sha256": "a6f4f4712fba524b3147bb3f464e9b804201249ef932b8a7a6d74cae625badd3"
+    },
+    {
+      "file": "print/README.md",
+      "bytes": 1192,
+      "sha256": "e002b28ebd02e687b477c45de5040a4716f749f97630a611305bc9fb2062ffcb"
+    },
+    {
+      "file": "print/hikaru/icon-reversed.eps",
+      "bytes": 699,
+      "sha256": "07f05cc0830f1aab831e2d863ef36b625dac51d49c7b0eb5f7973ca54e242794"
+    },
+    {
+      "file": "print/hikaru/icon-reversed.pdf",
+      "bytes": 922,
+      "sha256": "c0be8eafee94c116b3be6f59f4818dada9cc7575f77606147127bc301dfb100c"
+    },
+    {
+      "file": "print/hikaru/lockup-black.eps",
+      "bytes": 3014,
+      "sha256": "f28409e3e26b0efb6c1c016dd5221244251b5eb8d64484cf74d1621d411bd324"
+    },
+    {
+      "file": "print/hikaru/lockup-black.pdf",
+      "bytes": 2758,
+      "sha256": "e298d25f6fad601d8dfa36506cc3c4d8da269ca9a764fc3dd2e0ca1ffdf5a3d7"
+    },
+    {
+      "file": "print/hikaru/lockup-navy.eps",
+      "bytes": 3014,
+      "sha256": "b4492747677ccc80ef23eae4a0191c764f671df2c0a36b1f4248e86059ce90ed"
+    },
+    {
+      "file": "print/hikaru/lockup-navy.pdf",
+      "bytes": 2776,
+      "sha256": "08ee52b699d904daa98276aea6bff14ff948f87b2bfce4770f3fb91e49880501"
+    },
+    {
+      "file": "print/hikaru/lockup-pink.eps",
+      "bytes": 3014,
+      "sha256": "e31d20e3fa8d8e4e822f201cb073a347f08bc16723fef835f876ef83a0983c1f"
+    },
+    {
+      "file": "print/hikaru/lockup-pink.pdf",
+      "bytes": 2774,
+      "sha256": "473a2a536864de5948e6e1f619269c102de14892f26f0d1c80394b1a192179a5"
+    },
+    {
+      "file": "print/hikaru/mark-black.eps",
+      "bytes": 569,
+      "sha256": "70399a480cf75e04160b2c97f591ae5b0863d9952a200cca70821ef3ef859f6e"
+    },
+    {
+      "file": "print/hikaru/mark-black.pdf",
+      "bytes": 874,
+      "sha256": "b177f7ef0e7c41dd81304029ac8527bfd35a20aefb8b33674a23303ae7fb8cbc"
+    },
+    {
+      "file": "print/hikaru/mark-navy.eps",
+      "bytes": 569,
+      "sha256": "09b4ff57f51b05341b3b35099494b3df8b57b63c964e699db90b580e28249d84"
+    },
+    {
+      "file": "print/hikaru/mark-navy.pdf",
+      "bytes": 883,
+      "sha256": "0dc7f3a521a41ac598b03b9e2bf18ef29426c168a545d2115275b73138c072c6"
+    },
+    {
+      "file": "print/hikaru/mark-pink.eps",
+      "bytes": 569,
+      "sha256": "92ee6cb6bb42992e8ea3d6ac2183d4f69bfe7857a7178b4d8b95f082d0f161e1"
+    },
+    {
+      "file": "print/hikaru/mark-pink.pdf",
+      "bytes": 882,
+      "sha256": "0f912fa030f517c0aa3988a9244958ef2c301a57ac6feccef22ba1560b68856b"
+    },
+    {
+      "file": "print/stationery/business-card.pdf",
+      "bytes": 67254,
+      "sha256": "4e2966e4749fcb62fd73d520a30a6c156725fb6bcde1bb758e3f72d989c6eb6f"
+    },
+    {
+      "file": "print/stationery/letterhead-a4.pdf",
+      "bytes": 64701,
+      "sha256": "0030ef7422e2efecd08912ea5b7259a6818ea20fac563369d598f78e63962374"
+    },
+    {
+      "file": "print/wavingeye/icon-reversed.eps",
+      "bytes": 702,
+      "sha256": "43e51feade3a0f1d285b1ab20d679b012322eee96558d7a96e41fec6dd959dc1"
+    },
+    {
+      "file": "print/wavingeye/icon-reversed.pdf",
+      "bytes": 925,
+      "sha256": "9c7470ffd26d2c6f0aad7e8dade9ea1e233c336c1129c385c10a5f04e94c79bb"
+    },
+    {
+      "file": "print/wavingeye/lockup-black.eps",
+      "bytes": 4058,
+      "sha256": "a56db1d38d86c87d55c9c97db86544aa9dc8ffe0c16ddbfb6801478912cd1f22"
+    },
+    {
+      "file": "print/wavingeye/lockup-black.pdf",
+      "bytes": 3605,
+      "sha256": "685d5a6d1a9d98a5ee01ad3636b39575270c87e02ea725395db5a71e3e9f69a6"
+    },
+    {
+      "file": "print/wavingeye/lockup-navy.eps",
+      "bytes": 4058,
+      "sha256": "546bd643872fa0cc55a63a222ef1d180bbede143e34d06f1f372ccdbeb986a91"
+    },
+    {
+      "file": "print/wavingeye/lockup-navy.pdf",
+      "bytes": 3623,
+      "sha256": "05668522de31916a94961c614976054965f949c84c77e17b015ef10a316c0f02"
+    },
+    {
+      "file": "print/wavingeye/lockup-pink.eps",
+      "bytes": 4058,
+      "sha256": "7df687d37b3cd20a3d87b9b0bae94a6c0bcb0d821a52177cbb0ea28eeb5daeb3"
+    },
+    {
+      "file": "print/wavingeye/lockup-pink.pdf",
+      "bytes": 3621,
+      "sha256": "2f6146ad34203ad9e914da32d36457d1a8d9420267727e10cf243b11cbd423c8"
+    },
+    {
+      "file": "print/wavingeye/mark-black.eps",
+      "bytes": 572,
+      "sha256": "57a7a3a03a9a57b4830f53346692d487d59a48a6a6e0a76587447b4cbbe23d8b"
+    },
+    {
+      "file": "print/wavingeye/mark-black.pdf",
+      "bytes": 877,
+      "sha256": "b8e896be1eed5277484d359e5184887d2f177c302e6f4dc352e8bef2dac664da"
+    },
+    {
+      "file": "print/wavingeye/mark-navy.eps",
+      "bytes": 572,
+      "sha256": "84c8721d2203d28616abc24c43bcfca2e9b76a530bc0ab31231f394ab2c7148b"
+    },
+    {
+      "file": "print/wavingeye/mark-navy.pdf",
+      "bytes": 886,
+      "sha256": "249a9dc7c71c72f08ad7e7af1e89a9fedcb9977fd9b988f54026860c38d30ad7"
+    },
+    {
+      "file": "print/wavingeye/mark-pink.eps",
+      "bytes": 572,
+      "sha256": "f35a90c4c78d5774fe08ddaf9fd7db4dc2a51c69454a15d3f929b973292647ea"
+    },
+    {
+      "file": "print/wavingeye/mark-pink.pdf",
+      "bytes": 885,
+      "sha256": "d147afbda14a31c7513934264ec40e62799cd234c9a6b9798273b842a18af396"
+    },
+    {
+      "file": "tokens/brand.css",
+      "bytes": 573,
+      "sha256": "011f8e7ab3b9109a004becde5e437b3456e3be38d811fa69ba21d9cc68d70dc7"
+    },
+    {
+      "file": "tokens/color.d.ts",
+      "bytes": 2138,
+      "sha256": "11a5dcf7a095de6aa6fa5b0e5e8511929dcb858bdaacb77995a24f2c22b36d65"
+    },
+    {
+      "file": "tokens/color.js",
+      "bytes": 2103,
+      "sha256": "d4976396eadd7e88bb1dfc5f79ac472ea4e31ae4aff8a2c712f893acd4831d57"
+    },
+    {
+      "file": "tokens/color.scss",
+      "bytes": 1262,
+      "sha256": "6055f1f0ac31325a4c3243fbc8c74cab4a403719813eb21281b0f7a0168960c7"
+    },
+    {
+      "file": "tokens/theme.css",
+      "bytes": 3089,
+      "sha256": "2022ad78b1fe4d983b4d990d95f3f93124dcc37b8b107060bdf6b0e50543f2de"
+    },
+    {
+      "file": "tokens/vocabulary.json",
+      "bytes": 5482,
+      "sha256": "96230934a7ffe97c82542583cd372208a84621700c923a67daabf97eb55276f2"
+    },
+    {
+      "file": "wavingeye/android-192.png",
+      "bytes": 1438,
+      "sha256": "a62db72b9c247b2fbe013edb50f8230b2d557f02c70bfb5d67a4f16275822fc0"
+    },
+    {
+      "file": "wavingeye/android-512.png",
+      "bytes": 5358,
+      "sha256": "805b6325c1d5c330f7ba7d44403d23916d73737519f4d44a1aebe026022c0fef"
+    },
+    {
+      "file": "wavingeye/android-adaptive-foreground-432.png",
+      "bytes": 5093,
+      "sha256": "f9a56a6fa9f033aaadd8e1568095cb87f4b96142c5419e5daf786450e81477d7"
+    },
+    {
+      "file": "wavingeye/app-store-1024.png",
+      "bytes": 13632,
+      "sha256": "d2b7028b986d20b0aba7a3dac85eaf124edcf51ff75cb0dffdbcd19170f12440"
+    },
+    {
+      "file": "wavingeye/apple-touch-icon-180.png",
+      "bytes": 1460,
+      "sha256": "7effb280643c3924681e9b28a178efc27eb678a7716a3c9f7e6ce6dec579a6d3"
+    },
+    {
+      "file": "wavingeye/boxed-icon-pink-on-navy.svg",
+      "bytes": 383,
+      "sha256": "4d4c79df08f4755c7dcf17e9653c29d5e8affe190e43ad9827d12fc58517c4d3"
+    },
+    {
+      "file": "wavingeye/boxed-icon-reverse.svg",
+      "bytes": 383,
+      "sha256": "a86295b1030d37ef6d07fa2d84fee9ebba5ce35af62acc7209d4053d9066a8d7"
+    },
+    {
+      "file": "wavingeye/boxed-icon-white-on-navy.svg",
+      "bytes": 383,
+      "sha256": "9fa9c58311cad740497e7ec7cfcf7c686d3c70cea6598cb8cfabb011c77a12b3"
+    },
+    {
+      "file": "wavingeye/boxed-icon-white-on-pink.svg",
+      "bytes": 383,
+      "sha256": "cc402d46bcef129ff922e98bed8f6ca402618488336b9d9c8593fbdb5cf3d4be"
+    },
+    {
+      "file": "wavingeye/favicon-16.png",
+      "bytes": 286,
+      "sha256": "3074e69e6330d3e4ec36773d1ceb0f20227926e8f3876ceb5992c942a3561905"
+    },
+    {
+      "file": "wavingeye/favicon-32.png",
+      "bytes": 339,
+      "sha256": "6eef0864491a351d4c261b29bef6ec14204ef4c895296da8784aec0685ab8f50"
+    },
+    {
+      "file": "wavingeye/favicon-48.png",
+      "bytes": 472,
+      "sha256": "60448bc36cbfa0648b3c1f8408da93320c42699fb765d336f4276424deb0e70f"
+    },
+    {
+      "file": "wavingeye/favicon.ico",
+      "bytes": 1151,
+      "sha256": "89f2b7ebf571d566683cb2a542393d19a28fb32b54249cf2e5e058f5f3adca56"
+    },
+    {
+      "file": "wavingeye/favicon.svg",
+      "bytes": 365,
+      "sha256": "e69a17f00cd3c3b84d2437dd8f45b1ca7fe6804e493012fbbdf0b18df7cfe564"
+    },
+    {
+      "file": "wavingeye/head.html",
+      "bytes": 285,
+      "sha256": "a45c34f9f287340d4cd332615ce85a77cc657409afa5446bb9e351176015ab8f"
+    },
+    {
+      "file": "wavingeye/lockup-horizontal-current.svg",
+      "bytes": 1865,
+      "sha256": "4574223a707fc3f13bdb119cf11e5d0c48a249fd5011c312fbb170138636f45b"
+    },
+    {
+      "file": "wavingeye/lockup-horizontal-navy.svg",
+      "bytes": 1855,
+      "sha256": "79d0b748d67389736ee6d0b6cb84a62a93f2d7bf1c9623e331b84a31eabd1d67"
+    },
+    {
+      "file": "wavingeye/lockup-horizontal-pink.svg",
+      "bytes": 1855,
+      "sha256": "cca91935bd377cce30f4bb1ab6a5283a788a159c1b21cfcf4617a73e619d5596"
+    },
+    {
+      "file": "wavingeye/lockup-horizontal-white.svg",
+      "bytes": 1855,
+      "sha256": "db9acf474498143a3278f34992ff4491db1b31a6efdb9f37e87b0be84f74ab71"
+    },
+    {
+      "file": "wavingeye/lockup-split-current.svg",
+      "bytes": 1969,
+      "sha256": "1cd16f76137b8944e5edca7244c061a77b05cc248f1bcff5a68d333806b2cd0f"
+    },
+    {
+      "file": "wavingeye/lockup-split-navy.svg",
+      "bytes": 1954,
+      "sha256": "c160cea2021f60b190cdf8ab28d31dfaea1e6da271881bc7c3e115b0f0c0bdad"
+    },
+    {
+      "file": "wavingeye/lockup-split-pink.svg",
+      "bytes": 1954,
+      "sha256": "cbf270701be0b007e71a3f5356ea9f1a4ab2c07ab234faeb485f2841b199dfac"
+    },
+    {
+      "file": "wavingeye/lockup-split-white.svg",
+      "bytes": 1954,
+      "sha256": "18da044912be954ff6abdc92960d55aeaff4fdceaab0ac1232ec1ec6b1d55282"
+    },
+    {
+      "file": "wavingeye/lockup-stacked-current.svg",
+      "bytes": 1990,
+      "sha256": "ff948e7cedc76350e6dcd7acf6c174aee83c6fb87ca5f0420ac3f3739361206b"
+    },
+    {
+      "file": "wavingeye/lockup-stacked-navy.svg",
+      "bytes": 1975,
+      "sha256": "4ea57f86a36ac35601128adb625483bc276a672ef9f12b41a0d33ffc2426f2b9"
+    },
+    {
+      "file": "wavingeye/lockup-stacked-pink.svg",
+      "bytes": 1975,
+      "sha256": "5cb36b44d26b5f0f4009a50b4464ced9831038418c3c974fc0d21d5c4cbe70bc"
+    },
+    {
+      "file": "wavingeye/lockup-stacked-white.svg",
+      "bytes": 1975,
+      "sha256": "31232a93acf494a945b8a7c3f1226c002b88efd21183513b54433f1570c3c19e"
+    },
+    {
+      "file": "wavingeye/mark-current.svg",
+      "bytes": 291,
+      "sha256": "798b0629893d6bf03fbb302fe59258e37a3cdf661f9e081907f9716eeabda293"
+    },
+    {
+      "file": "wavingeye/mark-navy.svg",
+      "bytes": 286,
+      "sha256": "3f50c7a6da1624507fb7864d235d4309ff62eb482028321dc82ee14e0b3040c7"
+    },
+    {
+      "file": "wavingeye/mark-outline-current.svg",
+      "bytes": 445,
+      "sha256": "180578d826beba5b709abd3f408284928eb203a1d0dac937ae6744f39d407931"
+    },
+    {
+      "file": "wavingeye/mark-outline-navy.svg",
+      "bytes": 440,
+      "sha256": "ff438adebc604434a1f3d7013e2be80b92399e904e94fef7d31e62d5fb57dfce"
+    },
+    {
+      "file": "wavingeye/mark-outline-pink.svg",
+      "bytes": 440,
+      "sha256": "6eb08b465fc3e4904f4322d2eb1dfd71112a8fd59ba5e9223c4c4c80a02f8c49"
+    },
+    {
+      "file": "wavingeye/mark-outline-white.svg",
+      "bytes": 440,
+      "sha256": "8a903d714c0252f645f1c7ff098a466b0f52b649a51d7fcecc910f9ea740b428"
+    },
+    {
+      "file": "wavingeye/mark-pink.svg",
+      "bytes": 286,
+      "sha256": "f6ba011e2faea6c6116c296ec328b9522802f27842e4df0c4ec0be69325e5bf0"
+    },
+    {
+      "file": "wavingeye/mark-small-current.svg",
+      "bytes": 301,
+      "sha256": "03ad9e5bb0d59bff36200d9cbd8a16f326e5e75871bf494053eb0678437d6277"
+    },
+    {
+      "file": "wavingeye/mark-small-navy.svg",
+      "bytes": 296,
+      "sha256": "fadaec0a0feb1aace4bf57071b35d312ba238494f111813dcd342e0e077d136a"
+    },
+    {
+      "file": "wavingeye/mark-small-outline-current.svg",
+      "bytes": 423,
+      "sha256": "39d193d536de68c2dca33f66cc476099136f1afce4e87393dd9a705544a35adc"
+    },
+    {
+      "file": "wavingeye/mark-small-outline-navy.svg",
+      "bytes": 418,
+      "sha256": "bf64b5f2349b86419aa653d3c6b846fbc3386ffcead148c111c0f648f3d9ab6d"
+    },
+    {
+      "file": "wavingeye/mark-small-outline-pink.svg",
+      "bytes": 418,
+      "sha256": "fe6f56dc80eafa12a28e3935b05085a3137a8db690df3874b4e4058b04adc9a0"
+    },
+    {
+      "file": "wavingeye/mark-small-outline-white.svg",
+      "bytes": 418,
+      "sha256": "bb92369b2285d2af6741bbc483b1ec3cac998aee2b238f1c6e06e22c3fdf68da"
+    },
+    {
+      "file": "wavingeye/mark-small-pink.svg",
+      "bytes": 296,
+      "sha256": "e1e0b53d8c1fe027619f19aa144b4bfaa9ec9b64c9a9bdee15ac8644deb1ab28"
+    },
+    {
+      "file": "wavingeye/mark-small-white.svg",
+      "bytes": 296,
+      "sha256": "c0aeee93292e3c64c1db766ecc6600dc4d4cf0240f217b189dc200eb0b54d2dd"
+    },
+    {
+      "file": "wavingeye/mark-white.svg",
+      "bytes": 286,
+      "sha256": "72bf58525a335dc1850f8f3848ed20e858f0e60dc4524ddfaeb588e2b3e74746"
+    },
+    {
+      "file": "wavingeye/maskable-512.png",
+      "bytes": 5323,
+      "sha256": "a433fa16acd018add9df8029af3c1d174cde07d8886a0983a11eebe08832d148"
+    },
+    {
+      "file": "wavingeye/og-1200x630.png",
+      "bytes": 12195,
+      "sha256": "82e2912cf82aac18defb14fba9b256fff2d21963bfa5b7865fdc87dfa70ed206"
+    },
+    {
+      "file": "wavingeye/paths.json",
+      "bytes": 717,
+      "sha256": "d989382a87bfd12dcf426f81e08bcf4656846a77d1212d4b541776a60624b2f3"
+    },
+    {
+      "file": "wavingeye/site.webmanifest",
+      "bytes": 483,
+      "sha256": "5308c7f76834df64d6f75b3220ea3b3288e0ccc8cb187fdc5c693ccc3d0e3f71"
+    },
+    {
+      "file": "wavingeye/wordmark-current.svg",
+      "bytes": 1616,
+      "sha256": "237b326bc3c266eb83402f4a36c2bb341c00d9b972b1cf8133ecca3a993db69d"
+    },
+    {
+      "file": "wavingeye/wordmark-navy.svg",
+      "bytes": 1611,
+      "sha256": "6f01ffbca62e11c5b255d7796f6c46de2580938d2b0957863d405c1efd63ce32"
+    },
+    {
+      "file": "wavingeye/wordmark-pink.svg",
+      "bytes": 1611,
+      "sha256": "0e6ced2d5cc6870a000bdd8035e8909f194f39cfa3f5e6ad70a431b4820d70aa"
+    },
+    {
+      "file": "wavingeye/wordmark-white.svg",
+      "bytes": 1611,
+      "sha256": "e84fddb5cab7134c697fab25704c1cb7ab30d3a9351da6242e52ce35d9437a79"
+    }
+  ],
+  "digest": "60f72e0ea54106b2800e85ad150e64e22675cce4c031de031be6762338658601"
 }

@@ -20,7 +20,7 @@ npm run baselines  # re-render baselines/. Doing this is how a change is approve
 | `brand/fonts/`      | Montserrat and its OFL licence                                                                                                           |
 | `src/`              | the generator: parameters to SVG to platform targets                                                                                     |
 | `gates/`            | the rules as builds, run in CI                                                                                                           |
-| `tools/`            | `tokens.mjs` solves the palette; `theme.mjs` solves a product's; `baselines.mjs` re-renders; `validate.mjs` is the check a consumer runs |
+| `tools/`            | `tokens.mjs` solves the palette; `theme.mjs` solves a product's; `baselines.mjs` re-renders; `validate.mjs` and `check-vendored.mjs` are the checks a consumer runs |
 | `brand/themes/`     | a product's four hues, as input to the theme solver                                                                                      |
 | `baselines/`        | one deterministic render of every asset, the reviewable record of a change                                                               |
 | `dist/`             | generated. Editing anything here fails `gates/check-dist-clean.mjs`                                                                      |
@@ -78,6 +78,31 @@ npm i github:SebiShepherd/wavingbrand#v0.1.0
 
 **As a zip**, for a printer or an agency: the kit on each
 [Release](https://github.com/SebiShepherd/wavingbrand/releases).
+
+### Keeping a vendored copy current
+
+Copying `dist/` into your own repository is the fourth option and the one most
+projects end up on, because a build should not reach the network. The cost is
+that the copy drifts silently, and "is our logo the current one" gets answered by
+somebody remembering.
+
+`dist/manifest.json` carries a SHA-256 for every file and the version it was
+built from, so a copy is self-describing and one request settles the question for
+all of it. Vendor the manifest alongside the assets and copy
+[`tools/check-vendored.mjs`](tools/check-vendored.mjs) into your repository; it
+has no dependencies beyond Node, because a check that needs an install step is a
+check somebody skips.
+
+```
+node check-vendored.mjs public/brand
+  ok   141 vendored files match SebiShepherd/wavingbrand@v0.1.0
+
+node check-vendored.mjs public/brand --ref main   # against the tip instead
+```
+
+It reads the version out of your own copy, fetches that release's manifest, and
+compares. Pinning to a release is the default on purpose: a check that goes red
+because somebody else pushed is a check people learn to ignore.
 
 ### The two token layers
 
@@ -188,6 +213,7 @@ Each one exists because of a defect in the original artwork.
 | `check-consumers`    | a change to the brand that breaks a product declared in `brand/consumers/` |
 | `check-legibility`   | counters that close up at small sizes                                      |
 | `check-cuts`         | an artefact drawn with the wrong cut for its role                          |
+| `check-manifest`     | a manifest whose hashes, file list or digest disagree with its own dist/    |
 | `check-safe-zones`   | ink outside an Android or maskable crop, measured on the shipped PNG       |
 | `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths                |
 | `check-baselines`    | a change that keeps every ratio valid and still draws something else       |
