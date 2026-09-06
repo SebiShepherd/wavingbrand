@@ -321,3 +321,80 @@ Anything that conveys grouping on its own is a non-text graphic and owes 3:1.
 so the large-text allowance does not apply. Filed as SebiShepherd/hikaru#592 with
 the two values that clear it, rather than changed here: 192 usages is a change to
 the look of a product, and that is its owner's call.
+
+## D13 The outline's base bar is the one thing not on the grid
+
+Every dimension in this mark is a whole number of ninths of one outer stroke
+width, and D2 says that is not a convention imposed on the drawing but what the
+drawing already was. This is the single exception, made deliberately.
+
+The outline is drawn by moving every edge inward by one weight and
+re-intersecting. With one weight for all edges, the counters that fall out are
+unequal, because the limbs are: nine ninths in the outer stems, eight in the
+middle and eight in the base bar. Sebastian looked at the shipped outline and
+said the base bar read thinner than the stems, then that the middle did too.
+Both were correct, and measurement said the strokes were uniform to within one
+percent while the counters were three, two and two.
+
+Subtracting a constant from unequal numbers widens the relative gap: eleven
+percent between the limbs becomes three-to-two between the counters. Nobody
+decided that.
+
+The base bar is also the only horizontal band in the mark, and a horizontal of
+equal measure reads heavier than a vertical, which is why type compensates.
+Montserrat, this mark's own typeface, draws the H's crossbar at 41 px against a
+44 px stem: **93.2 %**. That number is measured out of `brand/fonts` rather than
+taken from a rule of thumb, and an earlier version of this work asserted 83 %
+for the convention, which was wrong.
+
+**The decision:** the outline's horizontal edges are inset by 93.2 % of the
+weight, its stems by the full weight. `src/mark.mjs` classifies edges by angle,
+not by position, so it survives a geometry change: the bar's three edges run at
+5.36 degrees, the six stems at 90, and the three top chamfers at 18 to 21. A
+chamfer is a stem's terminal and takes a stem's weight.
+
+**Cost, and it is the real one:** there is no whole number of ninths between no
+correction and two thirds of one.
+
+| inset | horizontal at | counter in the bar |
+| ----- | ------------- | ------------------ |
+| 3     | 100 %         | 2                  |
+| 2.796 | 93.2 %        | 2.41               |
+| 2     | 66.7 %        | 4                  |
+
+Any correction at all leaves the grid, and 2.41 is what the correction leaves
+behind rather than a number anybody picked. The alternative on the table put the
+clean number at the other end: choose a counter of 3 to match the stems, and the
+inset becomes 2.5, a horizontal at 83 %, a stronger correction than the typeface
+itself uses and one whose only justification is that it made a counter tidy.
+Between a chosen 3 and a measured 2.41, this repository prefers the measured
+one. Leaving it alone entirely was the third option and the only one that keeps
+every number whole; it was declined because the reason the bar reads heavy is
+real and does not stop being real for being inconvenient.
+
+Sixteen files changed, eight per product, plus `markOutline` in each
+`paths.json`. The solid mark, the wordmark, every lockup, every boxed icon,
+every favicon and every print file are untouched: they do not use the inset.
+
+## D14 The outline is a display form and says so
+
+The outline has three contours where the solid form has one, so at small sizes
+it asks the renderer for about twice as many features across the same width.
+Nothing measured this until issue #7, and the shipped outline closed completely
+at 24 px while no gate had ever rasterised one.
+
+Measured with `check-legibility`'s own method over every even size from 16 to
+160, the outline holds two fully clear pixels from 30 px up and fails below.
+Every inset variant tried in #7 landed between 28 and 30, so the floor comes
+from having three contours rather than from any particular weight: no choice of
+inset rescues it, and the outline-specific optical size that #7 proposed would
+have bought two pixels.
+
+`OUTLINE_MIN_PX` is 32, the next size a favicon slot offers, and
+`gates/check-legibility.mjs` refuses a geometry that stops holding there.
+
+**Cost:** the outline is not available for a favicon. It never was; the
+difference is that this is now written down and enforced rather than discovered
+by somebody looking at a blurred tab icon. Inline and outline letterforms are
+display forms by tradition for exactly this reason.
+

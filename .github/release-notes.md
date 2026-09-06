@@ -16,7 +16,7 @@ documents. A printer, an agency, a contractor.
 | `dist/email/` | an email signature that survives a mail client |
 | `brand/fonts/` | Montserrat and its OFL licence |
 | `asset-audit.md` | every measurement taken from the original artwork |
-| `decisions.md` | twelve decisions, what each cost, and the one still open |
+| `decisions.md` | fourteen decisions, what each cost, and the one still open |
 
 ## Read before printing
 

@@ -312,7 +312,7 @@ tile in dark mode, fixed; [#592](https://github.com/SebiShepherd/hikaru/issues/5
   original files, eleven defects, and the typeface identification.
 - [`docs/brand-system-proposal.md`](docs/brand-system-proposal.md): what the
   industry uses, what does not exist, and the architecture.
-- [`docs/decisions.md`](docs/decisions.md): the eight calls that were made, what
+- [`docs/decisions.md`](docs/decisions.md): the fourteen calls that were made, what
   each one costs, and the one still open.
 - [`docs/index.html`](docs/index.html): the guidelines, generated from the same
   parameters as the assets, published at

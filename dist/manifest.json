@@ -70,7 +70,7 @@
       "variant": "navy",
       "file": "hikaru/mark-outline-navy.svg",
       "type": "image/svg+xml",
-      "sha256": "81aa6247cb42ec7c316e89d0a8e94dc078df50f2db0b6fb23a89fe2a526db146"
+      "sha256": "a48de7a58c06ae99ae4b7d25762f772dd748438fc599ac77e2cde2b15d4e8b12"
     },
     {
       "product": "hikaru",
@@ -78,7 +78,7 @@
       "variant": "pink",
       "file": "hikaru/mark-outline-pink.svg",
       "type": "image/svg+xml",
-      "sha256": "2751c06fcec09a7c918356add40e903a93472761b7e2d295ad4875c46aaefb39"
+      "sha256": "834253d728090f89949ff498b7e9350fb764b4386fa090a7b79717b646de4fd0"
     },
     {
       "product": "hikaru",
@@ -86,7 +86,7 @@
       "variant": "white",
       "file": "hikaru/mark-outline-white.svg",
       "type": "image/svg+xml",
-      "sha256": "3857b936bdae2439a556fd6e076077639cdd57a218a87f8fc2b7502df3ac9245"
+      "sha256": "4db766bf28422a7d504591cac9118fe6b876d65f4dbd41111eacce5beb8eec6a"
     },
     {
       "product": "hikaru",
@@ -94,7 +94,7 @@
       "variant": "current",
       "file": "hikaru/mark-outline-current.svg",
       "type": "image/svg+xml",
-      "sha256": "037709b0f258c4b88d5febc6d250c22619175681225702d476bb63705f14fc6d"
+      "sha256": "0a890f536b4ad1ea3648721bd531d2e16841136623dba367f9f2a9febce51710"
     },
     {
       "product": "hikaru",
@@ -396,7 +396,7 @@
       "variant": "navy",
       "file": "wavingeye/mark-outline-navy.svg",
       "type": "image/svg+xml",
-      "sha256": "ff438adebc604434a1f3d7013e2be80b92399e904e94fef7d31e62d5fb57dfce"
+      "sha256": "3ff3cc3fdef35e2e104804738b5b7d5674fce71eeebe20ca403fa0afae6c031f"
     },
     {
       "product": "wavingeye",
@@ -404,7 +404,7 @@
       "variant": "pink",
       "file": "wavingeye/mark-outline-pink.svg",
       "type": "image/svg+xml",
-      "sha256": "6eb08b465fc3e4904f4322d2eb1dfd71112a8fd59ba5e9223c4c4c80a02f8c49"
+      "sha256": "e2b963e6b338157b2f70d3137c0c683c6a4aa3384687fa422610a2c94cafd23b"
     },
     {
       "product": "wavingeye",
@@ -412,7 +412,7 @@
       "variant": "white",
       "file": "wavingeye/mark-outline-white.svg",
       "type": "image/svg+xml",
-      "sha256": "8a903d714c0252f645f1c7ff098a466b0f52b649a51d7fcecc910f9ea740b428"
+      "sha256": "2379264bb89af954f1699f160039aed6c6c28fc01ff70546ba9d6f0582a909f6"
     },
     {
       "product": "wavingeye",
@@ -420,7 +420,7 @@
       "variant": "current",
       "file": "wavingeye/mark-outline-current.svg",
       "type": "image/svg+xml",
-      "sha256": "180578d826beba5b709abd3f408284928eb203a1d0dac937ae6744f39d407931"
+      "sha256": "2764620d0a950ef7472b6b0233db5db755111b65f464daa592024d84ac7afc83"
     },
     {
       "product": "wavingeye",
@@ -819,23 +819,23 @@
     },
     {
       "file": "hikaru/mark-outline-current.svg",
-      "bytes": 439,
-      "sha256": "037709b0f258c4b88d5febc6d250c22619175681225702d476bb63705f14fc6d"
+      "bytes": 438,
+      "sha256": "0a890f536b4ad1ea3648721bd531d2e16841136623dba367f9f2a9febce51710"
     },
     {
       "file": "hikaru/mark-outline-navy.svg",
-      "bytes": 434,
-      "sha256": "81aa6247cb42ec7c316e89d0a8e94dc078df50f2db0b6fb23a89fe2a526db146"
+      "bytes": 433,
+      "sha256": "a48de7a58c06ae99ae4b7d25762f772dd748438fc599ac77e2cde2b15d4e8b12"
     },
     {
       "file": "hikaru/mark-outline-pink.svg",
-      "bytes": 434,
-      "sha256": "2751c06fcec09a7c918356add40e903a93472761b7e2d295ad4875c46aaefb39"
+      "bytes": 433,
+      "sha256": "834253d728090f89949ff498b7e9350fb764b4386fa090a7b79717b646de4fd0"
     },
     {
       "file": "hikaru/mark-outline-white.svg",
-      "bytes": 434,
-      "sha256": "3857b936bdae2439a556fd6e076077639cdd57a218a87f8fc2b7502df3ac9245"
+      "bytes": 433,
+      "sha256": "4db766bf28422a7d504591cac9118fe6b876d65f4dbd41111eacce5beb8eec6a"
     },
     {
       "file": "hikaru/mark-pink.svg",
@@ -854,23 +854,23 @@
     },
     {
       "file": "hikaru/mark-small-outline-current.svg",
-      "bytes": 417,
-      "sha256": "e6857a53fd8ec5f2c5c05ee90b8a9f9dbf03764e4bb55fc4a7d0ea5310bf3049"
+      "bytes": 421,
+      "sha256": "c50a879422c0948e30ffba71e340b81137b7fddf233229f28fd936953e355d97"
     },
     {
       "file": "hikaru/mark-small-outline-navy.svg",
-      "bytes": 412,
-      "sha256": "dbdafa3878472bf1699ee01e77e73243f93e67e731d282ac6a61da8e9fd8de53"
+      "bytes": 416,
+      "sha256": "ed147c25377e2f6fdaa5a51d845edf0a48532c2fbe1260562300f56a205e94dd"
     },
     {
       "file": "hikaru/mark-small-outline-pink.svg",
-      "bytes": 412,
-      "sha256": "f5056e85f6dcd5e07175ce51ce4d3684714df068e1a534459803036f45fa50a6"
+      "bytes": 416,
+      "sha256": "8f202b46d31d891c89d8dd7460e1c91444b485166adf8afbfe573d35b34e222e"
     },
     {
       "file": "hikaru/mark-small-outline-white.svg",
-      "bytes": 412,
-      "sha256": "109dabf8dddde56ad27782e67a70d9f96296ac1eee048a7b4b3b8073b50619a3"
+      "bytes": 416,
+      "sha256": "c2e341c22fb71632283c45e0bd00a3a2350925eec0f79207d939caf230647bbc"
     },
     {
       "file": "hikaru/mark-small-pink.svg",
@@ -899,8 +899,8 @@
     },
     {
       "file": "hikaru/paths.json",
-      "bytes": 717,
-      "sha256": "d989382a87bfd12dcf426f81e08bcf4656846a77d1212d4b541776a60624b2f3"
+      "bytes": 716,
+      "sha256": "64d86710df7ad6945416b39dd4b790659203bb3760ac73eb88dcf9d5e8e97765"
     },
     {
       "file": "hikaru/site.webmanifest",
@@ -1259,23 +1259,23 @@
     },
     {
       "file": "wavingeye/mark-outline-current.svg",
-      "bytes": 445,
-      "sha256": "180578d826beba5b709abd3f408284928eb203a1d0dac937ae6744f39d407931"
+      "bytes": 444,
+      "sha256": "2764620d0a950ef7472b6b0233db5db755111b65f464daa592024d84ac7afc83"
     },
     {
       "file": "wavingeye/mark-outline-navy.svg",
-      "bytes": 440,
-      "sha256": "ff438adebc604434a1f3d7013e2be80b92399e904e94fef7d31e62d5fb57dfce"
+      "bytes": 439,
+      "sha256": "3ff3cc3fdef35e2e104804738b5b7d5674fce71eeebe20ca403fa0afae6c031f"
     },
     {
       "file": "wavingeye/mark-outline-pink.svg",
-      "bytes": 440,
-      "sha256": "6eb08b465fc3e4904f4322d2eb1dfd71112a8fd59ba5e9223c4c4c80a02f8c49"
+      "bytes": 439,
+      "sha256": "e2b963e6b338157b2f70d3137c0c683c6a4aa3384687fa422610a2c94cafd23b"
     },
     {
       "file": "wavingeye/mark-outline-white.svg",
-      "bytes": 440,
-      "sha256": "8a903d714c0252f645f1c7ff098a466b0f52b649a51d7fcecc910f9ea740b428"
+      "bytes": 439,
+      "sha256": "2379264bb89af954f1699f160039aed6c6c28fc01ff70546ba9d6f0582a909f6"
     },
     {
       "file": "wavingeye/mark-pink.svg",
@@ -1294,23 +1294,23 @@
     },
     {
       "file": "wavingeye/mark-small-outline-current.svg",
-      "bytes": 423,
-      "sha256": "39d193d536de68c2dca33f66cc476099136f1afce4e87393dd9a705544a35adc"
+      "bytes": 427,
+      "sha256": "e39f7d13c71d8b4e459bcee7e2cbe1959417f188355a9fe08ffcd7b357c94785"
     },
     {
       "file": "wavingeye/mark-small-outline-navy.svg",
-      "bytes": 418,
-      "sha256": "bf64b5f2349b86419aa653d3c6b846fbc3386ffcead148c111c0f648f3d9ab6d"
+      "bytes": 422,
+      "sha256": "312f0b676016ffb25b59a1a543e813a2f6c9ebb247bd96cf4fd1633c79358e5e"
     },
     {
       "file": "wavingeye/mark-small-outline-pink.svg",
-      "bytes": 418,
-      "sha256": "fe6f56dc80eafa12a28e3935b05085a3137a8db690df3874b4e4058b04adc9a0"
+      "bytes": 422,
+      "sha256": "0de5142e332c659ef6336c0756fb7909cf39885d9ad87f6e7ec54210a6ba4d1f"
     },
     {
       "file": "wavingeye/mark-small-outline-white.svg",
-      "bytes": 418,
-      "sha256": "bb92369b2285d2af6741bbc483b1ec3cac998aee2b238f1c6e06e22c3fdf68da"
+      "bytes": 422,
+      "sha256": "7387442a233f8eac8677424d0ec78e3c1c756f411631d7d59b24e2a5126cdff8"
     },
     {
       "file": "wavingeye/mark-small-pink.svg",
@@ -1339,8 +1339,8 @@
     },
     {
       "file": "wavingeye/paths.json",
-      "bytes": 717,
-      "sha256": "d989382a87bfd12dcf426f81e08bcf4656846a77d1212d4b541776a60624b2f3"
+      "bytes": 716,
+      "sha256": "64d86710df7ad6945416b39dd4b790659203bb3760ac73eb88dcf9d5e8e97765"
     },
     {
       "file": "wavingeye/site.webmanifest",
@@ -1368,5 +1368,5 @@
       "sha256": "e84fddb5cab7134c697fab25704c1cb7ab30d3a9351da6242e52ce35d9437a79"
     }
   ],
-  "digest": "60f72e0ea54106b2800e85ad150e64e22675cce4c031de031be6762338658601"
+  "digest": "676a38c24f9a0a65a7920ae1b1a4319a6589c782133ddd7683ed626816f2af04"
 }

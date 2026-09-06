@@ -43,6 +43,41 @@ export const STANDARD = {
  */
 export const SMALL = { ...STANDARD, gap: 5 };
 
+/**
+ * How much lighter a horizontal stroke is drawn than a vertical one.
+ *
+ * Measured, not chosen: Montserrat, the mark's own typeface, draws the H's
+ * crossbar at 41 px against a 44 px stem when the glyph is rendered 1200 px
+ * wide. A horizontal of equal measure reads heavier than a vertical, so type
+ * compensates, and this is the amount that this typeface compensates by.
+ *
+ * It applies to the outline's base bar and to nothing else. The mark's solid
+ * form is unaffected, because its bar is eight ninths by measurement of the
+ * original artwork rather than by an optical rule (docs/decisions.md D2).
+ *
+ * The cost is stated plainly in D13: there is no whole number of ninths between
+ * no correction and two thirds of one, so any correction at all leaves the grid
+ * that every other dimension here sits on. This is the only number in the mark
+ * that does.
+ */
+export const HORIZONTAL = 0.932;
+
+/**
+ * The smallest size the outline may be rendered at.
+ *
+ * The outline has three contours where the solid form has one, so it needs
+ * roughly twice the size to hold the same counters. Measured with
+ * check-legibility's method, it holds two fully clear pixels from 30 px up and
+ * fails at every even size below; 32 is the next power of two above that and
+ * the first size a favicon slot actually offers. Every inset variant tried in
+ * issue #7 landed between 28 and 30, so this is a property of having three
+ * contours rather than of any particular weight.
+ *
+ * Inline and outline letterforms are display forms by tradition for the same
+ * reason. This is not a limitation of the drawing.
+ */
+export const OUTLINE_MIN_PX = 32;
+
 /** Width in ninths: two outer strokes, the middle, and two counters. */
 export const width = (g) => 2 * g.stroke + g.middle + 2 * g.gap;
 
@@ -93,15 +128,40 @@ export function polygonPath(pts, scale = 1, at = [0, 0]) {
   );
 }
 
+/** Degrees from horizontal within which an edge counts as the base bar. */
+const HORIZONTAL_WITHIN = 10;
+
 /**
- * Move every edge inward by `d` and re-intersect, which is the hole of the
- * outline variant. Valid while `d` stays under half the narrowest limb; the
- * narrowest limb here is the base bar at eight ninths, so `d` up to four.
+ * The inset for each edge: lighter on the base bar, full weight everywhere else.
+ *
+ * Classified by angle rather than by index, so it survives a change to the
+ * geometry that a list of positions would not. The separation is not close: the
+ * bar's three edges run at 5.36 degrees, the six stems at 90, and the three top
+ * chamfers at 18 to 21. A chamfer is the terminal of a stem and takes the stem's
+ * weight, which is why the threshold sits at 10 and not at 45.
+ *
+ * @param {[number,number][]} pts
+ * @param {number} weight inset in ninths for a vertical edge
+ * @returns {number[]} one inset per edge
+ */
+export function insets(pts, weight) {
+  return pts.map(([x0, y0], i) => {
+    const [x1, y1] = pts[(i + 1) % pts.length];
+    const deg = Math.abs((Math.atan2(y1 - y0, x1 - x0) * 180) / Math.PI);
+    return Math.min(deg, 180 - deg) < HORIZONTAL_WITHIN ? weight * HORIZONTAL : weight;
+  });
+}
+
+/**
+ * Move every edge inward by its own inset and re-intersect, which is the hole of
+ * the outline variant. Valid while each inset stays under half the limb it sits
+ * in; the narrowest limb here is the base bar at eight ninths, so up to four.
  *
  * @param {[number,number][]} pts a simple polygon
- * @param {number} d inset in ninths
+ * @param {number|number[]} d one inset in ninths, or one per edge
  */
 export function inset(pts, d) {
+  const ds = Array.isArray(d) ? d : pts.map(() => d);
   const n = pts.length;
   const inward = [];
   for (let i = 0; i < n; i++) {
@@ -118,7 +178,8 @@ export function inset(pts, d) {
       nx = -nx;
       ny = -ny;
     }
-    inward.push([x0 + nx * d, y0 + ny * d, x1 + nx * d, y1 + ny * d]);
+    const di = ds[i];
+    inward.push([x0 + nx * di, y0 + ny * di, x1 + nx * di, y1 + ny * di]);
   }
   const out = [];
   for (let i = 0; i < n; i++) {
@@ -160,6 +221,6 @@ export function markPath({ cut = STANDARD, style = 'solid', weight = 3, scale = 
   if (style === 'solid') {
     return { d: body, rule: 'nonzero', width: width(cut) * scale, height: cut.height * scale };
   }
-  const hole = polygonPath(inset(pts, weight), scale, at);
+  const hole = polygonPath(inset(pts, insets(pts, weight)), scale, at);
   return { d: `${body} ${hole}`, rule: 'evenodd', width: width(cut) * scale, height: cut.height * scale };
 }

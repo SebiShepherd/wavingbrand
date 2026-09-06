@@ -31,6 +31,16 @@
       "value": 320,
       "kind": "chosen",
       "source": "The render width every baseline is compared at. Large enough that a third of a ninth is a pixel, small enough that 84 committed PNGs stay reviewable in a diff. Nothing depends on the exact figure."
+    },
+    "src/mark.mjs:HORIZONTAL": {
+      "value": 0.932,
+      "kind": "measured",
+      "source": "Montserrat, the mark's own typeface, draws the H's crossbar at 41 px against a 44 px stem when the glyph is rendered 1200 px wide, read out of brand/fonts/Montserrat[wght].ttf with fontkit and resvg. Chosen over the figures quoted for the convention in general, which vary and which an earlier version of this work cited wrongly as 83 %."
+    },
+    "src/mark.mjs:OUTLINE_MIN_PX": {
+      "value": 32,
+      "kind": "measured",
+      "source": "The outline holds two fully clear pixels from 30 px up and fails at every even size below, measured with check-legibility's method over 16 to 160 px. Every inset variant tried in issue #7 landed between 28 and 30, so the floor is a property of having three contours rather than of any weight. 32 is the next size a favicon slot offers. gates/check-legibility.mjs holds it."
     }
   },
   "$documented": {
