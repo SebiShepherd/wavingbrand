@@ -170,6 +170,7 @@ Each one exists because of a defect in the original artwork.
 | `check-baselines` | a change that keeps every ratio valid and still draws something else |
 | `check-print` | a missing CMYK build, or a print file that carries RGB |
 | `check-vocabulary` | a lightness ladder that cannot be solved into a compliant theme |
+| `check-workflows` | a workflow that does not parse, so no gate runs at all |
 | `check-dist-clean` | a file in `dist/` edited by hand |
 
 ## kagami

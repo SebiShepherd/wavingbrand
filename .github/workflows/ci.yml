@@ -6,7 +6,7 @@ on:
   # verdicts and twice the runner minutes.
   push:
     branches: ['**']
-  pull_request
+  pull_request:
 
 jobs:
   build:
