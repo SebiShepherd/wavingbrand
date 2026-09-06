@@ -100,9 +100,26 @@ node check-vendored.mjs public/brand
 node check-vendored.mjs public/brand --ref main   # against the tip instead
 ```
 
-It reads the version out of your own copy, fetches that release's manifest, and
-compares. Pinning to a release is the default on purpose: a check that goes red
-because somebody else pushed is a check people learn to ignore.
+Consumers rename and flatten, so the check does not assume your layout matches
+`dist/`. A `vendored.json` beside the files says where the copy came from and what
+each local name maps to upstream:
+
+```json
+{
+  "ref": "v0.1.0",
+  "local": ["SOURCE.md"],
+  "files": {
+    "favicon-32.png": "hikaru/favicon-32.png",
+    "wavingeye-icon.svg": "wavingeye/boxed-icon-white-on-navy.svg"
+  }
+}
+```
+
+`ref` may be a tag or a commit; a commit needs no release behind it. Without a
+`vendored.json` the check falls back to a vendored `manifest.json` for the version
+and treats your filenames as upstream paths. Pinning to a release or a commit is
+the default on purpose: a check that goes red because somebody else pushed is a
+check people learn to ignore.
 
 ### The two token layers
 
