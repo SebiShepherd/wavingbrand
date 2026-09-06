@@ -11,21 +11,21 @@ npm run baselines  # re-render baselines/. Doing this is how a change is approve
 
 ## What is here
 
-| Path              | What it holds |
-| ----------------- | ------------- |
-| `brand/tokens/`   | colour, geometry and typography as W3C DTCG tokens |
-| `brand/products/` | one file per product: its name, its lockups, its targets |
-| `brand/consumers/`| one file per product that renders the mark: its surfaces, as a contract |
-| `brand/stationery/`| what goes on the card and the letterhead. Placeholders until you replace them |
-| `brand/fonts/`    | Montserrat and its OFL licence |
-| `src/`            | the generator: parameters to SVG to platform targets |
-| `gates/`          | the rules as builds, run in CI |
-| `tools/`          | `tokens.mjs` solves the palette; `theme.mjs` solves a product's; `baselines.mjs` re-renders; `validate.mjs` is the check a consumer runs |
-| `brand/themes/`   | a product's four hues, as input to the theme solver |
-| `baselines/`      | one deterministic render of every asset, the reviewable record of a change |
-| `dist/`           | generated. Editing anything here fails `gates/check-dist-clean.mjs` |
-| `docs/`           | the audit, the proposal, the decisions, and a generated guidelines page |
-| `init/`           | the original artwork, kept untouched as the reference |
+| Path                | What it holds                                                                                                                            |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `brand/tokens/`     | colour, geometry and typography as W3C DTCG tokens                                                                                       |
+| `brand/products/`   | one file per product: its name, its lockups, its targets                                                                                 |
+| `brand/consumers/`  | one file per product that renders the mark: its surfaces, as a contract                                                                  |
+| `brand/stationery/` | what goes on the card and the letterhead. Placeholders until you replace them                                                            |
+| `brand/fonts/`      | Montserrat and its OFL licence                                                                                                           |
+| `src/`              | the generator: parameters to SVG to platform targets                                                                                     |
+| `gates/`            | the rules as builds, run in CI                                                                                                           |
+| `tools/`            | `tokens.mjs` solves the palette; `theme.mjs` solves a product's; `baselines.mjs` re-renders; `validate.mjs` is the check a consumer runs |
+| `brand/themes/`     | a product's four hues, as input to the theme solver                                                                                      |
+| `baselines/`        | one deterministic render of every asset, the reviewable record of a change                                                               |
+| `dist/`             | generated. Editing anything here fails `gates/check-dist-clean.mjs`                                                                      |
+| `docs/`             | the audit, the proposal, the decisions, and a generated guidelines page, published by `pages.yml`                                        |
+| `init/`             | the original artwork, kept untouched as the reference                                                                                    |
 
 ## Adding a product
 
@@ -37,7 +37,14 @@ One file in `brand/products/`, then `npm run check`:
   "title": "Hikaru",
   "wordmark": "HIKARU",
   "forms": ["mark", "boxed-icon", "boxed-lockup", "lockup-horizontal"],
-  "targets": ["favicon", "apple-touch", "android", "maskable", "app-store", "og"]
+  "targets": [
+    "favicon",
+    "apple-touch",
+    "android",
+    "maskable",
+    "app-store",
+    "og"
+  ]
 }
 ```
 
@@ -47,23 +54,48 @@ manifest entry.
 
 ## Consuming it from another project
 
-The repository is private, so install from git rather than from npm:
+The repository is public, so the assets are fetchable without a credential.
+Fetchable is not licensed: see `NOTICE`.
+
+**From a CDN**, pinned to a tag rather than to a branch, so a rebuild cannot
+change what your page renders:
+
+```html
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/SebiShepherd/we_logo@v0.1.0/dist/tokens/brand.css"
+/>
+<img
+  src="https://cdn.jsdelivr.net/gh/SebiShepherd/we_logo@v0.1.0/dist/wavingeye/lockup-horizontal-navy.svg"
+/>
+```
+
+**As a dependency**, when you want the whole set and a version you control:
 
 ```
-npm i git+ssh://git@github.com:SebiShepherd/we_logo.git#v0.1.0
+npm i github:SebiShepherd/we_logo#v0.1.0
 ```
 
-There are two token layers and they are not the same kind of thing.
+**As a zip**, for a printer or an agency: the kit on each
+[Release](https://github.com/SebiShepherd/we_logo/releases).
+
+### The two token layers
+
+They are not the same kind of thing.
 
 **`tokens/brand.css` is the identity.** Six values, no theme switching,
 mandatory. Map them into your own tokens under whatever theme strategy you
 already have:
 
 ```css
-@import '@wavingeye/brand/tokens/brand.css';
+@import "https://cdn.jsdelivr.net/gh/SebiShepherd/we_logo@v0.1.0/dist/tokens/brand.css";
 
-:root { --my-logo: var(--we-brand-navy); }
-.dark { --my-logo: var(--we-brand-white); }
+:root {
+  --my-logo: var(--we-brand-navy);
+}
+.dark {
+  --my-logo: var(--we-brand-white);
+}
 ```
 
 **`tokens/theme.css` is a whole palette**, surfaces and inks and neutrals, for a
@@ -86,39 +118,29 @@ node node_modules/@wavingeye/brand/tools/validate.mjs brand.surfaces.json
   "themes": {
     "dark": {
       "surfaces": { "bg": "#14151a", "surface": "#1b1d23" },
-      "box": "#101554", "logo": "#ffffff", "accent": "#7e9cff"
+      "box": "#101554",
+      "logo": "#ffffff",
+      "accent": "#7e9cff"
     }
   }
 }
 ```
 
 That declaration is what found the live defect in Hikaru: a navy tile at 1.01:1
-against its dark surface, so the sidebar mark had no container in dark mode.
+against its dark surface, so the sidebar mark had no luminance edge in dark mode.
 
 An `<img>` cannot inherit `currentColor`. To make the mark follow a theme,
 inline it from `dist/<product>/paths.json`:
 
 ```jsx
-const { mark } = await import('@wavingeye/brand/hikaru/paths.json');
+const { mark } = await import("@wavingeye/brand/hikaru/paths.json");
 <svg viewBox={mark.viewBox} className="text-[--my-logo]">
   <path d={mark.d} fill="currentColor" fillRule={mark.fillRule} />
-</svg>
+</svg>;
 ```
 
 For plain JavaScript, `dist/tokens/color.js` exports every value with types
 beside it.
-
-Favicons and the web manifest are generated per product. Copy
-`dist/<product>/` to the site root and paste `dist/<product>/head.html`:
-
-```html
-<link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
-<link rel="manifest" href="/site.webmanifest">
-```
-
-The SVG favicon follows the reader's theme on its own, which a PNG cannot.
 
 ## Themes for other products
 
@@ -158,19 +180,20 @@ deliberately unusable, so a placeholder cannot reach paper by looking plausible.
 
 Each one exists because of a defect in the original artwork.
 
-| Gate | What it catches |
-| ---- | --------------- |
-| `check-geometry` | a path that no longer matches `brand/tokens/geometry.json` |
-| `check-contrast` | any shipped pair under 3:1 |
-| `check-theme-roles` | an ink that fails on a surface it can land on, in either theme |
-| `check-consumers` | a change to the brand that breaks a product declared in `brand/consumers/` |
-| `check-legibility` | counters that close up below 48 px |
-| `check-safe-zones` | ink outside an Android or maskable crop, measured on the shipped PNG |
-| `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths |
-| `check-baselines` | a change that keeps every ratio valid and still draws something else |
-| `check-print` | a missing CMYK build, or a print file that carries RGB |
-| `check-vocabulary` | a lightness ladder that cannot be solved into a compliant theme |
-| `check-dist-clean` | a file in `dist/` edited by hand |
+| Gate                 | What it catches                                                            |
+| -------------------- | -------------------------------------------------------------------------- |
+| `check-geometry`     | a path that no longer matches `brand/tokens/geometry.json`                 |
+| `check-contrast`     | any shipped pair under 3:1                                                 |
+| `check-theme-roles`  | an ink that fails on a surface it can land on, in either theme             |
+| `check-consumers`    | a change to the brand that breaks a product declared in `brand/consumers/` |
+| `check-legibility`   | counters that close up below 48 px                                         |
+| `check-safe-zones`   | ink outside an Android or maskable crop, measured on the shipped PNG       |
+| `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths                |
+| `check-baselines`    | a change that keeps every ratio valid and still draws something else       |
+| `check-print`        | a missing CMYK build, or a print file that carries RGB                     |
+| `check-vocabulary`   | a lightness ladder that cannot be solved into a compliant theme            |
+| `check-workflows`    | a workflow that does not parse, so no gate runs at all                     |
+| `check-dist-clean`   | a file in `dist/` edited by hand                                           |
 
 ## kagami
 
@@ -212,14 +235,14 @@ asset, the tokens, the font and its licence, and the documents.
 
 The backlog lives on the repository rather than in a conversation.
 
-| | What | Blocked on |
-| - | ---- | ---------- |
-| [#1](https://github.com/SebiShepherd/we_logo/issues/1) | Proof the CMYK builds, then decide on a spot colour | a printed proof |
-| [#2](https://github.com/SebiShepherd/we_logo/issues/2) | Nothing checks a consumer's vendored copy is current | a read credential |
-| [#3](https://github.com/SebiShepherd/we_logo/issues/3) | Publish the guidelines somewhere with a durable URL | repository settings |
-| [#4](https://github.com/SebiShepherd/we_logo/issues/4) | The theme solver is weakest on semantic hues | a second product |
-| [#5](https://github.com/SebiShepherd/we_logo/issues/5) | Two judgement calls settled by arithmetic, never looked at | an eye |
-| [#6](https://github.com/SebiShepherd/we_logo/issues/6) | The licence wording is placeholder drafting | a decision |
+|                                                        | What                                                       | Blocked on                                                             |
+| ------------------------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [#1](https://github.com/SebiShepherd/we_logo/issues/1) | Proof the CMYK builds, then decide on a spot colour        | a printed proof                                                        |
+| [#2](https://github.com/SebiShepherd/we_logo/issues/2) | Nothing checks a consumer's vendored copy is current       | nothing; the repository is public, so a consumer can fetch and compare |
+| [#3](https://github.com/SebiShepherd/we_logo/issues/3) | Publish the guidelines somewhere with a durable URL        | Pages enabled with source "GitHub Actions"                             |
+| [#4](https://github.com/SebiShepherd/we_logo/issues/4) | The theme solver is weakest on semantic hues               | a second product                                                       |
+| [#5](https://github.com/SebiShepherd/we_logo/issues/5) | Two judgement calls settled by arithmetic, never looked at | an eye                                                                 |
+| [#6](https://github.com/SebiShepherd/we_logo/issues/6) | The licence wording is placeholder drafting                | a decision                                                             |
 
 In Hikaru: [#591](https://github.com/SebiShepherd/hikaru/issues/591) the mark's
 tile in dark mode, fixed; [#592](https://github.com/SebiShepherd/hikaru/issues/592)
@@ -238,7 +261,16 @@ tile in dark mode, fixed; [#592](https://github.com/SebiShepherd/hikaru/issues/5
 
 ## Licensing
 
-The build code and the brand assets are separate things. `src/`, `gates/` and
-`tools/` are ordinary code. The marks in `dist/` and `init/` are a trademark and
-are not licensed by this repository to anybody. Montserrat is used under the SIL
-Open Font License 1.1, whose text is in `brand/fonts/OFL.txt`.
+Three things, three terms, and the split is the point. `NOTICE` states it in
+full.
+
+|                                                   |                                                         |
+| ------------------------------------------------- | ------------------------------------------------------- |
+| `src/`, `gates/`, `tools/`, the workflows         | Apache-2.0 (`LICENSE`)                                  |
+| `dist/`, `init/`, `baselines/`, the colour values | the WavingEye identity. A trademark, licensed to nobody |
+| `brand/fonts/Montserrat[wght].ttf`                | SIL Open Font License 1.1                               |
+
+Apache-2.0 rather than MIT for section 6, which says in the licence itself that
+it grants no trademark rights. Being able to fetch a mark is not permission to
+use it; the files are public so WavingEye's own projects can install them
+without a credential and so anybody working with WavingEye can be handed a URL.
