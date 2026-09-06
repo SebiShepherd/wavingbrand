@@ -47,14 +47,36 @@ width.
 
 ## D3 A second cut for small sizes
 
-Below 48 px the standard counters hold one fully-clear pixel, which disappears
-on any display that scales by something other than a whole number. The small cut
+At 16 px the standard counters hold one fully-clear pixel, which disappears on
+any display that scales by something other than a whole number. The small cut
 widens the counter from three ninths to five, which makes the mark 36 wide
 against 32 high and gives two clear pixels at 16 px.
 `gates/check-legibility.mjs` measures it rather than assuming it.
 
+The rule is by role: the favicon family takes the small cut at every one of its
+sizes, and everything else takes the standard one. It is not a pixel threshold,
+and that is a correction rather than a preference. Measured with the gate's own
+method, the standard cut's clear-pixel count does not fall monotonically with
+size:
+
+| px            | 16 | 18 | 20 | 22 | 24 | 26 | 28 | 32 | 36 | 40 | 48 |
+| ------------- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| standard cut  | 1  | 1  | 1  | 1  | 2  | 1  | 2  | 3  | 2  | 3  | 4  |
+| small cut     | 2  | 2  | 2  | 2  | 3  | 3  | 4  | 4  | 5  | 5  | 6  |
+
+The standard cut passes at 24 and fails again at 26, because whether a 2.44 px
+counter yields a clear pixel depends on where the pixel grid happens to fall. A
+threshold at 24 would therefore ship a broken 26. Only from 28 does the standard
+cut stop dipping under the floor, and a browser picks whichever favicon size it
+likes, so the family stays one drawing rather than changing shape halfway up.
+
 **Cost:** the small cut is not square, so it is a different drawing and has to
 be used deliberately. The build picks it for every favicon automatically.
+
+**Correction, after v0.1.0:** this decision was written as "below 48 px" in four
+places while the build shipped the small cut for `favicon-48.png` too. Nothing
+caught it, because prose cannot fail. `gates/check-cuts.mjs` now measures which
+cut each shipped file carries, and the geometry did not change.
 
 ## D4 Artwork to type is one cap height, everywhere
 
@@ -129,7 +151,7 @@ Seven forms, because the two that existed cannot cover the space:
 | Form               | Aspect | For                                    |
 | ------------------ | ------ | -------------------------------------- |
 | mark               | 1:1    | avatars, favicons, anywhere tight      |
-| mark, small cut    | 1.13:1 | below 48 px                            |
+| mark, small cut    | 1.13:1 | the favicon family, every size          |
 | mark, outline      | 1:1    | single-colour and engraved reproduction |
 | wordmark           | 9.96:1 | running headers, documents             |
 | lockup split       | 4.14:1 | the original corporate lockup          |

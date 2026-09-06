@@ -186,7 +186,8 @@ Each one exists because of a defect in the original artwork.
 | `check-contrast`     | any shipped pair under 3:1                                                 |
 | `check-theme-roles`  | an ink that fails on a surface it can land on, in either theme             |
 | `check-consumers`    | a change to the brand that breaks a product declared in `brand/consumers/` |
-| `check-legibility`   | counters that close up below 48 px                                         |
+| `check-legibility`   | counters that close up at small sizes                                      |
+| `check-cuts`         | an artefact drawn with the wrong cut for its role                          |
 | `check-safe-zones`   | ink outside an Android or maskable crop, measured on the shipped PNG       |
 | `check-tight-bounds` | dead space, opaque backgrounds, colliding ids, fixed widths                |
 | `check-baselines`    | a change that keeps every ratio valid and still draws something else       |

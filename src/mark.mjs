@@ -12,7 +12,7 @@
 
 /** @typedef {{stroke:number, middle:number, gap:number, cut:number, bar:number, barTop:number, middleTop:number, height:number}} MarkGrid */
 
-/** The standard cut. Used at 48 px and above. */
+/** The standard cut. Square, and used everywhere except the favicon family. */
 export const STANDARD = {
   stroke: 9,
   middle: 8,
@@ -25,10 +25,21 @@ export const STANDARD = {
 };
 
 /**
- * The small cut. Below 48 px the standard counters fall under two pixels and
- * fill in, so the gap widens from three ninths to five and the mark becomes
- * 36 wide against the same 32 high. Optical sizes, for the same reason
- * typefaces have them.
+ * The small cut. The favicon family, at every one of its sizes.
+ *
+ * The counters are what fail first: at 16 px the standard cut holds one fully
+ * clear pixel where the floor is two, so the gap widens from three ninths to
+ * five and the mark becomes 36 wide against the same 32 high. Optical sizes,
+ * for the same reason typefaces have them.
+ *
+ * The rule is by role rather than by a pixel threshold, and measurement is why.
+ * The standard cut's clear-pixel count is not monotonic in size: two at 24 px,
+ * one again at 26, and only from 28 does it stop dipping under the floor. A
+ * threshold anywhere in that range ships a size that fails. A browser also
+ * picks whichever favicon it likes, so the family stays one shape across 16,
+ * 32 and 48 rather than changing drawing halfway up.
+ *
+ * `gates/check-cuts.mjs` measures which cut each shipped file carries.
  */
 export const SMALL = { ...STANDARD, gap: 5 };
 

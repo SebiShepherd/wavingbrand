@@ -8,6 +8,7 @@ const gates = [
   './check-print.mjs',
   './check-vocabulary.mjs',
   './check-legibility.mjs',
+  './check-cuts.mjs',
   './check-safe-zones.mjs',
   './check-tight-bounds.mjs',
   './check-baselines.mjs',

@@ -246,6 +246,8 @@ Split into things that are wrong and things that are judgement.
    fixes it. Keeping the square bounding box at that gap means narrowing the
    middle stroke to 0.5555 s, which is ugly; the better trade is to let the
    small cut be 10% wider than tall and accept that it is a different drawing.
+   (Shipped as a rule by role rather than the pixel threshold proposed here: see
+   `decisions.md` D3, which measures why a threshold cannot hold.)
 10. **Standardise the mark-to-wordmark gap at 1.0 cap heights.** That is a 1.7%
     change to the WavingEye lockup and a 16% change to Hikaru. Cap height is the
     right unit because the gap separates artwork from type.

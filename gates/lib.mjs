@@ -20,10 +20,20 @@ export function raster(svg, width, ink = '#101554') {
   return { w: r.width, h: r.height, px: Buffer.from(r.pixels) };
 }
 
+/**
+ * A shipped PNG back into pixels, so a gate can measure what was written rather
+ * than what the writer meant. resvg has no decoder of its own; embedding the
+ * file and rendering it at its own size is the decode. Dimensions come from the
+ * IHDR, which is the first chunk of every PNG.
+ */
 export function decodePng(buf) {
-  const r = new Resvg(`<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>`);
-  void r;
-  return null;
+  const w = buf.readUInt32BE(16);
+  const h = buf.readUInt32BE(20);
+  const svg =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">` +
+    `<image href="data:image/png;base64,${buf.toString('base64')}" width="${w}" height="${h}"/></svg>`;
+  const r = new Resvg(svg, { fitTo: { mode: 'width', value: w } }).render();
+  return { w: r.width, h: r.height, px: Buffer.from(r.pixels) };
 }
 
 /** Alpha at (x, y). */

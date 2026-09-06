@@ -58,8 +58,8 @@ the same reason
 generate favicons, Apple touch icons, maskable icons, splash screens and the
 manifest entries from one source image. They solve the mechanical half. They do
 not solve the part that matters here, which is that each target wants a
-different amount of padding and, below 48 px, a different drawing. See
-`asset-audit.md` section 6.
+different amount of padding and, for the favicon family, a different drawing.
+See `asset-audit.md` section 6.
 
 The constraints these tools encode, which your build has to respect:
 
@@ -170,7 +170,7 @@ A variant is a point in this space, and the build enumerates it:
 
 Not every combination is legal, and the gates say which. Pink on navy fails
 body-text contrast; `currentColor` only makes sense with a transparent
-background; the small-size cut is mandatory below 48 px.
+background; the small-size cut is mandatory for the favicon family.
 
 ### 2.4 Adding a product
 
