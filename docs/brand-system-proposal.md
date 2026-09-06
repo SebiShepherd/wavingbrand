@@ -131,7 +131,7 @@ it and CI says so. That single rule is what stops the drift you had in Canva.
 ### 2.2 Layout
 
 ```
-we_logo/
+wavingbrand/
   brand/
     tokens/
       color.json            # DTCG: navy, pink, neutrals, dark-mode substitutes

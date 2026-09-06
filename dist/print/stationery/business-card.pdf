@@ -2288,7 +2288,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 257.953 172.913] /TrimBox [8.504 8.504 249.449 164.409] /BleedBox [0 0 257.953 172.913] /Contents 5 0 R /Resources << >> >>
 endobj
 7 0 obj
-<< /Title (WavingEye business card) /Creator (we_logo src/pdf.mjs) /Producer (we_logo) /Subject (CMYK builds are NOT PROOFED. See print/README.md before ordering.) >>
+<< /Title (WavingEye business card) /Creator (wavingbrand src/pdf.mjs) /Producer (wavingbrand) /Subject (CMYK builds are NOT PROOFED. See print/README.md before ordering.) >>
 endobj
 xref
 0 8
@@ -2303,5 +2303,5 @@ xref
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-67009
+67017
 %%EOF

@@ -1,4 +1,4 @@
-# we_logo
+# wavingbrand
 
 The WavingEye brand as parameters and a build. Eight integers, one font file and
 a colour table produce every asset; nothing in `dist/` is drawn.
@@ -63,21 +63,21 @@ change what your page renders:
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/SebiShepherd/we_logo@v0.1.0/dist/tokens/brand.css"
+  href="https://cdn.jsdelivr.net/gh/SebiShepherd/wavingbrand@v0.1.0/dist/tokens/brand.css"
 />
 <img
-  src="https://cdn.jsdelivr.net/gh/SebiShepherd/we_logo@v0.1.0/dist/wavingeye/lockup-horizontal-navy.svg"
+  src="https://cdn.jsdelivr.net/gh/SebiShepherd/wavingbrand@v0.1.0/dist/wavingeye/lockup-horizontal-navy.svg"
 />
 ```
 
 **As a dependency**, when you want the whole set and a version you control:
 
 ```
-npm i github:SebiShepherd/we_logo#v0.1.0
+npm i github:SebiShepherd/wavingbrand#v0.1.0
 ```
 
 **As a zip**, for a printer or an agency: the kit on each
-[Release](https://github.com/SebiShepherd/we_logo/releases).
+[Release](https://github.com/SebiShepherd/wavingbrand/releases).
 
 ### The two token layers
 
@@ -88,7 +88,7 @@ mandatory. Map them into your own tokens under whatever theme strategy you
 already have:
 
 ```css
-@import "https://cdn.jsdelivr.net/gh/SebiShepherd/we_logo@v0.1.0/dist/tokens/brand.css";
+@import "https://cdn.jsdelivr.net/gh/SebiShepherd/wavingbrand@v0.1.0/dist/tokens/brand.css";
 
 :root {
   --my-logo: var(--we-brand-navy);
@@ -237,12 +237,12 @@ The backlog lives on the repository rather than in a conversation.
 
 |                                                        | What                                                       | Blocked on                                                             |
 | ------------------------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [#1](https://github.com/SebiShepherd/we_logo/issues/1) | Proof the CMYK builds, then decide on a spot colour        | a printed proof                                                        |
-| [#2](https://github.com/SebiShepherd/we_logo/issues/2) | Nothing checks a consumer's vendored copy is current       | nothing; the repository is public, so a consumer can fetch and compare |
-| [#3](https://github.com/SebiShepherd/we_logo/issues/3) | Publish the guidelines somewhere with a durable URL        | Pages enabled with source "GitHub Actions"                             |
-| [#4](https://github.com/SebiShepherd/we_logo/issues/4) | The theme solver is weakest on semantic hues               | a second product                                                       |
-| [#5](https://github.com/SebiShepherd/we_logo/issues/5) | Two judgement calls settled by arithmetic, never looked at | an eye                                                                 |
-| [#6](https://github.com/SebiShepherd/we_logo/issues/6) | The licence wording is placeholder drafting                | a decision                                                             |
+| [#1](https://github.com/SebiShepherd/wavingbrand/issues/1) | Proof the CMYK builds, then decide on a spot colour        | a printed proof                                                        |
+| [#2](https://github.com/SebiShepherd/wavingbrand/issues/2) | Nothing checks a consumer's vendored copy is current       | nothing; the repository is public, so a consumer can fetch and compare |
+| [#3](https://github.com/SebiShepherd/wavingbrand/issues/3) | Publish the guidelines somewhere with a durable URL        | Pages enabled with source "GitHub Actions"                             |
+| [#4](https://github.com/SebiShepherd/wavingbrand/issues/4) | The theme solver is weakest on semantic hues               | a second product                                                       |
+| [#5](https://github.com/SebiShepherd/wavingbrand/issues/5) | Two judgement calls settled by arithmetic, never looked at | an eye                                                                 |
+| [#6](https://github.com/SebiShepherd/wavingbrand/issues/6) | The licence wording is placeholder drafting                | a decision                                                             |
 
 In Hikaru: [#591](https://github.com/SebiShepherd/hikaru/issues/591) the mark's
 tile in dark mode, fixed; [#592](https://github.com/SebiShepherd/hikaru/issues/592)

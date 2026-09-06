@@ -87,7 +87,7 @@ export function pdf(pages, { title, note = '' }) {
     );
   });
   const infoId = add(
-    `<< /Title (${title}) /Creator (we_logo src/pdf.mjs) /Producer (we_logo) ${note ? `/Subject (${note})` : ''} >>`,
+    `<< /Title (${title}) /Creator (wavingbrand src/pdf.mjs) /Producer (wavingbrand) ${note ? `/Subject (${note})` : ''} >>`,
   );
   objects[catalog - 1] = `<< /Type /Catalog /Pages ${pagesObj} 0 R >>`;
   objects[pagesObj - 1] = `<< /Type /Pages /Kids [${pageIds.map((id) => `${id} 0 R`).join(' ')}] /Count ${pages.length} >>`;
@@ -148,7 +148,7 @@ export function eps(page, { title }) {
       `%%BoundingBox: 0 0 ${Math.ceil(page.width)} ${Math.ceil(page.height)}`,
       `%%HiResBoundingBox: 0 0 ${f(page.width)} ${f(page.height)}`,
       `%%Title: ${title}`,
-      '%%Creator: we_logo src/pdf.mjs',
+      '%%Creator: wavingbrand src/pdf.mjs',
       '%%LanguageLevel: 2',
       '%%DocumentProcessColors: Cyan Magenta Yellow Black',
       '%%EndComments',
