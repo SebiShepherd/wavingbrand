@@ -1,0 +1,45 @@
+name: pages
+
+# The guidelines, at a URL. `docs/index.html` is generated from the same
+# parameters as the assets, so the page cannot drift from what it documents;
+# what it lacked was somewhere to live that is not a file on somebody's disk.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time, and a newer push wins rather than queueing behind
+# a page nobody will look at.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Regenerate rather than publish what is committed, and refuse if the two
+      # disagree. A guidelines page that does not match its own source is worse
+      # than no page: somebody would follow it.
+      - run: npm run tokens && npm run build && npm run docs
+      - run: git diff --exit-code -- docs dist brand/tokens
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,38 @@
+WavingEye brand system
+Copyright 2026 WavingEye
+
+This repository holds three different things under three different terms. The
+split matters: a permissive licence over the whole repository would hand anybody
+who reads it a licence to use the logo, which is the opposite of what a logo is
+for.
+
+## The build is Apache-2.0
+
+`src/`, `gates/`, `tools/`, `kagami.config.mjs` and the workflows are ordinary
+code, licensed under the Apache License 2.0 in `LICENSE`. Take it, adapt it,
+point it at your own mark.
+
+Apache-2.0 was chosen over MIT for section 6, which says in the licence itself
+that it grants no trademark rights. That is the exact sentence this repository
+needs, so it does not have to be bolted on beside a licence that is silent.
+
+## The marks are not licensed to anybody
+
+Everything under `dist/`, `init/`, `baselines/` and `brand/marks/`, and every
+value in `brand/tokens/color.json`, is the WavingEye visual identity. It is a
+trademark. Reading this repository grants no permission to use it, reproduce it,
+or make a derivative of it, and Apache-2.0 section 6 says so explicitly.
+
+Being able to fetch a file is not permission to use it. The files are public so
+that WavingEye's own projects can install them and so that anybody working with
+WavingEye can be handed a URL instead of a zip.
+
+## Montserrat is OFL 1.1
+
+`brand/fonts/Montserrat[wght].ttf` is Montserrat, copyright the Montserrat
+Project Authors, under the SIL Open Font License 1.1. Its text is in
+`brand/fonts/OFL.txt`. The OFL permits the use made of it here, including
+setting a wordmark in it and shipping outlines of that wordmark.
+
+The wordmark's *letterforms* are Montserrat's and are OFL. The wordmark as a
+mark of WavingEye is not.

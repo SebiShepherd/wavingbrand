@@ -4,7 +4,7 @@
   "private": true,
   "description": "The WavingEye brand as parameters and a build.",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "SEE LICENSE IN NOTICE",
   "files": [
     "dist",
     "brand/tokens"
@@ -31,5 +31,9 @@
   },
   "devDependencies": {
     "yaml": "^2.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SebiShepherd/we_logo.git"
   }
 }
