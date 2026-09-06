@@ -25,7 +25,7 @@
     "src/lockup.mjs:STACK_RATIO": {
       "value": 0.72,
       "kind": "chosen",
-      "source": "Picked, not derived, and nobody has looked at it. No measurement here supports it and it has had no blind comparison. Open."
+      "source": "Picked, not derived, and nobody has judged it. No gate constrains it: any value produces a valid lockup, so there is nothing here to measure it against. Expressed in something a person can actually look at, 0.72 makes the mark 4.64 cap heights tall above the word (0.60 gives 3.87, 0.85 gives 5.48, 1.00 gives 6.45). Sebastian was shown it and said the stacked form is one he would rarely use, so it stays as it is; this entry exists so the number cannot pass for derived."
     },
     "src/baseline.mjs:WIDTH": {
       "value": 320,

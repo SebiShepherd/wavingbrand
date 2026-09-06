@@ -22,6 +22,10 @@ const svgOf = (p) => read(p).replace(/<\?xml[^>]*\?>/, '');
 const C = (k) => color(`color.${k}`);
 const NAVY = C('brand.navy');
 const PINK = C('brand.pink');
+/** The ground a navy specimen sits on, in either theme. Not a token on purpose. */
+const PAPER = '#f4f5f9';
+const PAPER_RULE = '#c9cee0';
+const PAPER_INK = '#4d5478';
 const WHITE = C('brand.white');
 
 const lin = (c) => (c / 255 <= 0.04045 ? c / 255 / 12.92 : ((c / 255 + 0.055) / 1.055) ** 2.4);
@@ -226,20 +230,27 @@ td.num,th.num{font-family:var(--mono);font-variant-numeric:tabular-nums;text-ali
 .cutrow figcaption{font-family:var(--mono);font-size:10px;color:var(--ink-3)}
 
 .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:20px 0}
-.spec{margin:0;background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:22px 20px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;justify-content:space-between}
+/* A specimen field is the ground the artwork is for, not the ground the reader
+   chose. These values are deliberately fixed rather than tokens: the navy
+   lockups used to sit on var(--panel), which is dark in the dark set, so navy
+   ink stood on nearly its own colour and what a reader judged was the tile.
+   That is the same defect this brand's own gate found shipped in Hikaru. */
+.spec{margin:0;background:${PAPER};border:1px solid ${PAPER_RULE};border-radius:3px;padding:22px 20px 14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:16px;justify-content:space-between}
 .spec.dark{background:${NAVY};border-color:${NAVY}}
 .spec.pink{background:${PINK};border-color:${PINK}}
-.spec .art{display:flex;align-items:center;justify-content:center;min-height:var(--h);color:var(--ink-1)}
+.spec .art{display:flex;align-items:center;justify-content:center;min-height:var(--h);color:${NAVY}}
 .spec.dark .art,.spec.pink .art{color:#fff}
 .spec .art svg{max-width:100%;max-height:var(--h);height:auto;width:auto}
-.spec figcaption{font-size:12px;color:var(--ink-3);display:flex;flex-direction:column;gap:2px}
+.spec figcaption{font-size:12px;color:${PAPER_INK};display:flex;flex-direction:column;gap:2px}
 .spec.dark figcaption,.spec.pink figcaption{color:rgba(255,255,255,.72)}
 .spec figcaption code{font-size:11px;opacity:.72;word-break:break-all}
 
 .icons{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-end;margin:20px 0}
 .icon{margin:0;display:flex;flex-direction:column;gap:9px;align-items:center}
-.icon img{display:block;border-radius:2px}
-.icon img.navy{background:${NAVY}}
+/* Same rule. A favicon is navy ink on nothing, so on this page's dark ground it
+   was a smudge; the adaptive foreground is white ink and needs the opposite. */
+.icon img{display:block;border-radius:2px;background:${PAPER};box-shadow:0 0 0 1px ${PAPER_RULE}}
+.icon img.navy{background:${NAVY};box-shadow:none}
 .icon figcaption{font-family:var(--mono);font-size:10px;color:var(--ink-3);text-align:center;display:flex;flex-direction:column}
 
 .swatches{list-style:none;padding:0;margin:14px 0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}

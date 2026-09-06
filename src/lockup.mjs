@@ -87,12 +87,15 @@ export function mark({ cut = STANDARD, style = 'solid', weight = 3 } = {}) {
  * Applied to width rather than height, so the mark grows with the name rather
  * than against it: that part is a rule and it holds for any string.
  *
- * 0.72 is chosen and nobody has looked at it. An earlier version of this
- * comment said a square mark over a wide word reads as an afterthought because
- * the eye compares widths, which was asserted rather than found: no measurement
- * here supports it and no person has judged the result. It sits in the same
- * class as OPTICAL did before issue #5, and unlike OPTICAL it has not had its
- * blind comparison yet.
+ * 0.72 is chosen. An earlier version of this comment said a square mark over a
+ * wide word reads as an afterthought because the eye compares widths, which was
+ * asserted rather than found.
+ *
+ * No gate constrains it: any value produces a valid lockup, so there is nothing
+ * to measure it against. The form it takes that a person can judge is height:
+ * 0.72 stands the mark 4.64 cap heights above the word, where 0.60 gives 3.87
+ * and 1.00 gives 6.45. Shown in that form and left as it is, the stacked lockup
+ * being a form its owner would rarely reach for.
  */
 export const STACK_RATIO = 0.72;
 
