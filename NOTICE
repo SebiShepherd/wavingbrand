@@ -13,19 +13,32 @@ code, licensed under the Apache License 2.0 in `LICENSE`. Take it, adapt it,
 point it at your own mark.
 
 Apache-2.0 was chosen over MIT for section 6, which says in the licence itself
-that it grants no trademark rights. That is the exact sentence this repository
-needs, so it does not have to be bolted on beside a licence that is silent.
+that it grants no trademark rights. That is useful and it is not sufficient, for
+the reason the next section now states.
 
 ## The marks are not licensed to anybody
 
 Everything under `dist/`, `init/`, `baselines/` and `brand/marks/`, and every
-value in `brand/tokens/color.json`, is the WavingEye visual identity. It is a
-trademark. Reading this repository grants no permission to use it, reproduce it,
-or make a derivative of it, and Apache-2.0 section 6 says so explicitly.
+value in `brand/tokens/color.json`, is the WavingEye visual identity. It is not
+part of the Work licensed under `LICENSE`. Reading this repository grants no
+permission to use it, reproduce it, or make a derivative of it.
 
 Being able to fetch a file is not permission to use it. The files are public so
 that WavingEye's own projects can install them and so that anybody working with
 WavingEye can be handed a URL instead of a zip.
+
+**What that reservation rests on.** No trademark is registered anywhere. The
+right asserted over these files is copyright in the artwork, held by its author.
+An earlier version of this file called the identity "a trademark" and pointed at
+Apache-2.0 section 6 as the reservation, which was wrong twice over: nothing was
+registered, and section 6 withholds trademark rights while section 2 grants a
+copyright licence over the Work. The carve-out above is what keeps these files
+outside that grant, and it is stated here rather than inferred from section 6.
+
+Neither the ® nor the ™ symbol appears anywhere in this repository, and neither
+should be added. ® is for a registered mark and using it without one is a
+misleading commercial practice; ™ without even a pending application can mislead
+in the same direction.
 
 ## Montserrat is OFL 1.1
 
