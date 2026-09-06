@@ -22,6 +22,14 @@ documents. A printer, an agency, a contractor.
 
 The CMYK builds are **not proofed**. See `dist/print/README.md`.
 
-## Not in the box
+## Also outside the zip
 
-The guidelines page (`docs/index.html`) is generated but has no public URL yet.
+The guidelines are at <https://sebishepherd.github.io/wavingbrand/>, generated
+from the same parameters as the assets by the workflow that publishes them, so
+the page cannot describe a build that does not exist.
+
+Every file in `dist/` is on a CDN at this tag, no download required:
+
+```
+https://cdn.jsdelivr.net/gh/SebiShepherd/wavingbrand@v0.1.0/dist/tokens/brand.css
+```

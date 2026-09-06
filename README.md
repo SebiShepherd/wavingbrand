@@ -239,7 +239,6 @@ The backlog lives on the repository rather than in a conversation.
 | ------------------------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------------------------- |
 | [#1](https://github.com/SebiShepherd/wavingbrand/issues/1) | Proof the CMYK builds, then decide on a spot colour        | a printed proof                                                        |
 | [#2](https://github.com/SebiShepherd/wavingbrand/issues/2) | Nothing checks a consumer's vendored copy is current       | nothing; the repository is public, so a consumer can fetch and compare |
-| [#3](https://github.com/SebiShepherd/wavingbrand/issues/3) | Publish the guidelines somewhere with a durable URL        | Pages enabled with source "GitHub Actions"                             |
 | [#4](https://github.com/SebiShepherd/wavingbrand/issues/4) | The theme solver is weakest on semantic hues               | a second product                                                       |
 | [#5](https://github.com/SebiShepherd/wavingbrand/issues/5) | Two judgement calls settled by arithmetic, never looked at | an eye                                                                 |
 | [#6](https://github.com/SebiShepherd/wavingbrand/issues/6) | The licence wording is placeholder drafting                | a decision                                                             |
@@ -257,7 +256,10 @@ tile in dark mode, fixed; [#592](https://github.com/SebiShepherd/hikaru/issues/5
 - [`docs/decisions.md`](docs/decisions.md): the eight calls that were made, what
   each one costs, and the one still open.
 - [`docs/index.html`](docs/index.html): the guidelines, generated from the same
-  parameters as the assets.
+  parameters as the assets, published at
+  <https://sebishepherd.github.io/wavingbrand/>. `pages.yml` regenerates the page
+  and refuses to deploy if the regeneration disagrees with what is committed, so
+  the published page and the build it documents cannot drift apart.
 
 ## Licensing
 
