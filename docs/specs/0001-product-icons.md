@@ -35,8 +35,18 @@ the lineup is now several products and growing.
    24 px in greyscale, and the build fails when two are too similar. The same
    check runs on the symbolic set.
 
-## Next
+## Prototypes
 
-Prototypes for KnowYourLimit and Hikaru in both forms, rendered beside each
-other and beside the W at 16, 24, 32 and 128 px. The sponsor picks forms and
-metaphors from those; the parameters and gates follow.
+`prototypes/icons/sheet.png`, rendered by `prototypes/icons/render.mjs`: the W
+and two variants each for KnowYourLimit and Hikaru, as tiles at 128 to 16 px,
+in greyscale, as GNOME silhouettes and as symbolic icons on light and dark.
+
+- KnowYourLimit A: three rising strokes, the W's widths and cuts without its bar.
+  Reads as a level meter, and also as a generic "statistics" icon.
+- KnowYourLimit B: the same strokes under a ceiling, which is the W's sloped bar
+  moved to the top. Levels rising to a limit; closer to the W's construction.
+- Hikaru A: four kites with the W's gap between them. Thin at 16 px.
+- Hikaru B: the kites a stroke and a half wide. Holds at 16 px, loses the gaps.
+
+The sponsor picks forms and metaphors from the sheet; the parameters and the
+distinctness gate follow.
