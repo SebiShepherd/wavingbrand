@@ -19,86 +19,101 @@ const G = { stroke: 9, middle: 8, gap: 3, cut: 3, height: 32 };
 /** The company mark, from the real build. */
 const W = [outline(STANDARD)];
 
-/**
- * KnowYourLimit: three strokes rising left to right, a level meter. Same widths
- * and gaps as the W's three strokes and the same angled top cut, so the
- * silhouette is the W's family and unmistakably not the W: no bar, rising tops.
- */
-function meter() {
-  const xs = [0, G.stroke + G.gap, G.stroke + G.gap + G.middle + G.gap];
-  const ws = [G.stroke, G.middle, G.stroke];
-  const tops = [18, 9, 0];
-  return xs.map((x, i) => [
-    [x, tops[i]],
-    [x + ws[i], tops[i] + G.cut],
-    [x + ws[i], G.height],
-    [x, G.height],
-  ]);
+/** A polygon approximating an annulus sector, angles in degrees, 0 at 12 o'clock, clockwise. */
+function arc(cx, cy, outer, inner, from, to, steps = 48) {
+  const pt = (rad, a) => [cx + rad * Math.sin((a * Math.PI) / 180), cy - rad * Math.cos((a * Math.PI) / 180)];
+  const n = Math.max(2, Math.round((steps * (to - from)) / 360));
+  const out = [], back = [];
+  for (let i = 0; i <= n; i += 1) {
+    const a = from + ((to - from) * i) / n;
+    out.push(pt(outer, a));
+    back.unshift(pt(inner, a));
+  }
+  return [...out, ...back];
+}
+const rect = (x0, y0, x1, y1) => [[x0, y0], [x1, y0], [x1, y1], [x0, y1]];
+
+/** 1, Odysseus knot: a mast with a rope wound twice around it. Both turns
+    pass in front, so the mast is cut around them; the rope runs off at the
+    lower right, which is what makes it a binding and not a pattern. */
+function knot() {
+  const g = G.gap, t = 6, k = 0.4;
+  const mast = [12, 20];
+  // Two turns: bands rising to the right, one gap clear of the mast cuts.
+  const turn = (y0) => [[2, y0], [30, y0 - 28 * k], [30, y0 - 28 * k + t], [2, y0 + t]];
+  const y = (y0, x) => y0 - (x - 2) * k;
+  const turns = [12, 22];
+  const pieces = [];
+  // Mast segments between the turns.
+  pieces.push([[mast[0], 0], [mast[1], 0], [mast[1], y(turns[0], mast[1]) - g], [mast[0], y(turns[0], mast[0]) - g]]);
+  pieces.push([[mast[0], y(turns[0], mast[0]) + t + g], [mast[1], y(turns[0], mast[1]) + t + g], [mast[1], y(turns[1], mast[1]) - g], [mast[0], y(turns[1], mast[0]) - g]]);
+  pieces.push([[mast[0], y(turns[1], mast[0]) + t + g], [mast[1], y(turns[1], mast[1]) + t + g], [mast[1], 32], [mast[0], 32]]);
+  for (const y0 of turns) pieces.push(turn(y0));
+  // The loose end, falling from the lower turn's right end.
+  pieces.push([[24, y(turns[1], 24) + t + g], [30, y(turns[1], 30) + t + g], [32, 32], [26, 32]]);
+  return pieces;
 }
 
-/**
- * KnowYourLimit, variant B: the same meter under a ceiling. The ceiling is the
- * W's sloped bar turned upside down and moved to the top, one gap above the
- * tallest stroke: levels rising to a limit.
- */
-function meterCeiling() {
-  const top = G.cut + 8 + G.gap; // ceiling thickness 8 plus its slope, then the gap
-  const xs = [0, G.stroke + G.gap, G.stroke + G.gap + G.middle + G.gap];
-  const ws = [G.stroke, G.middle, G.stroke];
-  const tops = [top + 12, top + 6, top];
-  const bars = xs.map((x, i) => [
-    [x, tops[i] + (i === 2 ? 0 : 0)],
-    [x + ws[i], tops[i] - (G.cut * ws[i]) / 32],
-    [x + ws[i], G.height],
-    [x, G.height],
-  ]);
-  const ceiling = [
-    [0, G.cut],
-    [32, 0],
-    [32, 8],
-    [0, 8 + G.cut],
-  ];
-  return [ceiling, ...bars];
-}
-
-/** Hikaru, variant B: the spark with arms a stroke and a half wide, so it
-    holds at 16 px. */
-function boldSpark() {
-  const c = 16;
-  const half = (G.stroke * 1.5) / 2;
-  const inner = G.gap / 2 + 1;
-  const arm = (tip, side) => [tip, side(+1), [c + (tip[0] - c) * 0.08, c + (tip[1] - c) * 0.08], side(-1)];
+/** 2, Line against a wall: a stroke runs and stops one gap short of a wall. */
+function wall() {
   return [
-    arm([c, 0], (s) => [c + s * half, c - inner - 3]),
-    arm([32, c], (s) => [c + inner + 3, c + s * half]),
-    arm([c, 32], (s) => [c - s * half, c + inner + 3]),
-    arm([0, c], (s) => [c - inner - 3, c - s * half]),
+    [[0, 11.5], [20, 11.5 - G.cut * (8 / 32)], [20, 20.5], [0, 20.5]],
+    [[23, 0], [32, G.cut], [32, 32], [23, 32]],
   ];
 }
 
-/**
- * Hikaru ("light"): four kites around a centre, a spark. Each arm is one
- * stroke wide at its widest and separated from its neighbours by the gap.
- */
-function spark() {
-  const c = 16;
-  const half = G.stroke / 2;
-  const inner = half + G.gap / 2;
-  const arm = (tip, side) => [tip, side(+1), [c + (tip[0] - c) * 0.12, c + (tip[1] - c) * 0.12], side(-1)];
+/** 3, Time ring: three quarters of a ring are spent, and a bar across the ring
+    marks where it stops. */
+function ring() {
+  return [arc(16, 16, 16, 9, 20, 270), rect(14.5, 0, 17.5, 7)];
+}
+
+/** 4, Shackle: the bow of a padlock alone, both legs home. */
+function shackle() {
   return [
-    arm([c, 0], (s) => [c + s * half, c - inner - 1.5]),
-    arm([32, c], (s) => [c + inner + 1.5, c + s * half]),
-    arm([c, 32], (s) => [c - s * half, c + inner + 1.5]),
-    arm([0, c], (s) => [c - inner - 1.5, c - s * half]),
+    arc(16, 14, 16, 7, -90, 90),
+    rect(0, 14, 9, 32),
+    rect(23, 14, 32, 32),
   ];
 }
 
+/** 5, Gate: two posts with the W's angled tops, two rails between them. */
+function gate() {
+  return [
+    [[0, 0], [9, G.cut], [9, 32], [0, 32]],
+    [[23, G.cut], [32, 0], [32, 32], [23, 32]],
+    rect(12, 8, 20, 14),
+    rect(12, 20, 20, 26),
+  ];
+}
+
+/** 6, Hourglass: two triangles meeting at a gap. */
+function hourglass() {
+  return [
+    [[0, 0], [32, 0], [16 + 1.5, 14.5], [16 - 1.5, 14.5]],
+    [[16 - 1.5, 17.5], [16 + 1.5, 17.5], [32, 32], [0, 32]],
+  ];
+}
+
+/** 7, Monogram: K Y L from strokes of 6, one gap apart, 40 wide. */
+function monogram() {
+  const s = 6;
+  const K = [rect(0, 0, s, 32), [[s + 2, 16], [14, 0], [14 + s, 0], [s + 2 + s, 16]], [[s + 2, 16], [s + 2 + s, 16], [14 + s, 32], [14, 32]]];
+  const Y = [[[22, 0], [28, 0], [31, 13], [28, 16]], [[34, 0], [40, 0], [34, 16], [31, 13]], rect(28, 16, 34, 32)];
+  const L = [rect(43, 0, 49, 32), rect(43, 26, 56, 32)];
+  return [...K, ...Y, ...L];
+}
+
+const KYL = '#007a85';
 const PRODUCTS = [
   { name: 'WavingEye (company mark)', polys: W, width: 32, hue: '#101554', light: '#101554' },
-  { name: 'KnowYourLimit A', polys: meter(), width: 32, hue: '#007a85', light: '#007a85' },
-  { name: 'KnowYourLimit B', polys: meterCeiling(), width: 32, hue: '#007a85', light: '#007a85' },
-  { name: 'Hikaru A', polys: spark(), width: 32, hue: '#2b5ce6', light: '#2b5ce6' },
-  { name: 'Hikaru B', polys: boldSpark(), width: 32, hue: '#2b5ce6', light: '#2b5ce6' },
+  { name: '1 Odysseus knot', polys: knot(), width: 32, hue: KYL, light: KYL },
+  { name: '2 Line against wall', polys: wall(), width: 32, hue: KYL, light: KYL },
+  { name: '3 Time ring', polys: ring(), width: 32, hue: KYL, light: KYL },
+  { name: '4 Shackle', polys: shackle(), width: 32, hue: KYL, light: KYL },
+  { name: '5 Gate', polys: gate(), width: 32, hue: KYL, light: KYL },
+  { name: '6 Hourglass', polys: hourglass(), width: 32, hue: KYL, light: KYL },
+  { name: '7 Monogram KYL', polys: monogram(), width: 56, hue: KYL, light: KYL },
 ];
 
 const NAVY = '#101554';
@@ -106,7 +121,7 @@ const path = (polys, scale, at) => polys.map((p) => polygonPath(p, scale, at)).j
 
 /** Full-bleed tile: navy into the product hue, glyph in white at half the tile. */
 function tile(p, px, grey = false) {
-  const scale = (px * 0.5) / 32;
+  const scale = (px * 0.5) / Math.max(32, p.width);
   const at = [(px - p.width * scale) / 2, (px - 32 * scale) / 2];
   const id = `g${Math.random().toString(36).slice(2, 8)}`;
   const from = p.hue === NAVY ? NAVY : NAVY;
@@ -120,7 +135,7 @@ ${grey ? '<filter id="grey"><feColorMatrix type="saturate" values="0"/></filter>
 /** GNOME-style silhouette: the glyph itself in the product hue, with a darker
     bottom profile for depth, no tile. */
 function silhouette(p, px) {
-  const scale = (px * 0.8) / 32;
+  const scale = (px * 0.8) / Math.max(32, p.width);
   const at = [(px - p.width * scale) / 2, (px - 32 * scale) / 2 - px * 0.02];
   const depth = Math.max(1, px * 0.03);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${px}" height="${px}" viewBox="0 0 ${px} ${px}">
@@ -130,7 +145,7 @@ function silhouette(p, px) {
 
 /** Symbolic: one colour, recoloured by the system. */
 function symbolic(p, px, colour) {
-  const scale = (px * 0.875) / 32;
+  const scale = (px * 0.875) / Math.max(32, p.width);
   const at = [(px - p.width * scale) / 2, (px - 32 * scale) / 2];
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${px}" height="${px}" viewBox="0 0 ${px} ${px}">
 <path d="${path(p.polys, scale, at)}" fill="${colour}"/></svg>`;

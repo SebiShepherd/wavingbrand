@@ -37,16 +37,20 @@ the lineup is now several products and growing.
 
 ## Prototypes
 
-`prototypes/icons/sheet.png`, rendered by `prototypes/icons/render.mjs`: the W
-and two variants each for KnowYourLimit and Hikaru, as tiles at 128 to 16 px,
-in greyscale, as GNOME silhouettes and as symbolic icons on light and dark.
+`prototypes/icons/render.mjs` renders seven KnowYourLimit directions into
+`sheet.png` at every size the spec names. The level meter is out: it reads as a
+statistics icon, which is the one meaning a screen-time product must not
+borrow. How each direction reads at 16 and 24 pixels:
 
-- KnowYourLimit A: three rising strokes, the W's widths and cuts without its bar.
-  Reads as a level meter, and also as a generic "statistics" icon.
-- KnowYourLimit B: the same strokes under a ceiling, which is the W's sloped bar
-  moved to the top. Levels rising to a limit; closer to the W's construction.
-- Hikaru A: four kites with the W's gap between them. Thin at 16 px.
-- Hikaru B: the kites a stroke and a half wide. Holds at 16 px, loses the gaps.
+1. **Odysseus knot**, a mast with a rope wound twice around it. Carries the
+   product's idea (bind yourself in a calm moment for a weak one) and holds as
+   a silhouette down to 24 px; at 16 px it is a texture.
+2. **Line against a wall.** Clear at every size; says "limit" without the
+   padlock cliché, and says little else.
+3. **Time ring.** Reads as a power button; rejected.
+4. **Shackle.** Reads as a magnet or a letter n without its lock body.
+5. **Gate.** Reads as the letter H.
+6. **Hourglass.** Clear and common; other timer apps use it.
+7. **Monogram KYL.** Legible at 32 px and up, a smudge below.
 
-The sponsor picks forms and metaphors from the sheet; the parameters and the
-distinctness gate follow.
+Recommendation: 1, with 2 as the fallback. The sponsor chooses.
