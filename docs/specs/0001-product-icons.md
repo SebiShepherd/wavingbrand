@@ -53,4 +53,6 @@ borrow. How each direction reads at 16 and 24 pixels:
 6. **Hourglass.** Clear and common; other timer apps use it.
 7. **Monogram KYL.** Legible at 32 px and up, a smudge below.
 
-Recommendation: 1, with 2 as the fallback. The sponsor chooses.
+Chosen: **6, the hourglass**, for KnowYourLimit. Its silhouette is the GNOME
+app icon (`render.mjs --export`); the tile form serves the other platforms
+when they come.

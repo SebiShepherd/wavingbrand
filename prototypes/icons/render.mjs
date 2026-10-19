@@ -8,7 +8,10 @@
  * ninths, outer strokes of 9, middle strokes of 8, gaps of 3, angled cuts that
  * drop 3 over a stroke, and the W's height of 32.
  *
- *   node prototypes/icons/render.mjs   writes prototypes/icons/sheet.png
+ *   node prototypes/icons/render.mjs                writes prototypes/icons/sheet.png
+ *   node prototypes/icons/render.mjs --export <dir>  writes the chosen glyph's
+ *     GNOME silhouette as 32x32, 128x128, 128x128@2x and icon (512) PNGs, the
+ *     set a Tauri app ships
  */
 import { writeFileSync } from 'node:fs';
 import { Resvg } from '@resvg/resvg-js';
@@ -186,6 +189,16 @@ PRODUCTS.forEach((p, r) => {
     body += `<g transform="translate(${x} ${y + (CELL - px) / 2})">${svg.replace(/<svg[^>]*>|<\/svg>/g, '')}</g>`;
   });
 });
+const at = process.argv.indexOf('--export');
+if (at !== -1) {
+  const dir = process.argv[at + 1];
+  const chosen = PRODUCTS.find((p) => p.name === '6 Hourglass');
+  for (const [file, px] of [['32x32.png', 32], ['128x128.png', 128], ['128x128@2x.png', 256], ['icon.png', 512]]) {
+    writeFileSync(`${dir}/${file}`, new Resvg(silhouette(chosen, px)).render().asPng());
+  }
+  console.log(`wrote ${dir}`);
+  process.exit(0);
+}
 const sheet = `<svg xmlns="http://www.w3.org/2000/svg" width="${W_}" height="${H_}" viewBox="0 0 ${W_} ${H_}">${body}</svg>`;
 const out = new URL('./sheet.png', import.meta.url);
 writeFileSync(out, new Resvg(sheet, { fitTo: { mode: 'zoom', value: 1 }, font: { loadSystemFonts: true } }).render().asPng());
