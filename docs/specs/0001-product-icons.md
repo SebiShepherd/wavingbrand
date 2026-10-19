@@ -53,6 +53,12 @@ borrow. How each direction reads at 16 and 24 pixels:
 6. **Hourglass.** Clear and common; other timer apps use it.
 7. **Monogram KYL.** Legible at 32 px and up, a smudge below.
 
-Chosen: **6, the hourglass**, for KnowYourLimit. Its silhouette is the GNOME
-app icon (`render.mjs --export`); the tile form serves the other platforms
-when they come.
+Chosen: **6, the hourglass**, for KnowYourLimit, in the **tile form on every
+platform, GNOME included** (the sponsor's choice, SebiShepherd/KnowYourLimit#14).
+The GNOME HIG asks app icons not to fill the canvas, to sit on a common baseline
+and to carry a subtle darker front profile
+(https://developer.gnome.org/hig/guidelines/app-icons.html); it does not
+forbid a square shape. So the GNOME icon is the tile inset on its canvas, with
+the same tile in navy drawn a few pixels lower as its front profile
+(`render.mjs --export`). The free silhouette stays the basis of the symbolic
+icon.

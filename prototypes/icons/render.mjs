@@ -10,8 +10,9 @@
  *
  *   node prototypes/icons/render.mjs                writes prototypes/icons/sheet.png
  *   node prototypes/icons/render.mjs --export <dir>  writes the chosen glyph's
- *     GNOME silhouette as 32x32, 128x128, 128x128@2x and icon (512) PNGs, the
- *     set a Tauri app ships
+ *     GNOME app icon, the tile form inset on the canvas with a front profile,
+ *     as 32x32, 128x128, 128x128@2x and icon (512) PNGs, the set a Tauri app
+ *     ships
  */
 import { writeFileSync } from 'node:fs';
 import { Resvg } from '@resvg/resvg-js';
@@ -146,6 +147,23 @@ function silhouette(p, px) {
 <path d="${path(p.polys, scale, at)}" fill="${p.light}"/></svg>`;
 }
 
+/**
+ * The tile as a GNOME app icon. The HIG asks for icons that do not fill the
+ * canvas, sit on a common baseline and carry a subtle darker front profile; it
+ * does not forbid a square shape. So the tile is inset (12 of 128 at the sides
+ * and top, 8 more at the bottom for the profile), and its profile is the same
+ * tile in navy drawn a few pixels lower, which reads as its front edge.
+ */
+function gnomeTile(p, px) {
+  const side = px * (12 / 128);
+  const size = px - 2 * side;
+  const profile = Math.max(1, px * (4 / 128));
+  const inner = tile(p, size).replace(/<svg[^>]*>|<\/svg>/g, '');
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${px}" height="${px}" viewBox="0 0 ${px} ${px}">
+<rect x="${side}" y="${side - px * (2 / 128) + profile}" width="${size}" height="${size}" rx="${size * 0.22}" fill="${NAVY}" opacity="0.85"/>
+<g transform="translate(${side} ${side - px * (2 / 128)})">${inner}</g></svg>`;
+}
+
 /** Symbolic: one colour, recoloured by the system. */
 function symbolic(p, px, colour) {
   const scale = (px * 0.875) / Math.max(32, p.width);
@@ -163,8 +181,8 @@ const COLS = [
   ['16', (p) => tile(p, 16)],
   ['grey 24', (p) => tile(p, 24, true)],
   ['grey 16', (p) => tile(p, 16, true)],
-  ['GNOME 128', (p) => silhouette(p, 128)],
-  ['GNOME 32', (p) => silhouette(p, 32)],
+  ['GNOME 128', (p) => gnomeTile(p, 128)],
+  ['GNOME 32', (p) => gnomeTile(p, 32)],
   ['symbolic 16', (p) => symbolic(p, 16, '#2e3436')],
   ['on dark', (p) => symbolic(p, 16, '#eeeeec')],
 ];
@@ -194,7 +212,7 @@ if (at !== -1) {
   const dir = process.argv[at + 1];
   const chosen = PRODUCTS.find((p) => p.name === '6 Hourglass');
   for (const [file, px] of [['32x32.png', 32], ['128x128.png', 128], ['128x128@2x.png', 256], ['icon.png', 512]]) {
-    writeFileSync(`${dir}/${file}`, new Resvg(silhouette(chosen, px)).render().asPng());
+    writeFileSync(`${dir}/${file}`, new Resvg(gnomeTile(chosen, px)).render().asPng());
   }
   console.log(`wrote ${dir}`);
   process.exit(0);
