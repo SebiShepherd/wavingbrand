@@ -1,0 +1,38 @@
+{
+  "$description": "The split intro. Times in seconds from the first frame; lengths in units of the 1280x720 frame the intro is composed on, whatever size it is rendered at. Every number is tuned, so each one has an entry in brand/tokens/provenance.json and gates/check-provenance.mjs refuses one that moves without a new answer.",
+  "intro": {
+    "$type": "number",
+    "duration": { "$value": 8, "$description": "Whole intro." },
+    "fps": { "$value": 25, "$description": "Frames per second." },
+    "scale": { "$value": 4.2, "$description": "Frame pixels per ninth once the lockup has settled." },
+    "zoom": {
+      "from": { "$value": 13, "$description": "Mark size at the first frame, in frame pixels per ninth." },
+      "to": { "$value": 6, "$description": "Mark size when the zoom ends and it waits for the stamp." },
+      "end": { "$value": 2.2, "$description": "When the zoom-in ends (out-cubic from 0)." }
+    },
+    "outline": {
+      "draw": { "$value": [0.1, 1.5], "$description": "The pink outline draws itself." },
+      "fade": { "$value": [2.0, 2.4], "$description": "The outline fades once the fill has covered it." },
+      "stroke": { "$value": 0.45, "$description": "Outline stroke, in ninths." }
+    },
+    "fill": {
+      "rise": { "$value": [1.2, 2.1], "$description": "The fill rises from below." },
+      "whiten": { "$value": [1.6, 2.3], "$description": "The fill turns from pink to white." },
+      "ripple": { "$value": 0.9, "$description": "Height of the fill's surface wave at the start of the rise, in ninths; it flattens as the fill rises." }
+    },
+    "stamp": {
+      "at": { "$value": 2.3, "$description": "The stamp pulse, once the mark is white. The sound's hit lands here." },
+      "length": { "$value": 0.7, "$description": "How long the pulse takes to grow and fade." },
+      "grow": { "$value": 0.9, "$description": "How far the pulse grows, as a share of the mark's size." },
+      "stroke": { "$value": 0.6, "$description": "Pulse stroke, in ninths." }
+    },
+    "settle": { "$value": [2.7, 3.5], "$description": "The mark shrinks into its place in the split lockup." },
+    "wordmark": {
+      "at": { "$value": 3.3, "$description": "WAVING and EYE start sliding out from under the mark." },
+      "length": { "$value": 0.8, "$description": "How long the slide takes." },
+      "travel": { "$value": 18, "$description": "How far the type slides, in frame pixels." },
+      "edge": { "$value": 3, "$description": "Width of the pink light edge on the slide, in frame pixels." }
+    },
+    "fade": { "$value": [7.0, 7.8], "$description": "Fade to the end colour; the last 0.2 s are solid." }
+  }
+}

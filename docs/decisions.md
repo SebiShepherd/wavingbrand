@@ -398,3 +398,34 @@ difference is that this is now written down and enforced rather than discovered
 by somebody looking at a blurred tab icon. Inline and outline letterforms are
 display forms by tradition for exactly this reason.
 
+
+## D15 Motion and sound are built, and the one encode that is not reproducible is cached
+
+The split intro and its audio signature were tuned for a concert DVD with
+Sebastian on 2026-10-25 and are brand assets now. `src/motion.mjs` renders the
+intro frame by frame from the same paths as every static asset, and
+`src/sound.mjs` synthesises the signature from noise and sines, so nothing in
+either is drawn or sampled. Every timing and level is in
+`brand/tokens/motion.json` and `brand/tokens/sound.json`, and
+`check-provenance` holds each one to an answer. The sound takes its hit and its
+length from the motion tokens, so the two cannot drift apart; it fades 1.5 s
+before the picture does, because the long hold is for the lockup, not for the
+sound.
+
+The WAV and the keyframe sheet are deterministic and live in `dist/` under
+`check-dist-clean` like everything else; the WAV was checked byte for byte
+under Node 22 and 24. The MP4 cannot be: two ffmpeg builds encode the same
+frames to different bytes, so a CI rebuild would always disagree. The encode is
+therefore keyed on its inputs, the frames' SVG, the audio and the encoder
+settings, recorded as `source` in the manifest. An unchanged key keeps the
+committed file, so CI needs no ffmpeg; a changed one re-encodes, and fails with
+a message where ffmpeg is missing.
+
+The prototype was Python. The port is plain JavaScript with no new dependency,
+and Sebastian compared the two by ear and accepted it: the noise is drawn from
+a different generator, the loudness is the same, -16.2 LUFS integrated with a
+-3.5 dBFS peak.
+
+**Cost:** an MP4 in git, about 0.4 MB, replaced whenever the intro changes. And
+a change to the intro is not reviewable as a pixel diff the way a mark change
+is; the keyframe sheet is the closest thing, and it changes in the same commit.

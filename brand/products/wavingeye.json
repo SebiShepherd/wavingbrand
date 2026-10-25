@@ -25,6 +25,7 @@
     "lockup-stacked",
     "boxed-icon"
   ],
+  "motion": true,
   "targets": [
     "favicon",
     "apple-touch",

@@ -14,7 +14,7 @@ function flatten(node, prefix, out) {
   return out;
 }
 
-const files = ['color.json', 'geometry.json', 'typography.json', 'print.json'];
+const files = ['color.json', 'geometry.json', 'typography.json', 'print.json', 'motion.json', 'sound.json'];
 const raw = {};
 for (const f of files) Object.assign(raw, flatten(JSON.parse(readFileSync(dir + f, 'utf8')), '', {}));
 
