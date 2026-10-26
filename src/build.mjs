@@ -26,6 +26,8 @@ import { toSvg, ico } from './svg.mjs';
 import { businessCard, letterhead, markShape, lockupShapes, CMYK, PROOFED, pdf, eps, MM } from './print.mjs';
 import { color } from './tokens.mjs';
 import { brandCss, css, scss, js, dts, head, webmanifest } from './emit.mjs';
+import { frames, keyframes, encode, ENCODE } from './motion.mjs';
+import { signature as audioSignature, wav } from './sound.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const DIST = join(root, 'dist');
@@ -187,7 +189,56 @@ function ogCard(product) {
   ].join('');
 }
 
+/**
+ * The split intro and its audio signature.
+ *
+ * The WAV and the keyframe sheet are deterministic, like everything else here.
+ * The MP4 is not: two ffmpeg builds encode the same frames to different bytes.
+ * So the encode is keyed on what goes into it, the frames' SVG, the audio and
+ * the encoder settings, and an unchanged key keeps the committed file. CI never
+ * needs ffmpeg; a change to the intro needs it once, on the machine that makes
+ * the change, and the new MP4 is committed with it.
+ */
+function motion(product, previous) {
+  const rel = `${product.name}/motion`;
+  const sound = wav(audioSignature());
+  write(`${rel}/signature.wav`, sound);
+  write(`${rel}/intro-split-keyframes.png`, keyframes(product.split, [0.4, 1.2, 1.9, 2.3, 2.5, 2.8, 3.5, 4.5]));
+  const svgs = frames(product.split);
+  const key = createHash('sha256').update(svgs.join('')).update(sound).update(ENCODE.join(' ')).digest('hex');
+  const file = `${rel}/intro-split.mp4`;
+  const old = previous.manifest?.assets?.find((a) => a.file === file);
+  let mp4 = old?.source === key ? previous.files.get(file) : undefined;
+  if (!mp4) {
+    try {
+      mp4 = encode(svgs, sound);
+    } catch (e) {
+      throw new Error(`${file} is stale and could not be re-encoded (${e.message.split('\n')[0]}). Run the build once with ffmpeg on PATH and commit the result; git checkout -- dist restores the last committed build.`);
+    }
+  }
+  write(file, mp4);
+  return [
+    { product: product.name, form: 'intro-split', file, type: 'video/mp4', source: key },
+    { product: product.name, form: 'signature', file: `${rel}/signature.wav`, type: 'audio/wav' },
+    { product: product.name, form: 'intro-split-keyframes', file: `${rel}/intro-split-keyframes.png`, type: 'image/png' },
+  ];
+}
+
+/** What the last build left, so an encode that would come out the same is not redone. */
+function previousBuild() {
+  const files = new Map();
+  let manifest;
+  try {
+    manifest = JSON.parse(readFileSync(join(DIST, 'manifest.json'), 'utf8'));
+    for (const a of manifest.assets) if (a.source) files.set(a.file, readFileSync(join(DIST, a.file)));
+  } catch {
+    // No previous build, or an unreadable one: everything is encoded afresh.
+  }
+  return { manifest, files };
+}
+
 function run() {
+  const previous = previousBuild();
   rmSync(DIST, { recursive: true, force: true });
   // No timestamp. The whole premise of check-dist-clean is that the same
   // parameters give the same bytes, and a clock in the output makes that false
@@ -279,6 +330,7 @@ function run() {
     const base = product.base ?? '/';
     write(`${product.name}/head.html`, head(product.name, base));
     write(`${product.name}/site.webmanifest`, webmanifest(product, { navy: NAVY }, base));
+    if (product.motion) manifest.assets.push(...motion(product, previous));
   }
 
   // Print. Vector, DeviceCMYK, laid out in millimetres, from the same paths.

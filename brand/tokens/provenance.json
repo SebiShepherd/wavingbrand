@@ -41,6 +41,207 @@
       "value": 32,
       "kind": "measured",
       "source": "The outline holds two fully clear pixels from 30 px up and fails at every even size below, measured with check-legibility's method over 16 to 160 px. Every inset variant tried in issue #7 landed between 28 and 30, so the floor is a property of having three contours rather than of any weight. 32 is the next size a favicon slot offers. gates/check-legibility.mjs holds it."
+    },
+    "brand/tokens/motion.json:intro.duration": {
+      "value": 8,
+      "kind": "chosen",
+      "source": "Sebastian on 2026-10-25: the intro should stay on screen about two seconds longer so the lockup can be taken in; the 6 s prototype became 8 s, which holds the finished lockup about 3.5 s."
+    },
+    "brand/tokens/motion.json:intro.fps": {
+      "value": 25,
+      "kind": "chosen",
+      "source": "PAL, because the first use was a PAL DVD (2026-10-25). Nothing else depends on it; timings are in seconds."
+    },
+    "brand/tokens/motion.json:intro.scale": {
+      "value": 4.2,
+      "kind": "chosen",
+      "source": "Settled lockup 556 px wide on the 1280 frame, about 43 %. Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.zoom.from": {
+      "value": 13,
+      "kind": "chosen",
+      "source": "Sebastian on 2026-10-25 missed a zoom in the outline variant and asked for the mark to start larger; 13 was the answer shown and approved."
+    },
+    "brand/tokens/motion.json:intro.zoom.to": {
+      "value": 6,
+      "kind": "chosen",
+      "source": "Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.zoom.end": {
+      "value": 2.2,
+      "kind": "chosen",
+      "source": "Zoom ends just before the stamp at 2.3. Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.outline.draw": {
+      "value": [
+        0.1,
+        1.5
+      ],
+      "kind": "chosen",
+      "source": "Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.outline.fade": {
+      "value": [
+        2.0,
+        2.4
+      ],
+      "kind": "chosen",
+      "source": "Starts once the fill has nearly covered the outline. Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.outline.stroke": {
+      "value": 0.45,
+      "kind": "chosen",
+      "source": "Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.fill.rise": {
+      "value": [
+        1.2,
+        2.1
+      ],
+      "kind": "chosen",
+      "source": "Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.fill.whiten": {
+      "value": [
+        1.6,
+        2.3
+      ],
+      "kind": "chosen",
+      "source": "Ends on the stamp, which Sebastian asked for once the mark is white (2026-10-25). Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.fill.ripple": {
+      "value": 0.9,
+      "kind": "chosen",
+      "source": "Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.stamp.at": {
+      "value": 2.3,
+      "kind": "chosen",
+      "source": "Sebastian on 2026-10-25 asked for the stamp from the splitter variant as soon as the mark is white, before it shrinks and the type slides in. 2.3 is when the fill finishes whitening."
+    },
+    "brand/tokens/motion.json:intro.stamp.length": {
+      "value": 0.7,
+      "kind": "inherited",
+      "source": "Taken unchanged from the splitter prototype's stamp, which Sebastian singled out as very good on 2026-10-25."
+    },
+    "brand/tokens/motion.json:intro.stamp.grow": {
+      "value": 0.9,
+      "kind": "inherited",
+      "source": "Taken unchanged from the splitter prototype's stamp, which Sebastian singled out as very good on 2026-10-25."
+    },
+    "brand/tokens/motion.json:intro.stamp.stroke": {
+      "value": 0.6,
+      "kind": "inherited",
+      "source": "Taken unchanged from the splitter prototype's stamp, which Sebastian singled out as very good on 2026-10-25."
+    },
+    "brand/tokens/motion.json:intro.settle": {
+      "value": [
+        2.7,
+        3.5
+      ],
+      "kind": "chosen",
+      "source": "Starts after the stamp has mostly faded. Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.wordmark.at": {
+      "value": 3.3,
+      "kind": "chosen",
+      "source": "Overlaps the end of the settle by 0.2 s. Picked while prototyping the intro for the GymP concert DVD and approved by Sebastian with the whole v2 animation on 2026-10-25; never tuned on its own."
+    },
+    "brand/tokens/motion.json:intro.wordmark.length": {
+      "value": 0.8,
+      "kind": "inherited",
+      "source": "The horizontal sweep from the build-up and see-through prototypes, which Sebastian preferred over the letter rise on 2026-10-25; split into two directions for the split lockup."
+    },
+    "brand/tokens/motion.json:intro.wordmark.travel": {
+      "value": 18,
+      "kind": "inherited",
+      "source": "Same sweep as wordmark.length, preferred by Sebastian on 2026-10-25."
+    },
+    "brand/tokens/motion.json:intro.wordmark.edge": {
+      "value": 3,
+      "kind": "inherited",
+      "source": "Same sweep as wordmark.length, preferred by Sebastian on 2026-10-25."
+    },
+    "brand/tokens/motion.json:intro.fade": {
+      "value": [
+        7.0,
+        7.8
+      ],
+      "kind": "chosen",
+      "source": "The last second, the final 0.2 s solid. Moved with duration when Sebastian asked for a longer hold on 2026-10-25."
+    },
+    "brand/tokens/sound.json:signature.sampleRate": {
+      "value": 48000,
+      "kind": "chosen",
+      "source": "The rate video and DVD audio use. Nothing else depends on it."
+    },
+    "brand/tokens/sound.json:signature.seed": {
+      "value": 7,
+      "kind": "chosen",
+      "source": "Any seed gives the same sound in character; this one fixes the noise so the WAV is reproducible. Not a value anybody listened for."
+    },
+    "brand/tokens/sound.json:signature.riser.start": {
+      "value": 0.3,
+      "kind": "chosen",
+      "source": "From the 'kino' prototype, which Sebastian picked over every later attempt on 2026-10-25 (KinoCheck-style riser, hit, calm tail). Never tuned on its own."
+    },
+    "brand/tokens/sound.json:signature.reverb.length": {
+      "value": 3.0,
+      "kind": "chosen",
+      "source": "From the 'kino' prototype, picked by Sebastian on 2026-10-25. Never tuned on its own."
+    },
+    "brand/tokens/sound.json:signature.reverb.mix": {
+      "value": 0.3,
+      "kind": "chosen",
+      "source": "From the 'kino' prototype, picked by Sebastian on 2026-10-25. Never tuned on its own."
+    },
+    "brand/tokens/sound.json:signature.wave.start": {
+      "value": 3.1,
+      "kind": "chosen",
+      "source": "Sebastian on 2026-10-25 asked for a subtle wave instead of the swoosh under the type, limited in time like the swoosh was; it starts 0.2 s before the type does."
+    },
+    "brand/tokens/sound.json:signature.wave.crest": {
+      "value": 3.6,
+      "kind": "chosen",
+      "source": "Shape of the wave Sebastian approved on 2026-10-25. Never tuned on its own."
+    },
+    "brand/tokens/sound.json:signature.wave.end": {
+      "value": 5.3,
+      "kind": "chosen",
+      "source": "Shape of the wave Sebastian approved on 2026-10-25. Never tuned on its own."
+    },
+    "brand/tokens/sound.json:signature.wave.from": {
+      "value": 300,
+      "kind": "chosen",
+      "source": "Dark noise, as approved on 2026-10-25. A brighter spray at the end read to Sebastian as a second wave and was removed."
+    },
+    "brand/tokens/sound.json:signature.wave.to": {
+      "value": 900,
+      "kind": "chosen",
+      "source": "Dark noise, as approved on 2026-10-25. A brighter spray at the end read to Sebastian as a second wave and was removed."
+    },
+    "brand/tokens/sound.json:signature.wave.below": {
+      "value": -14,
+      "kind": "chosen",
+      "source": "Sebastian on 2026-10-25: the wave sounds right but should be about half as loud. It was 8 dB under the tail; half as loud is about 6 dB less."
+    },
+    "brand/tokens/sound.json:signature.fade": {
+      "value": [
+        5.5,
+        6.3
+      ],
+      "kind": "chosen",
+      "source": "Sebastian on 2026-10-25: the sound may fade one to two seconds before the picture, the longer hold was for the logo. Moved 1.5 s earlier, fade length unchanged."
+    },
+    "brand/tokens/sound.json:signature.drive": {
+      "value": 1.6,
+      "kind": "chosen",
+      "source": "From the 'kino' prototype, picked by Sebastian on 2026-10-25. Never tuned on its own."
+    },
+    "brand/tokens/sound.json:signature.peak": {
+      "value": -3.5,
+      "kind": "chosen",
+      "source": "The prototype's -1.5 dBFS peak trimmed by 2 dB, which landed at about -16 LUFS integrated (ffmpeg ebur128 on the shipped WAV), the level Sebastian approved on 2026-10-25."
     }
   },
   "$documented": {

@@ -651,6 +651,28 @@
       "file": "wavingeye/og-1200x630.png",
       "type": "image/png",
       "sha256": "82e2912cf82aac18defb14fba9b256fff2d21963bfa5b7865fdc87dfa70ed206"
+    },
+    {
+      "product": "wavingeye",
+      "form": "intro-split",
+      "file": "wavingeye/motion/intro-split.mp4",
+      "type": "video/mp4",
+      "source": "9337ddc3ab72776b810e6e819d8885f91ceb5592a0697fbb44459c7a6c693deb",
+      "sha256": "b2f99b9bc3faca5ecf6cefe59023ded69e5076678c1897f84764cc0a597af4e7"
+    },
+    {
+      "product": "wavingeye",
+      "form": "signature",
+      "file": "wavingeye/motion/signature.wav",
+      "type": "audio/wav",
+      "sha256": "399ae7d0c375dd80bd3f5c80ef21d59189da5afc0cd27a11122fb9e2d656e8f1"
+    },
+    {
+      "product": "wavingeye",
+      "form": "intro-split-keyframes",
+      "file": "wavingeye/motion/intro-split-keyframes.png",
+      "type": "image/png",
+      "sha256": "4453aadbcd423d7cd468c91698257f16fef4e8b06e0f6ce7154fd7e15afb458a"
     }
   ],
   "tokens": {
@@ -1333,6 +1355,21 @@
       "sha256": "a433fa16acd018add9df8029af3c1d174cde07d8886a0983a11eebe08832d148"
     },
     {
+      "file": "wavingeye/motion/intro-split-keyframes.png",
+      "bytes": 20064,
+      "sha256": "4453aadbcd423d7cd468c91698257f16fef4e8b06e0f6ce7154fd7e15afb458a"
+    },
+    {
+      "file": "wavingeye/motion/intro-split.mp4",
+      "bytes": 396957,
+      "sha256": "b2f99b9bc3faca5ecf6cefe59023ded69e5076678c1897f84764cc0a597af4e7"
+    },
+    {
+      "file": "wavingeye/motion/signature.wav",
+      "bytes": 1536044,
+      "sha256": "399ae7d0c375dd80bd3f5c80ef21d59189da5afc0cd27a11122fb9e2d656e8f1"
+    },
+    {
       "file": "wavingeye/og-1200x630.png",
       "bytes": 12195,
       "sha256": "82e2912cf82aac18defb14fba9b256fff2d21963bfa5b7865fdc87dfa70ed206"
@@ -1368,5 +1405,5 @@
       "sha256": "e84fddb5cab7134c697fab25704c1cb7ab30d3a9351da6242e52ce35d9437a79"
     }
   ],
-  "digest": "676a38c24f9a0a65a7920ae1b1a4319a6589c782133ddd7683ed626816f2af04"
+  "digest": "7f3e8619c3b82b116b69658be72b78bab263cab7ad296018e14c844bd4bec444"
 }

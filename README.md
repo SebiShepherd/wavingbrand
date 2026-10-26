@@ -16,6 +16,7 @@ npm run baselines  # re-render baselines/. Doing this is how a change is approve
 | `brand/tokens/`     | colour, geometry and typography as W3C DTCG tokens                                                                                       |
 | `brand/products/`   | one file per product: its name, its lockups, its targets                                                                                 |
 | `brand/consumers/`  | one file per product that renders the mark: its surfaces, as a contract                                                                  |
+| `brand/tokens/motion.json`, `sound.json` | the split intro's timings and the audio signature's levels                                                                  |
 | `brand/stationery/` | what goes on the card and the letterhead. Placeholders until you replace them                                                            |
 | `brand/fonts/`      | Montserrat and its OFL licence                                                                                                           |
 | `src/`              | the generator: parameters to SVG to platform targets                                                                                     |
@@ -203,6 +204,25 @@ that comes out of that command cannot ship a 3:1 label.
 `brand/themes/paper.json` is Hikaru's theme expressed as its four hues, kept as
 the worked example because it is the one the vocabulary was learned from.
 
+## Motion and sound
+
+`dist/wavingeye/motion/` holds the split intro (`intro-split.mp4`, 1920×1080,
+25 fps, 8 s, with sound), its audio signature on its own (`signature.wav`) and
+a keyframe sheet for reviewing a change without playing it. All three are
+built from `brand/tokens/motion.json` and `sound.json`; nothing is drawn or
+sampled.
+
+The intro fades to black. For something it leads into, render it with that
+colour as the ending:
+
+```
+node tools/intro.mjs '#182F51' intro.mp4
+```
+
+Changing the intro needs ffmpeg once, on the machine that makes the change:
+the MP4 is re-encoded only when its frames, its sound or its settings change,
+so a rebuild elsewhere keeps the committed file (`docs/decisions.md` D15).
+
 ## Print
 
 `dist/print/` is vector and DeviceCMYK throughout, written directly rather than
@@ -312,7 +332,7 @@ tile in dark mode, fixed; [#592](https://github.com/SebiShepherd/hikaru/issues/5
   original files, eleven defects, and the typeface identification.
 - [`docs/brand-system-proposal.md`](docs/brand-system-proposal.md): what the
   industry uses, what does not exist, and the architecture.
-- [`docs/decisions.md`](docs/decisions.md): the fourteen calls that were made, what
+- [`docs/decisions.md`](docs/decisions.md): the fifteen calls that were made, what
   each one costs, and the one still open.
 - [`docs/index.html`](docs/index.html): the guidelines, generated from the same
   parameters as the assets, published at
